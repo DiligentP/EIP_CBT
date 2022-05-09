@@ -5,9 +5,9 @@
 <br>
 개발 환경
 
-IDE : eclipse, IntelliJ
-JDK : openjdk 11.0.8-internal 2020-07-14
-WAS : Tomcat-9.0.60
+- IDE : eclipse, IntelliJ
+- JDK : openjdk 11.0.8-internal 2020-07-14
+- WAS : Tomcat-9.0.60
 
 
 
