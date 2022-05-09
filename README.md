@@ -10,14 +10,5 @@
 - WAS : Tomcat-9.0.60
 
 
-<br>
 
-.gitignore
-```
-.idea
-```
-
-<br>
-
-Redmine
-- http://114.70.92.70:3000/redmine/projects/b_team_2022
+http://114.70.92.70:3000/redmine/projects/b_team_2022

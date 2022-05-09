@@ -1,2 +1,10 @@
-# git ignore
+# git ignore IntelliJ
 .idea
+out
+
+# git ignore eclipse
+.settings
+.classpath
+.project
+.springBeans
+target
