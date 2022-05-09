@@ -17,4 +17,7 @@
 .idea
 ```
 
-http://114.70.92.70:3000/redmine/projects/b_team_2022
+<br>
+
+Redmine
+- http://114.70.92.70:3000/redmine/projects/b_team_2022
