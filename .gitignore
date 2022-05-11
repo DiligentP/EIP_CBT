@@ -2,7 +2,7 @@
 .idea
 out
 
-# git ignore eclipse
+# git ignore eclipse STS3
 .settings
 .classpath
 .project
