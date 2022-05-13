@@ -9,6 +9,20 @@
 - JDK : openjdk 11.0.8-internal 2020-07-14
 - WAS : Tomcat-9.0.60
 
+<br>
+gitIgnore
 
+```
+# git ignore IntelliJ
+.idea
+out
+
+# git ignore eclipse STS3
+.settings
+.classpath
+.project
+.springBeans
+target
+```
 
 http://114.70.92.70:3000/redmine/projects/b_team_2022
