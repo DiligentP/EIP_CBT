@@ -1,6 +1,6 @@
 # 📌 EIP_CBT
 - Engineer Information Processing CBT
-- 정보시스템 구축 및 관리 프로젝트
+- 정보시스템 구축 및 관리 프로젝트!
 
 <br>
 개발 환경
