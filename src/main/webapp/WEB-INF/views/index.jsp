@@ -15,12 +15,12 @@ pageEncoding="UTF-8"%>
       <nav>
         <ul>
           <li>
-            <a href="index.html"
+            <a href="/"
               ><img src="./assets/icons.png" class="header__logo"
             /></a>
           </li>
           <li class="header__title">
-            <a href="index.html">정보처리기사 CBT</a>
+            <a href="/">정보처리기사 CBT</a>
           </li>
         </ul>
         <ul class="header__nav">
