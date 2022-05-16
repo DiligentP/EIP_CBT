@@ -15,19 +15,19 @@ pageEncoding="UTF-8"%>
       <nav>
         <ul>
           <li>
-            <a href="/"
+            <a href="index.html"
               ><img src="./assets/icons.png" class="header__logo"
             /></a>
           </li>
           <li class="header__title">
-            <a href="/">정보처리기사 CBT</a>
+            <a href="index.jsp">정보처리기사 CBT</a>
           </li>
         </ul>
         <ul class="header__nav">
           <li><a href="#">게시판</a></li>
-          <li><a href="#">마이페이지</a></li>
+          <li id="header_mypage"><a href="#">마이페이지</a></li>
           <li>
-            <a href="#"><span class="header__login">로그인</span></a>
+            <a href="./login.jsp"><span class="header__login">로그인</span></a>
           </li>
         </ul>
       </nav>
@@ -58,5 +58,6 @@ pageEncoding="UTF-8"%>
         >
       </div>
     </footer>
+    <script src="./js/index.js"></script>
   </body>
 </html>
