@@ -35,9 +35,12 @@ public class DataSourceTests {
 
     @Test
     public void testConnection2() {
-        try(SqlSession session = sessionFactory.openSession()) {
+        try(SqlSession session = sessionFactory.openSession();
+        Connection con = session.getConnection()) {
 
             log.info(session);
+
+            log.info(con);
 
         }catch (Exception e){
             e.printStackTrace();
