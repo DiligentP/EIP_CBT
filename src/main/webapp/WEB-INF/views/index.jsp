@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,7 @@ pageEncoding="UTF-8"%>
           <li><a href="#">게시판</a></li>
           <li id="header_mypage"><a href="#">마이페이지</a></li>
           <li>
-            <a href="./login.jsp"><span class="header__login">로그인</span></a>
+            <a href="./login"><span class="header__login">로그인</span></a>
           </li>
         </ul>
       </nav>
@@ -53,7 +53,7 @@ pageEncoding="UTF-8"%>
         <span>정보구축시스템 Team B</span>
 
         <span
-          >Copyright © 2022.박건웅 All pictures cannot be copied without
+          >Copyright © 2022. ${test} All pictures cannot be copied without
           permission</span
         >
       </div>
