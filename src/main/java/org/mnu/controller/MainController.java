@@ -5,7 +5,10 @@ import org.mnu.domain.UserDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.lang.reflect.Parameter;
 
 
 @Controller
@@ -20,9 +23,22 @@ public class MainController {
 		return "index";
 	}
 
-	@PostMapping("/login")
-	public void login(UserDTO dto) {
-		log.info(dto);
+	@GetMapping({"/login","/register","/mypage","/test1"})
+	public void move(){
+
 	}
-	
+
+	@GetMapping("/login")
+	public String login(@ModelAttribute("user") UserDTO dto) {
+		log.info(dto);
+		log.info(dto.getLoginId());
+		if(dto.getLoginId()==null){
+			return "login";
+		}
+		else {
+			log.info(dto);
+			return "test";
+		}
+	}
+
 }

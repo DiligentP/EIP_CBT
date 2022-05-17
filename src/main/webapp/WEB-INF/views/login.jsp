@@ -40,7 +40,7 @@ pageEncoding="UTF-8"%>
             </div>
           </form>
           <div class="login__form__register">
-            <a href="#"><span>회원가입</span></a>
+            <a href="#"><span>회원가입 입력 : ${user}</span></a>
           </div>
         </div>
       </div>

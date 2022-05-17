@@ -15,17 +15,17 @@
       <nav>
         <ul>
           <li>
-            <a href="index.html"
+            <a href="/"
               ><img src="./assets/icons.png" class="header__logo"
             /></a>
           </li>
           <li class="header__title">
-            <a href="index.jsp">정보처리기사 CBT</a>
+            <a href="/">정보처리기사 CBT</a>
           </li>
         </ul>
         <ul class="header__nav">
           <li><a href="#">게시판</a></li>
-          <li id="header_mypage"><a href="#">마이페이지</a></li>
+          <li id="header_mypage"><a href="./mypage">마이페이지</a></li>
           <li>
             <a href="./login"><span class="header__login">로그인</span></a>
           </li>
