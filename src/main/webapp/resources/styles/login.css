@@ -8,8 +8,8 @@
 
 .login__wrapper {
   background-color: white;
-  width: 60%;
-  height: 60vh;
+  width: 80%;
+  height: 80vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -18,21 +18,24 @@
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
-.login__logo {
+/* .login__logo {
+  flex: 1;
   width: 300px;
   height: 150px;
   object-fit: contain;
-}
+} */
 
 .login__form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 50%;
-  height: 50vh;
+  /* flex: 2; */
+  /* width: 90%; */
+  height: 100%;
+  margin-right: 20px;
   border-radius: 15px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
 }
 
 #loginForm {

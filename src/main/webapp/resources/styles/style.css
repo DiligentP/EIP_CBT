@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Open+Sans:wght@400;500;700&display=swap");
 @import "./index.css";
 @import "./login.css";
+@import "./register.css";
 
 * {
   font-family: "Noto Sans KR", "Open Sans", sans-serif;

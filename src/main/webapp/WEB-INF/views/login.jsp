@@ -13,7 +13,7 @@ pageEncoding="UTF-8"%>
   <body>
     <div class="login__container">
       <div class="login__wrapper">
-        <img src="./assets/icons.png" class="login__logo" />
+        <!-- <img src="./assets/icons.png" class="login__logo" /> -->
         <div class="login__form">
           <form action="#" id="loginForm">
             <div class="login__form__question">
@@ -40,7 +40,7 @@ pageEncoding="UTF-8"%>
             </div>
           </form>
           <div class="login__form__register">
-            <a href="#"><span>회원가입 입력 : ${user}</span></a>
+            <a href="./register"><span>회원가입 입력 : ${user}</span></a>
           </div>
         </div>
       </div>
