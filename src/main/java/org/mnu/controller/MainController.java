@@ -23,11 +23,6 @@ public class MainController {
 		return "index";
 	}
 
-	@GetMapping({"/login","/register","/mypage","/test1"})
-	public void move(){
-
-	}
-
 	@GetMapping("/login")
 	public String login(@ModelAttribute("user") UserDTO dto) {
 		log.info(dto);
@@ -41,4 +36,20 @@ public class MainController {
 		}
 	}
 
+	@GetMapping("/register")
+	public String register() {
+		return "register";
+	}
+
+	@GetMapping("/re1")
+	public String rel1() {
+		log.info("rel1................");
+
+		return "redirect:/re2";
+	}
+
+	@GetMapping("/re2")
+	public void rel2() {
+		log.info("rel2................");
+	}
 }
