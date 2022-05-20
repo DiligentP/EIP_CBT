@@ -53,7 +53,7 @@
         <span>정보구축시스템 Team B</span>
 
         <span
-          >Copyright © 2022. ${test} All pictures cannot be copied without
+          >Copyright © 2022. 박건웅 All pictures cannot be copied without
           permission</span
         >
       </div>

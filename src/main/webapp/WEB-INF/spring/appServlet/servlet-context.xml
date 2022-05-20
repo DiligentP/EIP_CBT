@@ -27,7 +27,5 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="org.mnu.controller" />
-	
-	
-	
+
 </beans:beans>
