@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,12 +36,12 @@
 
     <main>
       <div class="main__container">
-        <a href="#">
+        <a href="./written">
           <div class="main__written">
             <span class="main__title">필기</span>
           </div>
         </a>
-        <a href="#">
+        <a href="./practical">
           <div class="main_practical">
             <span class="main__title">실기</span>
           </div>

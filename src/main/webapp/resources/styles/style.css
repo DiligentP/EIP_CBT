@@ -3,6 +3,7 @@
 @import "./index.css";
 @import "./login.css";
 @import "./register.css";
+@import "./test.css";
 
 * {
   font-family: "Noto Sans KR", "Open Sans", sans-serif;

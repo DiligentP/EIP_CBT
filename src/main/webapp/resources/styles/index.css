@@ -3,7 +3,6 @@ header {
   top: 0;
   display: flex;
   margin: 10px 20px;
-  padding: 20 0px;
   border-radius: 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   animation: fadeIn_time 1s ease-in-out;
@@ -14,7 +13,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px;
+  margin: 10px;
 }
 
 ul {
@@ -26,19 +25,19 @@ ul {
 ul > li {
   /* margin: 0 10px; */
   padding: 10px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
 }
 
 .header__title {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
   transition: 0.5s;
 }
 
 .header__title:hover {
-  letter-spacing: 0.25rem;
+  letter-spacing: 0.1rem;
   opacity: 0.5;
 }
 
@@ -90,7 +89,7 @@ main {
 
 .main__written {
   /* height: 25vh; */
-  padding: 200px 250px;
+  padding: 125px 175px;
   display: flex;
   align-items: center;
   background-color: white;
@@ -106,7 +105,7 @@ main {
 }
 
 .main_practical {
-  padding: 200px 250px;
+  padding: 125px 175px;
   display: flex;
   align-items: center;
   background-color: white;

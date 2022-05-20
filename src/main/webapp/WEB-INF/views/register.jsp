@@ -1,7 +1,7 @@
 <%-- Created by IntelliJ IDEA. User: qkrwj Date: 2022-05-17 Time: 오후 5:09 To
-change this template use File | Settings | File Templates. --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+change this template use File | Settings | File Templates. --%> <%@ page
+contentType="text/html;charset=UTF-8" language="java" %> <%@ taglib
+uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,5 +65,6 @@ change this template use File | Settings | File Templates. --%>
         </div>
       </div>
     </div>
+    <script src="./js/register.js"></script>
   </body>
 </html>

@@ -45,5 +45,6 @@ pageEncoding="UTF-8"%>
         </div>
       </div>
     </div>
+    <script src="./js/login.js"></script>
   </body>
 </html>
