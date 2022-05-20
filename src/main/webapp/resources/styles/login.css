@@ -105,9 +105,7 @@
 
 .login__form__register {
   margin: 10px;
-  height: 10%;
   display: flex;
-
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   padding: 20px;
   border-radius: 15px;
