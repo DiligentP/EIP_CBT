@@ -21,4 +21,18 @@
             INSERT INTO TBL_BOARD (bno, title, content, writer)
             VALUES (#{bno}, #{title}, #{content}, #{writer})
     </insert>
+
+    <select id="read" resultType="org.mnu.domain.BoardVO">
+        SELECT * FROM tbl_board WHERE bno = #{bno}
+    </select>
+    
+    <update id="delete">
+        DELETE FROM tbl_board WHERE bno = #{bno}
+    </update>
+
+    <update id="update">
+        UPDATE tbl_board
+        SET title = #{title}, content = #{content}, writer = #{writer}, updatedate = sysdate
+        WHERE bno = #{bno}
+    </update>
 </mapper>

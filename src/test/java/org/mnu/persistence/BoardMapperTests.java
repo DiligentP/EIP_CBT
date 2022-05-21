@@ -45,4 +45,27 @@ public class BoardMapperTests {
 
         boardMapper.insertSelectKey(vo);
     }
+
+    @Test
+    public void testRead(){
+        BoardVO vo = boardMapper.read(21L);
+        log.info(vo);
+    }
+
+    @Test
+    public void testDelete() {
+        int count = boardMapper.delete(21L);
+        log.info(count);
+    }
+
+    @Test
+    public void testUpdate() {
+        BoardVO vo  = new BoardVO();
+        vo.setBno(1L);
+        vo.setTitle("Update Title");
+        vo.setContent("Update content");
+        vo.setWriter("user00");
+
+        log.info("Count: " + boardMapper.update(vo));
+    }
 }

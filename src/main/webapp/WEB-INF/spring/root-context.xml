@@ -32,5 +32,6 @@
 	<mybatis-spring:scan base-package="org.mnu.mapper"/>
 
 
-	<context:component-scan base-package="org.mnu.controller"></context:component-scan>
+	<context:component-scan base-package="org.mnu.controller"/>
+	<context:component-scan base-package="org.mnu.service"/>
 </beans>
