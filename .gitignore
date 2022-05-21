@@ -1,10 +1,10 @@
 # git ignore IntelliJ
 .idea
-out
+target
 
 # git ignore eclipse STS3
 .settings
 .classpath
 .project
 .springBeans
-target
+out
