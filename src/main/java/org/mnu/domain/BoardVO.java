@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Data
 public class BoardVO {
-    private Long bon;
+    private Long bno;
     private String title;
     private String content;
     private String writer;

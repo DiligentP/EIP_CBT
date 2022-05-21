@@ -7,4 +7,18 @@
     <select id="getList" resultType="org.mnu.domain.BoardVO">
         SELECT * FROM tbl_board ORDER BY bno DESC
     </select>
+
+
+    <insert id="insert">
+        INSERT INTO TBL_BOARD (bno, title, content, writer)
+        VALUES (SEQ_BOARD.nextval, #{title}, #{content}, #{writer})
+    </insert>
+
+    <insert id="insertSelectKey">
+        <selectKey order="BEFORE" keyProperty="bno" resultType="long">
+            SELECT seq_board.nextval FROM dual
+        </selectKey>
+            INSERT INTO TBL_BOARD (bno, title, content, writer)
+            VALUES (#{bno}, #{title}, #{content}, #{writer})
+    </insert>
 </mapper>
