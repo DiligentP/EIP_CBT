@@ -10,3 +10,7 @@
 #Build
 target
 out
+
+#doxygen
+src/main/latex
+src/main/html
