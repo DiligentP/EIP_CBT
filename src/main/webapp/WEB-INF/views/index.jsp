@@ -25,7 +25,7 @@ prefix="c"%>
           </li>
         </ul>
         <ul class="header__nav">
-          <li><a href="#">게시판</a></li>
+          <li><a href="./board/list">게시판</a></li>
           <li id="header_mypage"><a href="./mypage">마이페이지</a></li>
           <li>
             <a href="./login"><span class="header__login">로그인</span></a>
