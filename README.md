@@ -2,6 +2,22 @@
 - Engineer Information Processing CBT
 - 정보시스템 구축 및 관리 프로젝트!
 
+## 체크사항<br>
+
+### project Build Path
+- lombok.jar
+- ojdbc8.jar
+- JUnit 4
+### root-context.xml
+```java
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
+		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@diligentp.com:1521:XE"/>
+		<property name="username" value="[할당받은 ID]"/>
+		<property name="password" value="[할당받은 PW]"/>
+	</bean>
+```
+
 <br>
 개발 환경
 
