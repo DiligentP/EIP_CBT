@@ -7,4 +7,9 @@
     <select id="getUserOne" resultType="org.mnu.domain.MemberDTO" parameterType="map">
         SELECT * FROM TBL_MEMBER WHERE MEMBER_ID = #{member_id} AND MEMBER_PASSWORD = #{member_password}
     </select>
+    
+    <insert id="insertUserOne">
+        INSERT INTO TBL_MEMBER (MEMBER_NO, MEMBER_ID, MEMBER_PASSWORD, MEMBER_EMAIL, MEMBER_NAME)
+        VALUES (SEQ_MEMBER.nextval, #{member_id}, #{member_password}, #{member_email}, #{member_name})
+    </insert>
 </mapper>

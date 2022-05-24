@@ -28,33 +28,34 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
               <a href="./login">Log In</a>
             </div>
             <div class="main__right__form">
-              <form action="#" id="registerForm">
+              <form action="./register_confirm" method="post" id="registerForm">
                 <div class="register__form__input">
                   <input
                     type="text"
                     id="registerName"
-                    name="registerName"
+                    name="member_name"
                     placeholder="이름"
                   />
                   <input
                     type="text"
                     id="registerId"
-                    name="registerId"
+                    name="member_id"
                     placeholder="아이디"
                   />
                   <input
                     type="password"
                     id="registerPassword"
-                    name="registerPassword"
+                    name="member_password"
                     placeholder="패스워드"
                   />
 
                   <input
                     type="email"
                     id="registerEmail"
-                    name="registerEmail"
+                    name="member_email"
                     placeholder="이메일"
                   />
+                  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </div>
                 <div class="register__form__submit">
                   <input type="submit" value="생성" id="registerSubmit" />

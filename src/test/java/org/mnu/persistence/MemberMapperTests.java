@@ -19,11 +19,25 @@ public class MemberMapperTests {
     private MemberService service;
 
     @Test
-    public void MemberMapperTest() {
+    public void testSelectUser() {
 
         // 화면에서 입력한 아이디와 비밀번호가 일치하는 회원 정보가 DB에 있는지 확인
         MemberDTO dto = service.member_login("park", "park");
 
         log.info(dto);
+    }
+
+    @Test
+    public void testInsertUser() {
+
+        MemberDTO dto = new MemberDTO();
+        dto.setMember_id("kim");
+        dto.setMember_password("kim");
+        dto.setMember_email("kim@naver.com");
+        dto.setMember_name("김개똥");
+
+        boolean result = service.member_register(dto);
+
+        log.info(result);
     }
 }

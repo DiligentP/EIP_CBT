@@ -21,4 +21,12 @@ public class MemberServiceImpl implements MemberService{
 
         return mapper.getUserOne(member_id, member_password);
     }
+
+    @Override
+    public boolean member_register(MemberDTO dto){
+
+        boolean result = mapper.insertUserOne(dto);
+
+        return result;
+    }
 }
