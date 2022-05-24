@@ -23,9 +23,16 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public boolean member_register(MemberDTO dto){
+    public int member_register(MemberDTO dto){
 
-        boolean result = mapper.insertUserOne(dto);
+        int result = mapper.insertUserOne(dto);
+
+        return result;
+    }
+
+    @Override
+    public int member_idcheck(String id){
+        int result = mapper.selectUserId(id);
 
         return result;
     }

@@ -12,5 +12,8 @@ public interface MemberMapper {
     public MemberDTO getUserOne(@Param("member_id") String member_id, @Param("member_password")String member_password);
 
     // 새로운 유저 한명의 데이터를 데이터베이스에 생성
-    public boolean insertUserOne(MemberDTO dto);
+    public int insertUserOne(MemberDTO dto);
+
+    // 중복된 유저의 아이디가 있는지 조회
+    public int selectUserId(@Param("id")String id);
 }

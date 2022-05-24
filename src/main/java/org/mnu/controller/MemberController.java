@@ -3,14 +3,12 @@ package org.mnu.controller;
 import lombok.extern.log4j.Log4j;
 import org.mnu.domain.MemberDTO;
 import org.mnu.service.MemberService;
-import org.mnu.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
@@ -49,9 +47,19 @@ public class MemberController {
     public String register(MemberDTO dto){
 
         // 회원가입 요청
-        boolean result =  service.member_register(dto);
+        int result =  service.member_register(dto);
 
-        return result ? "login" : "register";
+        return result==1 ? "login" : "register";
+    }
+
+    @PostMapping("/idCheck")
+    @ResponseBody
+    public int idCheck(@RequestParam("id") String id){
+        log.info("userIdCheck 진입");
+        log.info("전달받은 id:"+id);
+        int result = service.member_idcheck(id);
+        log.info("확인 결과:"+result);
+        return result;
     }
 
 }

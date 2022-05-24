@@ -9,5 +9,7 @@ public interface MemberService {
     public MemberDTO member_login(String member_id, String member_password);
 
     // 회원가입 처리
-    public boolean member_register(MemberDTO dto);
+    public int member_register(MemberDTO dto);
+
+    public int member_idcheck(String id);
 }

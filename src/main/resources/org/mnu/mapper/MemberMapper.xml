@@ -9,7 +9,14 @@
     </select>
     
     <insert id="insertUserOne">
+        <selectKey keyProperty="member_no" resultType="int" order="BEFORE">
+            select SEQ_MEMBER.nextval FROM dual
+        </selectKey>
         INSERT INTO TBL_MEMBER (MEMBER_NO, MEMBER_ID, MEMBER_PASSWORD, MEMBER_EMAIL, MEMBER_NAME)
-        VALUES (SEQ_MEMBER.nextval, #{member_id}, #{member_password}, #{member_email}, #{member_name})
+        VALUES ( #{member_no}, #{member_id}, #{member_password}, #{member_email}, #{member_name})
     </insert>
+    
+    <select id="selectUserId" resultType="int">
+        SELECT count(*) FROM TBL_MEMBER WHERE MEMBER_ID = #{id}
+    </select>
 </mapper>

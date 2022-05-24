@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mnu.domain.MemberDTO;
+import org.mnu.mapper.MemberMapper;
 import org.mnu.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -17,6 +18,9 @@ public class MemberMapperTests {
 
     @Autowired
     private MemberService service;
+
+    @Autowired
+    private MemberMapper mapper;
 
     @Test
     public void testSelectUser() {
@@ -35,9 +39,17 @@ public class MemberMapperTests {
         dto.setMember_password("kim");
         dto.setMember_email("kim@naver.com");
         dto.setMember_name("김개똥");
-
-        boolean result = service.member_register(dto);
-
+        log.info(".........................................................");
+        int result = service.member_register(dto);
         log.info(result);
+    }
+
+    @Test
+    public void testSelectUserId() {
+        int result = mapper.selectUserId("hong");
+
+        log.info("------------------------------------------------------------");
+        log.info("result : "+result);
+
     }
 }
