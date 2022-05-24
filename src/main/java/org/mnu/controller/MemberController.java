@@ -21,7 +21,6 @@ public class MemberController {
     private MemberService service;
 
     // 로그인 요청
-    //
     @PostMapping ("/login_confirm")
     public String login(String member_id, String member_password, HttpSession session){
 
@@ -32,5 +31,15 @@ public class MemberController {
         session.setAttribute("login_info",dto);
 
         return dto == null ? "login" : "index";
+    }
+    
+    //로그아웃 요청
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        
+        // 세션을 비움
+        session.invalidate();
+
+        return "index";
     }
 }

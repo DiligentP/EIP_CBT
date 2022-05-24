@@ -30,7 +30,7 @@ prefix="c"%>
           <!-- 로그인 세션이 존재하는 경우 -->
           <c:if test="${not empty login_info}">
             <li>[${login_info.member_name}]님 반갑습니다</li>
-            <li><a>로그아웃</a></li>
+            <li><a href="./logout">로그아웃</a></li>
           </c:if>
 
           <c:if test="${empty login_info}">
