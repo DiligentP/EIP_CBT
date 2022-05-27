@@ -26,7 +26,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
           </li>
         </ul>
         <ul class="header__nav">
-          <li><a href="./board/list">게시판</a></li>
+          <li><a href="/board/list">게시판</a></li>
           <!-- 로그인 세션이 존재하는 경우 -->
           <c:if test="${not empty login_info}">
             <li id="header_mypage"><a href="./mypage">마이페이지</a></li>
@@ -47,7 +47,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
       <div class="wrapper">
         <div class="wrapper__container">
           <div class="wrapper__container__Header">
-            <a href="#" class="wrapper__container__Header__btn"
+            <a href="./listRegister" class="wrapper__container__Header__btn"
               ><span>게시글 작성</span>
             </a>
           </div>

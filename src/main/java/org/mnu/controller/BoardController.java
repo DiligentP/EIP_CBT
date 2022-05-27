@@ -22,4 +22,10 @@ public class BoardController {
 		log.info("list");
 		model.addAttribute("list", service.getList());
 	}
+
+	@GetMapping("/listRegister")
+	public String listRegister() {
+		return "/board/listRegister";
+		
+	}
 }
