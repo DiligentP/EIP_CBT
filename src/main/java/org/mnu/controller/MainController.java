@@ -26,4 +26,14 @@ public class MainController {
 	public String register() {
 		return "register";
 	}
+
+	@GetMapping("/practical")
+	public String practical() {
+		return "practical";
+	}
+
+	@GetMapping("/written")
+	public String written() {
+		return "written";
+	}
 }
