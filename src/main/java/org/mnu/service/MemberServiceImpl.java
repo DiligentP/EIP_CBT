@@ -2,7 +2,7 @@ package org.mnu.service;
 
 import lombok.extern.log4j.Log4j;
 import org.apache.ibatis.annotations.Param;
-import org.mnu.domain.MemberDTO;
+import org.mnu.domain.MemberVO;
 import org.mnu.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,15 +17,15 @@ public class MemberServiceImpl implements MemberService{
     private MemberMapper mapper;
 
     @Override
-    public MemberDTO member_login(String member_id, String member_password){
+    public MemberVO member_login(String member_id, String member_password){
 
         return mapper.getUserOne(member_id, member_password);
     }
 
     @Override
-    public int member_register(MemberDTO dto){
+    public int member_register(MemberVO vo){
 
-        int result = mapper.insertUserOne(dto);
+        int result = mapper.insertUserOne(vo);
 
         return result;
     }

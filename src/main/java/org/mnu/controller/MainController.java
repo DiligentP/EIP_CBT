@@ -1,7 +1,7 @@
 package org.mnu.controller;
 
 import lombok.extern.log4j.Log4j;
-import org.mnu.domain.MemberDTO;
+import org.mnu.domain.MemberVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

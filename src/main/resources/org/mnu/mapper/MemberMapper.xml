@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.mnu.mapper.MemberMapper">
-    <select id="getUserOne" resultType="org.mnu.domain.MemberDTO" parameterType="map">
+    <select id="getUserOne" resultType="org.mnu.domain.MemberVO" parameterType="map">
         SELECT * FROM TBL_MEMBER WHERE MEMBER_ID = #{member_id} AND MEMBER_PASSWORD = #{member_password}
     </select>
     

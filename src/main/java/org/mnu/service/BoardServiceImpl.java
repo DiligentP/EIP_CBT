@@ -5,8 +5,8 @@ import lombok.extern.log4j.Log4j;
 
 import java.util.List;
 
-import org.mnu.domain.BoardVO;
-import org.mnu.mapper.BoardMapper;
+import org.mnu.domain.*;
+import org.mnu.mapper.*;
 import org.springframework.stereotype.Service;
 
 @Log4j

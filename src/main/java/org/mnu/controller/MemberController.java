@@ -1,7 +1,7 @@
 package org.mnu.controller;
 
 import lombok.extern.log4j.Log4j;
-import org.mnu.domain.MemberDTO;
+import org.mnu.domain.MemberVO;
 import org.mnu.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,12 +24,12 @@ public class MemberController {
     public String login(String member_id, String member_password, HttpSession session){
 
         // 화면에서 입력한 아이디와 비밀번호가 일치하는 회원 정보가 DB에 있는지 확인
-        MemberDTO dto = service.member_login(member_id, member_password);
+        MemberVO vo = service.member_login(member_id, member_password);
 
         // 일치하는 회원정보가 있으면, 회원 정보를 세션에 담음.
-        session.setAttribute("login_info",dto);
+        session.setAttribute("login_info",vo);
 
-        return dto == null ? "login" : "index";
+        return vo == null ? "login" : "index";
     }
     
     //로그아웃 요청
@@ -44,10 +44,10 @@ public class MemberController {
 
     // 회원가입 요청
     @PostMapping("/register_confirm")
-    public String register(MemberDTO dto){
+    public String register(MemberVO vo){
 
         // 회원가입 요청
-        int result =  service.member_register(dto);
+        int result =  service.member_register(vo);
 
         return result==1 ? "login" : "register";
     }

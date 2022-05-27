@@ -1,6 +1,6 @@
 package org.mnu.service;
 
-import org.mnu.domain.BoardVO;
+import org.mnu.domain.*;
 
 import java.util.List;
 
