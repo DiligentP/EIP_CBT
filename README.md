@@ -41,4 +41,5 @@ out
 target
 ```
 
-http://114.70.92.70:3000/redmine/projects/b_team_2022
+## 프로젝트 관리
+[레드마인(Redmine) B팀](http://114.70.92.70:3000/redmine/projects/b_team_2022)
