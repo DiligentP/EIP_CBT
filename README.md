@@ -18,7 +18,7 @@
 개발 환경
 
 - IDE : eclipse STS3 , IntelliJ
-- JDK : openjdk 11.0.8-internal 2020-07-14
+- JDK : [openjdk 11.0.8](https://drive.google.com/file/d/1tV5UdNPyOBtKpaoPhKX5TPd0lsHTl_su/view?usp=sharing)
 - WAS : Tomcat-9.0.60
 
 <br>
