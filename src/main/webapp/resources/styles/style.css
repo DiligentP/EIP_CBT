@@ -4,6 +4,7 @@
 @import "./login.css";
 @import "./register.css";
 @import "./test.css";
+@import "./list.css";
 
 * {
   font-family: "Noto Sans KR", "Open Sans", sans-serif;
