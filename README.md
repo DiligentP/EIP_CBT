@@ -8,15 +8,11 @@
 - lombok.jar
 - ojdbc8.jar
 - JUnit 4
-### root-context.xml
-```java
-	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
-		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@diligentp.com:1521:XE"/>
-		<property name="username" value="[할당받은 Oracle ID]"/>
-		<property name="password" value="[할당받은 Oracle PW]"/>
-	</bean>
-```
+
+### DB
+- URL : jdbc:oracle:thin:@diligentp.com:1521:XE
+- ID : park
+- PW : park
 
 <br>
 개발 환경
