@@ -36,4 +36,10 @@ public class MainController {
 	public String written() {
 		return "written";
 	}
+
+	@GetMapping("/mypage")
+	public String mypage() {
+		return "mypage";
+	}
+
 }
