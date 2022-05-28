@@ -84,10 +84,10 @@
           </div>
           <div class="wrapper__container__btn">
             <div class="">
-              <a href="/board/modify?bno=<c:out value="${board.bno}"/>">수정</a>
+              <a href="/board/modify?bno=<c:out value="${board.bno}"/>&pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>">수정</a>
             </div>
             <div class="">
-              <a href="/board/list">게시판</a>
+              <a href="/board/list?pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>">게시판</a>
             </div>
           </div>
         </div>

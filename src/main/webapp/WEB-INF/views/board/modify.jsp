@@ -100,7 +100,7 @@
               </form>
             </div>
             <div class="">
-              <a href="/board/list">게시판</a>
+              <a href="/board/list?pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>">게시판</a>
             </div>
           </div>
         </form>
