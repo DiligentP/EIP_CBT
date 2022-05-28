@@ -25,9 +25,13 @@ public interface QuestionService {
 
 	public List<QuestionVO> getList(Criteria cri);
 	
-	//public List<QuestionVO> getList(ExamOption opt);
-	
 	public int getTotal(Criteria cri);
 	
-	public List<AttachVO> getAttachList(Long bno);
+	public List<QuestionVO> getList(ExamOption opt);
+	
+	public List<AttachVO> getAttachList(Long qno);
+
+	public void increasePeople(ExamResultVO vo);
+	
+	public List<ExamResultVO> getResultList(List<ExamDTO> examDTO);
 }

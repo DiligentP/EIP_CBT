@@ -23,14 +23,14 @@ public class ExamOption {
 	private int amount;
 
 	private String type;
-	private String keyword;
+	private String query;
 
 	/**
 	 * @brief 생성자
 	 * @details 문제 개수를 100개로 한다.
 	 */
 	public ExamOption() {
-		this(100, "Random");
+		this(100, "random");
 	}
 
 	/**

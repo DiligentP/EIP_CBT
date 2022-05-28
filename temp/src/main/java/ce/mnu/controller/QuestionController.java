@@ -151,32 +151,38 @@ public class QuestionController {
 	public void examConfig() {
 		
 	}
-	
+
 	/**
 	 * @brief 시험 페이지
 	 * @details 문제를 골라서 시험을 보는 페이지
 	 */
-	@GetMapping("/exam/progress")
-	public void examProgress() {
-		
-	}
-	
-	/**
-	 * @brief 채점 처리
-	 * @details 채점 처리
-	 */
-	@PostMapping("/exam/grading")
-	public void examGrading() {
-		
+	@PostMapping("/exam/progress")
+	public void examProgress(ExamOption opt, Model model) {
+		log.info("list: " + opt);
+		model.addAttribute("list", service.getList(opt));
 	}
 	
 	/**
 	 * @brief 시험 결과 페이지
 	 * @details 시험 결과 페이지
 	 */
-	@GetMapping("/exam/result")
-	public void examResult() {
+	@PostMapping("/exam/result")
+	public void examResult(ExamDTOList examList, Model model) {
+		log.info("resultexamList" + examList.getList());
 		
+		List<ExamResultVO> list = service.getResultList(examList.getList());
+		model.addAttribute("list", list);
+		
+		log.info("end");
+		int count = 0;
+		if (list != null) {
+			for (int i=0; i<list.size(); i++) {
+				if (list.get(i).getAnswer().equals(list.get(i).getCorrect()))
+					count += 1;
+			}
+		}
+		
+		model.addAttribute("count", count);
 	}
 	
 	/**

@@ -9,6 +9,8 @@ import ce.mnu.domain.*;
 public interface QuestionMapper {
 	public QuestionVO get(Long qno);
 	
+	public ExamResultVO getResultVO(Long qno);
+	
 	public Integer insertSelectKey(QuestionVO vo);
 	
 	public void insert(QuestionVO vo);
@@ -17,7 +19,7 @@ public interface QuestionMapper {
 
 	public int update(QuestionVO vo);
 	
-	public List<QuestionVO> getList(ExamOption opt);
+	public List<QuestionVO> getListWithOption(ExamOption opt);
 	
 	public List<QuestionVO> getList();
 	
@@ -25,5 +27,5 @@ public interface QuestionMapper {
 	
 	public List<QuestionVO> getListWithPaging(Criteria cri);
 	
-	public void increasePeople(@Param("qno") Long qno, @Param("amount") int amount);
+	public int increasePeople(ExamResultVO vo);
 }

@@ -1,5 +1,6 @@
 package ce.mnu.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -130,6 +131,47 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 	
 	/**
+	 * @brief 문제 리스트 받기
+ 	 * @details 문제 리스트를 DB에서 받아온다.
+ 	 * 
+ 	 * @param opt 시험 옵션
+ 	 * @return List<QuestionVO> 문제 리스트
+	 */
+	@Override
+	public List<QuestionVO> getList(ExamOption opt) {
+		log.info("get List with opt: " + opt);
+
+		return mapper.getListWithOption(opt);
+	}
+	
+	/**
+	 * @brief 시험 결과 받기
+ 	 * @details 채점한 결과 반환
+ 	 * 
+ 	 * @param opt 시험 옵션
+ 	 * @return List<QuestionVO> 문제 리스트
+	 */
+	@Override
+	public List<ExamResultVO> getResultList(List<ExamDTO> examDTOList) {
+		log.info("get ResultList");
+		List<ExamResultVO> list = new ArrayList<ExamResultVO>();
+
+		for (int i=0; i<examDTOList.size(); i++) {
+			ExamDTO examDTO = examDTOList.get(i);
+			ExamResultVO examResultVO = mapper.getResultVO(examDTO.getQno());
+			examResultVO.setAnswer(examDTO.getAnswer());
+			
+			increasePeople(examResultVO);
+		
+			list.add(examResultVO);
+			
+			log.info("continued");
+		}
+		
+		return list;
+	}
+	
+	/**
 	 * @brief 총 게시글 개수
 	 * @details 총 게시글 개수를 DB에서 받아온다.
 	 * 
@@ -144,6 +186,22 @@ public class QuestionServiceImpl implements QuestionService {
 		return mapper.getTotalCount(cri);
 	}
 	
+	/**
+	 * @brief 문제 푼 사람 수 늘리기
+	 * @details 문제 푼 사람 수 늘리기
+	 * 
+	 * @param ExamResultVO vo
+
+	 */
+	@Override
+	public void increasePeople(ExamResultVO vo) {
+		if (mapper.increasePeople(vo) == 1) {
+			vo.setTotal(vo.getTotal() + 1);
+			
+			if (vo.getAnswer().equals(vo.getCorrect()))
+				vo.setSuccesser(vo.getSuccesser() + 1);
+		}
+	}
 
 	/**
 	 * @brief 게시글에 있는 파일 리스트 받기
