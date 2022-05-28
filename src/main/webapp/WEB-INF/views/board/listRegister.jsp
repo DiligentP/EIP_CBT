@@ -51,25 +51,24 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
               <h2>게시글 등록</h2>
             </div>
             <!-- form 태그  -->
-            <form action="./list" id="board__form">
+            <form action="/board/listRegister" id="board__form" method="post">
               <div class="board__form__input">
                 <input
                   type="text"
                   id="board_bno"
-                  name="board_bno"
                   placeholder="No."
                   disabled
                 />
                 <input
                   type="text"
                   id="board_title"
-                  name="board_title"
+                  name="title"
                   placeholder="작성하는 제목"
                 />
                 <textarea
                   type="text"
                   id="board_textArea"
-                  name="board_textArea"
+                  name="content"
                   placeholder="작성하는 내용"
                   cols="40"
                   rows="10"
@@ -77,9 +76,8 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                 <input
                   type="text"
                   id="board_writer"
-                  name="board_writer"
+                  name="writer"
                   placeholder="사용자"
-                  disabled
                 />
               </div>
               <div class="board__form__submit">
