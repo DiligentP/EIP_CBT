@@ -66,7 +66,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
               <c:forEach items="${list}" var="board">
                 <tr class="wrapper__container__Main__value">
                   <td><c:out value="${board.bno}" /></td>
-                  <td><a href='/board/get?bno=<c:out value="${board.bno}" />' class="onHover"><c:out value="${board.title}"/></a></td>
+                  <td><a href='/board/get?bno=<c:out value="${board.bno}" />&pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>' class="onHover"><c:out value="${board.title}"/></a></td>
                   <td><c:out value="${board.content}" /></td>
                   <td><c:out value="${board.writer}" /></td>
                   <td>
@@ -88,5 +88,25 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
         </div>
       </div>
     </wrapper>
+    
+  	<ul class="pagination">
+	<c:if test="${pageMaker.prev}">
+	<li class="paginate_button previous"><a href="${pageMaker.startPage-1}">Previous</a>
+	</li>
+	</c:if>
+	
+	<c:forEach var="num" begin="${pageMaker.startPage}"
+	end="${pageMaker.endPage}">
+	<li class="paginate_button ${pageMaker.cri.pageNum == num ? "active":""} ">
+	<a href='/board/list?pageNum=<c:out value="${num}"/>&amount=10'>${num}</a>
+	</li>
+	</c:forEach>
+	
+	<c:if test="${pageMaker.next}">
+	<li class="paginate_button next"><a href="${pageMaker.endPage+1}">Next</a>
+	</li>
+	</c:if>
+	</ul>
+    
   </body>
 </html>
