@@ -8,6 +8,7 @@ import org.mnu.service.*;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @Log4j
@@ -26,6 +27,11 @@ public class BoardController {
 	@GetMapping("/listRegister")
 	public String listRegister() {
 		return "/board/listRegister";
-		
+	}
+
+	@GetMapping("/get")
+	public void get(@RequestParam("bno") Long bno, Model model) {
+		log.info("/get");
+		model.addAttribute("board", service.get(bno));
 	}
 }

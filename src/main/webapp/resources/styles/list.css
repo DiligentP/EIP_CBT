@@ -63,6 +63,45 @@ wrapper {
   /* background-color: tomato; */
 }
 
+.wrapper__container__Main__table {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  /*background-color: tomato;*/
+}
+
+/*.wrapper__container__Main__table > thead {*/
+/*  width: 100%;*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*  margin: 10px;*/
+/*  padding: 10px;*/
+/*  background-color: #8d99ae;*/
+/*}*/
+
+thead, tbody {
+  width: 100%;
+}
+
+.wrapper__container__Main__value {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  margin: 10px;
+}
+
+.onHover:hover {
+  color: #ff006e;
+  background-color: #edf2f4;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
 /* 게시글 작성 페이지  */
 .board__register {
   padding: 25px;
@@ -115,3 +154,4 @@ wrapper {
 .board__form__submit input:hover {
   opacity: 0.5;
 }
+

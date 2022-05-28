@@ -54,17 +54,19 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
           <div class="wrapper__container__Main">
             <table class="wrapper__container__Main__table">
               <thead>
-                <th>No.</th>
-                <th>테이블</th>
-                <th>만들기</th>
-                <th>작성자</th>
-                <th>작성일</th>
-                <th>수정일</th>
+                <tr class="wrapper__container__Main__value">
+                  <th>No.</th>
+                  <th>제목</th>
+                  <th>내용</th>
+                  <th>작성자</th>
+                  <th>작성일</th>
+                  <th>수정일</th>
+                </tr>
               </thead>
               <c:forEach items="${list}" var="board">
-                <tr>
+                <tr class="wrapper__container__Main__value">
                   <td><c:out value="${board.bno}" /></td>
-                  <td><c:out value="${board.title}" /></td>
+                  <td><a href='/board/get?bno=<c:out value="${board.bno}" />' class="onHover"><c:out value="${board.title}"/></a></td>
                   <td><c:out value="${board.content}" /></td>
                   <td><c:out value="${board.writer}" /></td>
                   <td>
