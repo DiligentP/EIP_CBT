@@ -82,7 +82,8 @@ wrapper {
 /*  background-color: #8d99ae;*/
 /*}*/
 
-thead, tbody {
+thead,
+tbody {
   width: 100%;
 }
 
@@ -112,7 +113,7 @@ thead, tbody {
   font-size: 25px;
   font-weight: 600;
 }
-
+.wrapper__container__input,
 #board__form {
   position: relative;
   display: flex;
@@ -151,7 +152,45 @@ thead, tbody {
   font-size: 18px;
 }
 
+.wrapper__container__btn div:hover,
 .board__form__submit input:hover {
   opacity: 0.5;
 }
 
+/* 게시글 읽어오기 get.jsp */
+.wrapper__container__btn {
+  position: relative;
+  margin-top: 50px;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+}
+
+.wrapper__container__btn div {
+  border: none;
+  cursor: pointer;
+  padding: 20px 45px;
+  border-radius: 15px;
+  background-color: #ff006e;
+}
+
+.wrapper__container__btn div a {
+  color: white;
+  font-size: 18px;
+}
+
+.wrapper__container__btn div:nth-child(3) {
+  padding: 25px 40px;
+}
+
+#wrapperSubmitBtn {
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+  border-radius: 15px;
+  background-color: #ff006e;
+  color: white;
+  font-size: 18px;
+}
