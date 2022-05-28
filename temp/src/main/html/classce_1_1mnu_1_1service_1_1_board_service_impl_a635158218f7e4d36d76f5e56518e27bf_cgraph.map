@@ -1,0 +1,5 @@
+<map id="ce.mnu.service.BoardServiceImpl.remove" name="ce.mnu.service.BoardServiceImpl.remove">
+<area shape="rect" id="node1" title="게시글 삭제" alt="" coords="5,27,195,69"/>
+<area shape="rect" id="node2" href="$interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a2fc2d34d5f7a5289d08377d928adf006" title=" " alt="" coords="243,5,475,32"/>
+<area shape="rect" id="node3" href="$interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html#ac9732150dc9d74dd94b3bc7bf4492927" title=" " alt="" coords="265,57,453,98"/>
+</map>

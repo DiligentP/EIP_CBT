@@ -1,0 +1,5 @@
+<map id="ce.mnu.mapper.BoardAttachMapper.insert" name="ce.mnu.mapper.BoardAttachMapper.insert">
+<area shape="rect" id="node1" title=" " alt="" coords="243,39,431,80"/>
+<area shape="rect" id="node2" href="$classce_1_1mnu_1_1service_1_1_board_service_impl.html#a9d1467a1446c1c92d8f1fcf16c30b2f3" title="게시글 수정" alt="" coords="5,5,195,47"/>
+<area shape="rect" id="node3" href="$classce_1_1mnu_1_1service_1_1_board_service_impl.html#a6f8a7877507cc43b2519c269123912ff" title="게시글 작성 처리" alt="" coords="5,71,195,112"/>
+</map>

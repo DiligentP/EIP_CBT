@@ -1,0 +1,6 @@
+<map id="ce.mnu.service.BoardServiceImpl" name="ce.mnu.service.BoardServiceImpl">
+<area shape="rect" id="node1" title="게시판 처리" alt="" coords="209,277,423,443"/>
+<area shape="rect" id="node2" href="$interfacece_1_1mnu_1_1service_1_1_board_service.html" title="게시판 처리" alt="" coords="5,27,195,193"/>
+<area shape="rect" id="node3" href="$interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html" title=" " alt="" coords="219,5,413,215"/>
+<area shape="rect" id="node4" href="$interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html" title=" " alt="" coords="437,35,625,185"/>
+</map>

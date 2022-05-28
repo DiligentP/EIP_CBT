@@ -1,0 +1,4 @@
+<map id="ce.mnu.mapper.BoardMapper.delete" name="ce.mnu.mapper.BoardMapper.delete">
+<area shape="rect" id="node1" title=" " alt="" coords="243,13,475,39"/>
+<area shape="rect" id="node2" href="$classce_1_1mnu_1_1service_1_1_board_service_impl.html#a635158218f7e4d36d76f5e56518e27bf" title="게시글 삭제" alt="" coords="5,5,195,47"/>
+</map>

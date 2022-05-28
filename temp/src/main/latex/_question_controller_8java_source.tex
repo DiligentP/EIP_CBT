@@ -1,0 +1,67 @@
+\hypertarget{_question_controller_8java_source}{}\doxysection{Question\+Controller.\+java}
+\label{_question_controller_8java_source}\index{java/ce/mnu/controller/QuestionController.java@{java/ce/mnu/controller/QuestionController.java}}
+\mbox{\hyperlink{_question_controller_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00001}00001 \textcolor{keyword}{package }ce.mnu.controller;}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00003}00003 \textcolor{keyword}{import} org.springframework.stereotype.Controller;}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00004}00004 \textcolor{keyword}{import} org.springframework.web.bind.annotation.GetMapping;}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00005}00005 \textcolor{keyword}{import} org.springframework.web.bind.annotation.PostMapping;}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00006}00006 \textcolor{keyword}{import} org.springframework.web.bind.annotation.RequestMapping;}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00007}00007 \textcolor{keyword}{import} org.springframework.web.bind.annotation.RequestParam;}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00008}00008 \textcolor{keyword}{import} org.springframework.web.servlet.mvc.support.RedirectAttributes;}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00010}00010 \textcolor{keyword}{import} ce.mnu.service.*;}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00011}00011 \textcolor{keyword}{import} lombok.AllArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00012}00012 \textcolor{keyword}{import} lombok.extern.log4j.Log4j;}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00025}00025 @Controller}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00026}00026 @Log4j}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00027}00027 @AllArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00028}00028 @RequestMapping(\textcolor{stringliteral}{"{}/question/*"{}})}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00029}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_question_controller}{00029}} public class \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_question_controller}{QuestionController}} \{}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00030}00030     \mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_question_service}{QuestionService}} service;}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00031}00031     }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00036}00036     @GetMapping(\textcolor{stringliteral}{"{}/list"{}})}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00037}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_question_controller_a577812706167594fd2b5147a78d7cab0}{00037}}     public \textcolor{keywordtype}{void} list() \{}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00039}00039     \}}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00040}00040     }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00045}00045     @GetMapping(\textcolor{stringliteral}{"{}/modify"{}})}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00046}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_question_controller_a235a2005e0971019ad852fb069a6aeaa}{00046}}     public \textcolor{keywordtype}{void} modify() \{}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00048}00048     \}}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00049}00049     }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00054}00054     @PostMapping(\textcolor{stringliteral}{"{}/modify"{}})}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00055}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_question_controller_a6dbb5b7be90d80ace63b20400d671667}{00055}}     public String modify(RedirectAttributes rttr) \{}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00056}00056         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}redirect:/question/list"{}};}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00057}00057     \}}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00058}00058     }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00063}00063     @GetMapping(\textcolor{stringliteral}{"{}/remove"{}})}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00064}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_question_controller_ab832174310b2a8a07d5c763f9c2e3101}{00064}}     public String remove(RedirectAttributes rttr) \{}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00065}00065         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}redirect:/question/list"{}};}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00066}00066     \}}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00067}00067     }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00072}00072     @GetMapping(\textcolor{stringliteral}{"{}/exam/config"{}})}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00073}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_question_controller_a48433d1fd97a29fbb2f5a1b675faaa1d}{00073}}     public \textcolor{keywordtype}{void} examConfig() \{}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00074}00074         }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00075}00075     \}}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00076}00076     }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00081}00081     @GetMapping(\textcolor{stringliteral}{"{}/exam/progress"{}})}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00082}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_question_controller_a9c1734ebf4fd8d121557fb6160b18814}{00082}}     public \textcolor{keywordtype}{void} examProgress() \{}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00083}00083         }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00084}00084     \}}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00085}00085     }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00090}00090     @PostMapping(\textcolor{stringliteral}{"{}/exam/grading"{}})}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00091}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_question_controller_a26ae23c6671487b6ec50aaac8c4377ed}{00091}}     public \textcolor{keywordtype}{void} examGrading() \{}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00092}00092         }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00093}00093     \}}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00094}00094     }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00099}00099     @GetMapping(\textcolor{stringliteral}{"{}/exam/result"{}})}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00100}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_question_controller_a92af15e06cb0ae8fb6a6919ab695751b}{00100}}     public \textcolor{keywordtype}{void} examResult() \{}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00101}00101         }
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00102}00102     \}}
+\DoxyCodeLine{\Hypertarget{_question_controller_8java_source_l00103}00103 \}}
+
+\end{DoxyCode}

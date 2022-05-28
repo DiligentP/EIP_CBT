@@ -1,0 +1,110 @@
+\hypertarget{_board_service_impl_8java_source}{}\doxysection{Board\+Service\+Impl.\+java}
+\label{_board_service_impl_8java_source}\index{java/ce/mnu/service/BoardServiceImpl.java@{java/ce/mnu/service/BoardServiceImpl.java}}
+\mbox{\hyperlink{_board_service_impl_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00001}00001 \textcolor{keyword}{package }ce.mnu.service;}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00003}00003 \textcolor{keyword}{import} java.util.List;}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00005}00005 \textcolor{keyword}{import} org.springframework.beans.factory.annotation.Autowired;}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00006}00006 \textcolor{keyword}{import} org.springframework.stereotype.Service;}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00007}00007 \textcolor{keyword}{import} org.springframework.transaction.annotation.Transactional;}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00008}00008 \textcolor{keyword}{import} ce.mnu.domain.*;}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00009}00009 \textcolor{keyword}{import} ce.mnu.mapper.*;}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00011}00011 \textcolor{keyword}{import} lombok.Setter;}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00012}00012 \textcolor{keyword}{import} lombok.extern.log4j.Log4j;}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00024}00024 @Log4j}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00025}00025 @Service}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00026}\mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl}{00026}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl}{BoardServiceImpl}} \textcolor{keyword}{implements} \mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_board_service}{BoardService}} \{}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00028}00028     @Setter(onMethod\_ = @Autowired)}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00029}\mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a80d81a53b09710e85ca9e1ad7e4367c8}{00029}}     private \mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_mapper}{BoardMapper}} \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a80d81a53b09710e85ca9e1ad7e4367c8}{mapper}};}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00031}00031     @Setter(onMethod\_ = @Autowired)}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00032}\mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a965c8e88bab33ad99b7033c02927b682}{00032}}     private \mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper}{BoardAttachMapper}} \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a965c8e88bab33ad99b7033c02927b682}{attachMapper}};}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00039}00039     @Transactional}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00040}00040     @Override}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00041}\mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a6f8a7877507cc43b2519c269123912ff}{00041}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a6f8a7877507cc43b2519c269123912ff}{write}}(\mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_board_v_o}{BoardVO}} board) \{}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00042}00042         log.info(\textcolor{stringliteral}{"{}write......"{}} + board);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00044}00044         \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a80d81a53b09710e85ca9e1ad7e4367c8}{mapper}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_mapper_a64daa65e4d3a13568f246356d1973ada}{insertSelectKey}}(board);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00046}00046         \textcolor{keywordflow}{if} (board.getAttachList() == \textcolor{keyword}{null} || board.getAttachList().size() <= 0) \{}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00047}00047             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00048}00048         \}}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00050}00050         \textcolor{comment}{//파일 개수만큼 DB에 추가}}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00051}00051         board.getAttachList().forEach(attach -\/> \{}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00052}00052             attach.setBno(board.getBno());}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00053}00053             \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a965c8e88bab33ad99b7033c02927b682}{attachMapper}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper_acd74ca9b20c116290589bd3bb4e9c48a}{insert}}(attach);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00054}00054         \});}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00055}00055     \}}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00063}00063     @Override}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00064}\mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_ab86b7560a6945a236e77de79165d8090}{00064}}     \textcolor{keyword}{public} \mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_board_v_o}{BoardVO}} \textcolor{keyword}{get}(Long bno) \{}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00066}00066         log.info(\textcolor{stringliteral}{"{}get......"{}} + bno);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00068}00068         \textcolor{keywordflow}{return} \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a80d81a53b09710e85ca9e1ad7e4367c8}{mapper}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_mapper_a654d2a4d0ba96bee3cbdd54681ed90a6}{read}}(bno);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00070}00070     \}}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00079}00079     @Transactional}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00080}00080     @Override}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00081}\mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a9d1467a1446c1c92d8f1fcf16c30b2f3}{00081}}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a9d1467a1446c1c92d8f1fcf16c30b2f3}{modify}}(\mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_board_v_o}{BoardVO}} board) \{}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00082}00082         log.info(\textcolor{stringliteral}{"{}modify......"{}} + board);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00084}00084         \textcolor{comment}{//파일 삭제함}}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00085}00085         \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a965c8e88bab33ad99b7033c02927b682}{attachMapper}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper_ac9732150dc9d74dd94b3bc7bf4492927}{deleteAll}}(board.getBno());}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00087}00087         \textcolor{keywordtype}{boolean} modifyResult = \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a80d81a53b09710e85ca9e1ad7e4367c8}{mapper}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_mapper_af265e1d19ab37d48aef2b9080c3858f1}{update}}(board) == 1;}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00088}00088         }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00089}00089         \textcolor{comment}{//파일이 있으면 파일 처리}}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00090}00090         \textcolor{keywordflow}{if} (modifyResult \&\& board.getAttachList().size() > 0) \{}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00091}00091             board.getAttachList().forEach(attach -\/> \{}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00093}00093                 attach.setBno(board.getBno());}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00094}00094                 \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a965c8e88bab33ad99b7033c02927b682}{attachMapper}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper_acd74ca9b20c116290589bd3bb4e9c48a}{insert}}(attach);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00095}00095             \});}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00096}00096         \}}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00098}00098         \textcolor{keywordflow}{return} modifyResult;}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00099}00099     \}}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00108}00108     @Transactional}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00109}00109     @Override}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00110}\mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a635158218f7e4d36d76f5e56518e27bf}{00110}}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \textcolor{keyword}{remove}(Long bno) \{}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00111}00111         log.info(\textcolor{stringliteral}{"{}remove...."{}} + bno);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00113}00113         \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a965c8e88bab33ad99b7033c02927b682}{attachMapper}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper_ac9732150dc9d74dd94b3bc7bf4492927}{deleteAll}}(bno);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00115}00115         \textcolor{keywordflow}{return} \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a80d81a53b09710e85ca9e1ad7e4367c8}{mapper}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_mapper_a2fc2d34d5f7a5289d08377d928adf006}{delete}}(bno) == 1;}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00116}00116     \}}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00117}00117 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00126}00126     @Override}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00127}\mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a2150a3554e3ca55066f734f346e664ef}{00127}}     \textcolor{keyword}{public} List<BoardVO> \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a2150a3554e3ca55066f734f346e664ef}{getList}}(\mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_criteria}{Criteria}} cri) \{}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00128}00128         log.info(\textcolor{stringliteral}{"{}get List with criteria: "{}} + cri);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00130}00130         \textcolor{keywordflow}{return} \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a80d81a53b09710e85ca9e1ad7e4367c8}{mapper}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_mapper_a6fe21cf14c9ba2f19924ce1dde943431}{getListWithPaging}}(cri);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00131}00131     \}}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00141}00141     @Override}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00142}\mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a9cd562fca2ad00564279dcc0187f75f7}{00142}}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a9cd562fca2ad00564279dcc0187f75f7}{getTotal}}(\mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_criteria}{Criteria}} cri) \{}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00144}00144         log.info(\textcolor{stringliteral}{"{}get total count"{}});}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00145}00145         \textcolor{keywordflow}{return} \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a80d81a53b09710e85ca9e1ad7e4367c8}{mapper}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_mapper_a5310e8782c4164399f2ecefcab98ad63}{getTotalCount}}(cri);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00146}00146     \}}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00147}00147 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00156}00156     @Override}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00157}\mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_adf91c4d2fff95146f249a23999ae1dbe}{00157}}     \textcolor{keyword}{public} List<BoardAttachVO> \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_adf91c4d2fff95146f249a23999ae1dbe}{getAttachList}}(Long bno) \{}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00159}00159         log.info(\textcolor{stringliteral}{"{}get Attach list by bno"{}} + bno);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00160}00160 }
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00161}00161         \textcolor{keywordflow}{return} \mbox{\hyperlink{classce_1_1mnu_1_1service_1_1_board_service_impl_a965c8e88bab33ad99b7033c02927b682}{attachMapper}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper_ae06cd619a90f613dcd7998ae5c5c6e19}{findByBno}}(bno);}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00162}00162     \}}
+\DoxyCodeLine{\Hypertarget{_board_service_impl_8java_source_l00163}00163 \}}
+
+\end{DoxyCode}

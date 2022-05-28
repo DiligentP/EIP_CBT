@@ -1,0 +1,4 @@
+<map id="ce.mnu.mapper.QuestionMapper.delete" name="ce.mnu.mapper.QuestionMapper.delete">
+<area shape="rect" id="node1" title=" " alt="" coords="260,13,511,39"/>
+<area shape="rect" id="node2" href="$classce_1_1mnu_1_1service_1_1_question_service_impl.html#adcc630058d74f34bf12017ca57f52542" title="문제 삭제" alt="" coords="5,5,212,47"/>
+</map>

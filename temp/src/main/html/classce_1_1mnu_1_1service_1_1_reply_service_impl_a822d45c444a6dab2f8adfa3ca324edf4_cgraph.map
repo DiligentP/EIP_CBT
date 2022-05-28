@@ -1,0 +1,6 @@
+<map id="ce.mnu.service.ReplyServiceImpl.remove" name="ce.mnu.service.ReplyServiceImpl.remove">
+<area shape="rect" id="node1" title="댓글 삭제" alt="" coords="5,49,193,90"/>
+<area shape="rect" id="node2" href="$interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#af0a538b38b1d67d7833ead196f3d4bad" title=" " alt="" coords="244,5,475,32"/>
+<area shape="rect" id="node3" href="$interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#a420c9906cf2515fe3b04d12b5967ff96" title=" " alt="" coords="249,56,470,83"/>
+<area shape="rect" id="node4" href="$interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a5bae868ac5b0db7a506d598c0081f5b6" title=" " alt="" coords="241,107,477,149"/>
+</map>

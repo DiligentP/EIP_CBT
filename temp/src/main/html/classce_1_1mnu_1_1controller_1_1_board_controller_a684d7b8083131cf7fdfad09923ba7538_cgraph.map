@@ -1,0 +1,4 @@
+<map id="ce.mnu.controller.BoardController.get" name="ce.mnu.controller.BoardController.get">
+<area shape="rect" id="node1" title="게시글 정보 얻기" alt="" coords="5,5,243,32"/>
+<area shape="rect" id="node2" href="$interfacece_1_1mnu_1_1service_1_1_board_service.html#a33601c1aa95f798cabc4822690be7949" title=" " alt="" coords="291,5,501,32"/>
+</map>

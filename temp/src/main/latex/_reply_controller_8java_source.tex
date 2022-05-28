@@ -1,0 +1,106 @@
+\hypertarget{_reply_controller_8java_source}{}\doxysection{Reply\+Controller.\+java}
+\label{_reply_controller_8java_source}\index{java/ce/mnu/controller/ReplyController.java@{java/ce/mnu/controller/ReplyController.java}}
+\mbox{\hyperlink{_reply_controller_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00001}00001 \textcolor{keyword}{package }ce.mnu.controller;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00003}00003 \textcolor{keyword}{import} org.springframework.http.HttpStatus;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00004}00004 \textcolor{keyword}{import} org.springframework.http.MediaType;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00005}00005 \textcolor{keyword}{import} org.springframework.http.ResponseEntity;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00006}00006 \textcolor{keyword}{import} org.springframework.web.bind.annotation.DeleteMapping;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00007}00007 \textcolor{keyword}{import} org.springframework.web.bind.annotation.GetMapping;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00008}00008 \textcolor{keyword}{import} org.springframework.web.bind.annotation.PathVariable;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00009}00009 \textcolor{keyword}{import} org.springframework.web.bind.annotation.PostMapping;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00010}00010 \textcolor{keyword}{import} org.springframework.web.bind.annotation.RequestBody;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00011}00011 \textcolor{keyword}{import} org.springframework.web.bind.annotation.RequestMapping;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00012}00012 \textcolor{keyword}{import} org.springframework.web.bind.annotation.RequestMethod;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00013}00013 \textcolor{keyword}{import} org.springframework.web.bind.annotation.RestController;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00014}00014 \textcolor{keyword}{import} ce.mnu.domain.*;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00015}00015 \textcolor{keyword}{import} ce.mnu.service.*;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00017}00017 \textcolor{keyword}{import} lombok.AllArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00018}00018 \textcolor{keyword}{import} lombok.extern.log4j.Log4j;}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00020}00020 @RequestMapping(\textcolor{stringliteral}{"{}/replies/"{}})}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00021}00021 @RestController}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00022}00022 @Log4j}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00023}00023 @AllArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00024}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller}{00024}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller}{ReplyController}} \{}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00025}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a5faaf91a5ff94d0aecd7cca23ef96939}{00025}}     \textcolor{keyword}{private} \mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_reply_service}{ReplyService}} \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a5faaf91a5ff94d0aecd7cca23ef96939}{service}};}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00027}00027     @PostMapping(value = \textcolor{stringliteral}{"{}/new"{}}, consumes = \textcolor{stringliteral}{"{}application/json"{}}, produces = \{ MediaType.TEXT\_PLAIN\_VALUE \})}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00028}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a590b870a565fa28ecbeb5b5abe3e2df6}{00028}}     \textcolor{keyword}{public} ResponseEntity<String> \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a590b870a565fa28ecbeb5b5abe3e2df6}{create}}(@RequestBody \mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_reply_v_o}{ReplyVO}} vo) \{}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00029}00029         log.info(\textcolor{stringliteral}{"{}ReplyVO: "{}} + vo);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00031}00031         \textcolor{keywordtype}{int} insertCount = \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a5faaf91a5ff94d0aecd7cca23ef96939}{service}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_reply_service_ad7dafadee590083ea6c5ac959bd3941a}{write}}(vo);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00033}00033         log.info(\textcolor{stringliteral}{"{}Reply INSERT COUNT: "{}} + insertCount);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00035}00035         \textcolor{keywordflow}{return} insertCount == 1 ? \textcolor{keyword}{new} ResponseEntity<>(\textcolor{stringliteral}{"{}success"{}}, HttpStatus.OK)}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00036}00036                                 : \textcolor{keyword}{new} ResponseEntity<>(HttpStatus.INTERNAL\_SERVER\_ERROR);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00037}00037     \}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00039}00039     @GetMapping(value = \textcolor{stringliteral}{"{}/\{rno\}"{}}, produces = \{ MediaType.APPLICATION\_XML\_VALUE, MediaType.APPLICATION\_JSON\_UTF8\_VALUE \})}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00040}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a91f216543ea5b6251f51bb5f986a9fb2}{00040}}     \textcolor{keyword}{public} ResponseEntity<ReplyVO> \textcolor{keyword}{get}(@PathVariable(\textcolor{stringliteral}{"{}rno"{}}) Long rno) \{}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00041}00041         log.info(\textcolor{stringliteral}{"{}get: "{}} + rno);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00043}00043         \textcolor{keywordflow}{return} \textcolor{keyword}{new} ResponseEntity<>(\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a5faaf91a5ff94d0aecd7cca23ef96939}{service}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_reply_service_afe768b410bb119acfc25b8f50f30641b}{get}}(rno), HttpStatus.OK);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00044}00044     \}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00046}00046     @RequestMapping(method = \{ RequestMethod.PUT,}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00047}00047             RequestMethod.PATCH \}, value = \textcolor{stringliteral}{"{}/\{rno\}"{}}, consumes = \textcolor{stringliteral}{"{}application/json"{}}, produces = \{}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00048}00048                     MediaType.TEXT\_PLAIN\_VALUE \})}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00049}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_ab451e8edb508882d867e83f9e5e0bc25}{00049}}     \textcolor{keyword}{public} ResponseEntity<String> \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_ab451e8edb508882d867e83f9e5e0bc25}{modify}}(@RequestBody \mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_reply_v_o}{ReplyVO}} vo, @PathVariable(\textcolor{stringliteral}{"{}rno"{}}) Long rno) \{}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00050}00050         vo.setRno(rno);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00052}00052         log.info(\textcolor{stringliteral}{"{}rno: "{}} + rno);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00053}00053         log.info(\textcolor{stringliteral}{"{}modify: "{}} + vo);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00055}00055         \textcolor{keywordflow}{return} \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a5faaf91a5ff94d0aecd7cca23ef96939}{service}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_reply_service_a0907598eeb2e57ce58fd3a56a30d6d31}{modify}}(vo) == 1 ? \textcolor{keyword}{new} ResponseEntity<>(\textcolor{stringliteral}{"{}success"{}}, HttpStatus.OK)}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00056}00056                                        : \textcolor{keyword}{new} ResponseEntity<>(HttpStatus.INTERNAL\_SERVER\_ERROR);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00058}00058     \}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00060}00060     @DeleteMapping(value = \textcolor{stringliteral}{"{}/\{rno\}"{}}, produces = \{ MediaType.TEXT\_PLAIN\_VALUE \})}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00061}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a04a8532c54bc73cbadd80adfc8d9cb1f}{00061}}     \textcolor{keyword}{public} ResponseEntity<String> \textcolor{keyword}{remove}(@PathVariable(\textcolor{stringliteral}{"{}rno"{}}) Long rno) \{}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00063}00063         log.info(\textcolor{stringliteral}{"{}remove: "{}} + rno);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00065}00065         \textcolor{keywordflow}{return} \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a5faaf91a5ff94d0aecd7cca23ef96939}{service}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_reply_service_a9650f144a32a8305d042868502ef2c91}{remove}}(rno) == 1 ? \textcolor{keyword}{new} ResponseEntity<>(\textcolor{stringliteral}{"{}success"{}}, HttpStatus.OK)}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00066}00066                                         : \textcolor{keyword}{new} ResponseEntity<>(HttpStatus.INTERNAL\_SERVER\_ERROR);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00068}00068     \}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00070}00070 \textcolor{comment}{//   @GetMapping(value = "{}/pages/\{bno\}/\{page\}"{}, }}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00071}00071 \textcolor{comment}{//           produces = \{}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00072}00072 \textcolor{comment}{//                   MediaType.APPLICATION\_XML\_VALUE,}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00073}00073 \textcolor{comment}{//                   MediaType.APPLICATION\_JSON\_UTF8\_VALUE \})}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00074}00074 \textcolor{comment}{//   public ResponseEntity<List<ReplyVO>> getList(}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00075}00075 \textcolor{comment}{//           @PathVariable("{}page"{}) int page,}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00076}00076 \textcolor{comment}{//           @PathVariable("{}bno"{}) Long bno) \{}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00077}00077 \textcolor{comment}{//  }}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00078}00078 \textcolor{comment}{//       }}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00079}00079 \textcolor{comment}{//       log.info("{}getList................."{});}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00080}00080 \textcolor{comment}{//       Criteria cri = new Criteria(page,10);}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00081}00081 \textcolor{comment}{//       log.info(cri);}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00082}00082 \textcolor{comment}{//  }}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00083}00083 \textcolor{comment}{//   return new ResponseEntity<>(service.getList(cri, bno), HttpStatus.OK);}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00084}00084 \textcolor{comment}{//   \}}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00086}00086     @GetMapping(value = \textcolor{stringliteral}{"{}/pages/\{bno\}/\{page\}"{}}, }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00087}00087             produces = \{ MediaType.APPLICATION\_XML\_VALUE,}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00088}00088             MediaType.APPLICATION\_JSON\_UTF8\_VALUE \})}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00089}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a76a12860285908ffca1215b7595171e0}{00089}}     \textcolor{keyword}{public} ResponseEntity<ReplyPageDTO> \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a76a12860285908ffca1215b7595171e0}{getList}}(@PathVariable(\textcolor{stringliteral}{"{}page"{}}) \textcolor{keywordtype}{int} page, @PathVariable(\textcolor{stringliteral}{"{}bno"{}}) Long bno) \{}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00090}00090         \mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_criteria}{Criteria}} cri = \textcolor{keyword}{new} \mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_criteria}{Criteria}}(page, 10);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00091}00091         }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00092}00092         log.info(\textcolor{stringliteral}{"{}get Reply List bno: "{}} + bno);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00094}00094         log.info(\textcolor{stringliteral}{"{}cri:"{}} + cri);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00096}00096         \textcolor{keywordflow}{return} \textcolor{keyword}{new} ResponseEntity<>(\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_reply_controller_a5faaf91a5ff94d0aecd7cca23ef96939}{service}}.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_reply_service_a390699dde98a276c8a6f2a34ee693882}{getListPage}}(cri, bno), HttpStatus.OK);}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00097}00097     \}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00099}00099 \}}
+\DoxyCodeLine{\Hypertarget{_reply_controller_8java_source_l00100}00100 }
+
+\end{DoxyCode}

@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: java/ce/mnu/service/BoardServiceImpl.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'검색','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_board_service_impl_8java_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BoardServiceImpl.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_board_service_impl_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>ce.mnu.service;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> org.springframework.stereotype.Service;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> ce.mnu.domain.*;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> ce.mnu.mapper.*;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">import</span> lombok.Setter;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">import</span> lombok.extern.log4j.Log4j;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>@Log4j</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>@Service</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html">   26</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html">BoardServiceImpl</a> <span class="keyword">implements</span> <a class="code hl_interface" href="interfacece_1_1mnu_1_1service_1_1_board_service.html">BoardService</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    @Setter(onMethod_ = @Autowired)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a80d81a53b09710e85ca9e1ad7e4367c8">   29</a></span>    private <a class="code hl_interface" href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html">BoardMapper</a> <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a80d81a53b09710e85ca9e1ad7e4367c8">mapper</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    @Setter(onMethod_ = @Autowired)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a965c8e88bab33ad99b7033c02927b682">   32</a></span>    private <a class="code hl_interface" href="interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html">BoardAttachMapper</a> <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a965c8e88bab33ad99b7033c02927b682">attachMapper</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    @Transactional</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    @Override</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a6f8a7877507cc43b2519c269123912ff">   41</a></span>    public <span class="keywordtype">void</span> <a class="code hl_function" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a6f8a7877507cc43b2519c269123912ff">write</a>(<a class="code hl_class" href="classce_1_1mnu_1_1domain_1_1_board_v_o.html">BoardVO</a> board) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        log.info(<span class="stringliteral">&quot;write......&quot;</span> + board);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a80d81a53b09710e85ca9e1ad7e4367c8">mapper</a>.<a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a64daa65e4d3a13568f246356d1973ada">insertSelectKey</a>(board);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">if</span> (board.getAttachList() == <span class="keyword">null</span> || board.getAttachList().size() &lt;= 0) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="comment">//파일 개수만큼 DB에 추가</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        board.getAttachList().forEach(attach -&gt; {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            attach.setBno(board.getBno());</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a965c8e88bab33ad99b7033c02927b682">attachMapper</a>.<a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html#acd74ca9b20c116290589bd3bb4e9c48a">insert</a>(attach);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        });</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    @Override</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#ab86b7560a6945a236e77de79165d8090">   64</a></span>    <span class="keyword">public</span> <a class="code hl_class" href="classce_1_1mnu_1_1domain_1_1_board_v_o.html">BoardVO</a> <span class="keyword">get</span>(Long bno) {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        log.info(<span class="stringliteral">&quot;get......&quot;</span> + bno);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a80d81a53b09710e85ca9e1ad7e4367c8">mapper</a>.<a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a654d2a4d0ba96bee3cbdd54681ed90a6">read</a>(bno);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    @Transactional</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    @Override</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a9d1467a1446c1c92d8f1fcf16c30b2f3">   81</a></span>    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code hl_function" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a9d1467a1446c1c92d8f1fcf16c30b2f3">modify</a>(<a class="code hl_class" href="classce_1_1mnu_1_1domain_1_1_board_v_o.html">BoardVO</a> board) {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        log.info(<span class="stringliteral">&quot;modify......&quot;</span> + board);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="comment">//파일 삭제함</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a965c8e88bab33ad99b7033c02927b682">attachMapper</a>.<a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html#ac9732150dc9d74dd94b3bc7bf4492927">deleteAll</a>(board.getBno());</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordtype">boolean</span> modifyResult = <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a80d81a53b09710e85ca9e1ad7e4367c8">mapper</a>.<a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#af265e1d19ab37d48aef2b9080c3858f1">update</a>(board) == 1;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="comment">//파일이 있으면 파일 처리</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">if</span> (modifyResult &amp;&amp; board.getAttachList().size() &gt; 0) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            board.getAttachList().forEach(attach -&gt; {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                attach.setBno(board.getBno());</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a965c8e88bab33ad99b7033c02927b682">attachMapper</a>.<a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html#acd74ca9b20c116290589bd3bb4e9c48a">insert</a>(attach);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            });</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">return</span> modifyResult;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    @Transactional</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    @Override</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a635158218f7e4d36d76f5e56518e27bf">  110</a></span>    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <span class="keyword">remove</span>(Long bno) {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        log.info(<span class="stringliteral">&quot;remove....&quot;</span> + bno);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a965c8e88bab33ad99b7033c02927b682">attachMapper</a>.<a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html#ac9732150dc9d74dd94b3bc7bf4492927">deleteAll</a>(bno);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a80d81a53b09710e85ca9e1ad7e4367c8">mapper</a>.<a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a2fc2d34d5f7a5289d08377d928adf006">delete</a>(bno) == 1;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    @Override</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a2150a3554e3ca55066f734f346e664ef">  127</a></span>    <span class="keyword">public</span> List&lt;BoardVO&gt; <a class="code hl_function" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a2150a3554e3ca55066f734f346e664ef">getList</a>(<a class="code hl_class" href="classce_1_1mnu_1_1domain_1_1_criteria.html">Criteria</a> cri) {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        log.info(<span class="stringliteral">&quot;get List with criteria: &quot;</span> + cri);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a80d81a53b09710e85ca9e1ad7e4367c8">mapper</a>.<a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a6fe21cf14c9ba2f19924ce1dde943431">getListWithPaging</a>(cri);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    @Override</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a9cd562fca2ad00564279dcc0187f75f7">  142</a></span>    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a9cd562fca2ad00564279dcc0187f75f7">getTotal</a>(<a class="code hl_class" href="classce_1_1mnu_1_1domain_1_1_criteria.html">Criteria</a> cri) {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        log.info(<span class="stringliteral">&quot;get total count&quot;</span>);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a80d81a53b09710e85ca9e1ad7e4367c8">mapper</a>.<a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a5310e8782c4164399f2ecefcab98ad63">getTotalCount</a>(cri);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    }</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    @Override</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#adf91c4d2fff95146f249a23999ae1dbe">  157</a></span>    <span class="keyword">public</span> List&lt;BoardAttachVO&gt; <a class="code hl_function" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#adf91c4d2fff95146f249a23999ae1dbe">getAttachList</a>(Long bno) {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        log.info(<span class="stringliteral">&quot;get Attach list by bno&quot;</span> + bno);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a965c8e88bab33ad99b7033c02927b682">attachMapper</a>.<a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html#ae06cd619a90f613dcd7998ae5c5c6e19">findByBno</a>(bno);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>}</div>
+<div class="ttc" id="aclassce_1_1mnu_1_1domain_1_1_board_v_o_html"><div class="ttname"><a href="classce_1_1mnu_1_1domain_1_1_board_v_o.html">ce.mnu.domain.BoardVO</a></div><div class="ttdoc">게시글 VO</div><div class="ttdef"><b>Definition:</b> <a href="_board_v_o_8java_source.html#l00019">BoardVO.java:19</a></div></div>
+<div class="ttc" id="aclassce_1_1mnu_1_1domain_1_1_criteria_html"><div class="ttname"><a href="classce_1_1mnu_1_1domain_1_1_criteria.html">ce.mnu.domain.Criteria</a></div><div class="ttdoc">페이지 / 검색 관련 VO</div><div class="ttdef"><b>Definition:</b> <a href="_criteria_8java_source.html#l00022">Criteria.java:22</a></div></div>
+<div class="ttc" id="aclassce_1_1mnu_1_1service_1_1_board_service_impl_html"><div class="ttname"><a href="classce_1_1mnu_1_1service_1_1_board_service_impl.html">ce.mnu.service.BoardServiceImpl</a></div><div class="ttdoc">게시판 처리</div><div class="ttdef"><b>Definition:</b> <a href="_board_service_impl_8java_source.html#l00026">BoardServiceImpl.java:26</a></div></div>
+<div class="ttc" id="aclassce_1_1mnu_1_1service_1_1_board_service_impl_html_a2150a3554e3ca55066f734f346e664ef"><div class="ttname"><a href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a2150a3554e3ca55066f734f346e664ef">ce.mnu.service.BoardServiceImpl.getList</a></div><div class="ttdeci">List&lt; BoardVO &gt; getList(Criteria cri)</div><div class="ttdoc">게시글 리스트</div><div class="ttdef"><b>Definition:</b> <a href="_board_service_impl_8java_source.html#l00127">BoardServiceImpl.java:127</a></div></div>
+<div class="ttc" id="aclassce_1_1mnu_1_1service_1_1_board_service_impl_html_a6f8a7877507cc43b2519c269123912ff"><div class="ttname"><a href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a6f8a7877507cc43b2519c269123912ff">ce.mnu.service.BoardServiceImpl.write</a></div><div class="ttdeci">void write(BoardVO board)</div><div class="ttdoc">게시글 작성 처리</div><div class="ttdef"><b>Definition:</b> <a href="_board_service_impl_8java_source.html#l00041">BoardServiceImpl.java:41</a></div></div>
+<div class="ttc" id="aclassce_1_1mnu_1_1service_1_1_board_service_impl_html_a80d81a53b09710e85ca9e1ad7e4367c8"><div class="ttname"><a href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a80d81a53b09710e85ca9e1ad7e4367c8">ce.mnu.service.BoardServiceImpl.mapper</a></div><div class="ttdeci">BoardMapper mapper</div><div class="ttdef"><b>Definition:</b> <a href="_board_service_impl_8java_source.html#l00029">BoardServiceImpl.java:29</a></div></div>
+<div class="ttc" id="aclassce_1_1mnu_1_1service_1_1_board_service_impl_html_a965c8e88bab33ad99b7033c02927b682"><div class="ttname"><a href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a965c8e88bab33ad99b7033c02927b682">ce.mnu.service.BoardServiceImpl.attachMapper</a></div><div class="ttdeci">BoardAttachMapper attachMapper</div><div class="ttdef"><b>Definition:</b> <a href="_board_service_impl_8java_source.html#l00032">BoardServiceImpl.java:32</a></div></div>
+<div class="ttc" id="aclassce_1_1mnu_1_1service_1_1_board_service_impl_html_a9cd562fca2ad00564279dcc0187f75f7"><div class="ttname"><a href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a9cd562fca2ad00564279dcc0187f75f7">ce.mnu.service.BoardServiceImpl.getTotal</a></div><div class="ttdeci">int getTotal(Criteria cri)</div><div class="ttdoc">총 게시글 개수</div><div class="ttdef"><b>Definition:</b> <a href="_board_service_impl_8java_source.html#l00142">BoardServiceImpl.java:142</a></div></div>
+<div class="ttc" id="aclassce_1_1mnu_1_1service_1_1_board_service_impl_html_a9d1467a1446c1c92d8f1fcf16c30b2f3"><div class="ttname"><a href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#a9d1467a1446c1c92d8f1fcf16c30b2f3">ce.mnu.service.BoardServiceImpl.modify</a></div><div class="ttdeci">boolean modify(BoardVO board)</div><div class="ttdoc">게시글 수정</div><div class="ttdef"><b>Definition:</b> <a href="_board_service_impl_8java_source.html#l00081">BoardServiceImpl.java:81</a></div></div>
+<div class="ttc" id="aclassce_1_1mnu_1_1service_1_1_board_service_impl_html_adf91c4d2fff95146f249a23999ae1dbe"><div class="ttname"><a href="classce_1_1mnu_1_1service_1_1_board_service_impl.html#adf91c4d2fff95146f249a23999ae1dbe">ce.mnu.service.BoardServiceImpl.getAttachList</a></div><div class="ttdeci">List&lt; BoardAttachVO &gt; getAttachList(Long bno)</div><div class="ttdoc">게시글에 있는 파일 리스트 받기</div><div class="ttdef"><b>Definition:</b> <a href="_board_service_impl_8java_source.html#l00157">BoardServiceImpl.java:157</a></div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper_html"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html">ce.mnu.mapper.BoardAttachMapper</a></div><div class="ttdef"><b>Definition:</b> <a href="_board_attach_mapper_8java_source.html#l00007">BoardAttachMapper.java:7</a></div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper_html_ac9732150dc9d74dd94b3bc7bf4492927"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html#ac9732150dc9d74dd94b3bc7bf4492927">ce.mnu.mapper.BoardAttachMapper.deleteAll</a></div><div class="ttdeci">void deleteAll(Long bno)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper_html_acd74ca9b20c116290589bd3bb4e9c48a"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html#acd74ca9b20c116290589bd3bb4e9c48a">ce.mnu.mapper.BoardAttachMapper.insert</a></div><div class="ttdeci">void insert(BoardAttachVO vo)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper_html_ae06cd619a90f613dcd7998ae5c5c6e19"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html#ae06cd619a90f613dcd7998ae5c5c6e19">ce.mnu.mapper.BoardAttachMapper.findByBno</a></div><div class="ttdeci">List&lt; BoardAttachVO &gt; findByBno(Long bno)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_board_mapper_html"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html">ce.mnu.mapper.BoardMapper</a></div><div class="ttdef"><b>Definition:</b> <a href="_board_mapper_8java_source.html#l00008">BoardMapper.java:8</a></div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_board_mapper_html_a2fc2d34d5f7a5289d08377d928adf006"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a2fc2d34d5f7a5289d08377d928adf006">ce.mnu.mapper.BoardMapper.delete</a></div><div class="ttdeci">int delete(Long bno)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_board_mapper_html_a5310e8782c4164399f2ecefcab98ad63"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a5310e8782c4164399f2ecefcab98ad63">ce.mnu.mapper.BoardMapper.getTotalCount</a></div><div class="ttdeci">int getTotalCount(Criteria cri)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_board_mapper_html_a64daa65e4d3a13568f246356d1973ada"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a64daa65e4d3a13568f246356d1973ada">ce.mnu.mapper.BoardMapper.insertSelectKey</a></div><div class="ttdeci">Integer insertSelectKey(BoardVO board)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_board_mapper_html_a654d2a4d0ba96bee3cbdd54681ed90a6"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a654d2a4d0ba96bee3cbdd54681ed90a6">ce.mnu.mapper.BoardMapper.read</a></div><div class="ttdeci">BoardVO read(Long bno)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_board_mapper_html_a6fe21cf14c9ba2f19924ce1dde943431"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a6fe21cf14c9ba2f19924ce1dde943431">ce.mnu.mapper.BoardMapper.getListWithPaging</a></div><div class="ttdeci">List&lt; BoardVO &gt; getListWithPaging(Criteria cri)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_board_mapper_html_af265e1d19ab37d48aef2b9080c3858f1"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#af265e1d19ab37d48aef2b9080c3858f1">ce.mnu.mapper.BoardMapper.update</a></div><div class="ttdeci">int update(BoardVO board)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1service_1_1_board_service_html"><div class="ttname"><a href="interfacece_1_1mnu_1_1service_1_1_board_service.html">ce.mnu.service.BoardService</a></div><div class="ttdoc">게시판 처리</div><div class="ttdef"><b>Definition:</b> <a href="_board_service_8java_source.html#l00017">BoardService.java:17</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a class="el" href="dir_b3838c18fecfa25c64136d029dfa649f.html">ce</a></li><li class="navelem"><a class="el" href="dir_5c75d1875e2ef9d93f7a3775609f3647.html">mnu</a></li><li class="navelem"><a class="el" href="dir_0205a2b7e99a5a5eb21954edf93e8b3f.html">service</a></li><li class="navelem"><a class="el" href="_board_service_impl_8java.html">BoardServiceImpl.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
+</body>
+</html>

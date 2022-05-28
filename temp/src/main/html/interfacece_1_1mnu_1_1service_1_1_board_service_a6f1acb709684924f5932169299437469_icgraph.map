@@ -1,0 +1,5 @@
+<map id="ce.mnu.service.BoardService.getAttachList" name="ce.mnu.service.BoardService.getAttachList">
+<area shape="rect" id="node1" title=" " alt="" coords="313,35,524,76"/>
+<area shape="rect" id="node2" href="$classce_1_1mnu_1_1controller_1_1_board_controller.html#a95ab069464bbb1618f44eecacdd881b2" title="파일 정보 리스트 받기" alt="" coords="17,5,254,47"/>
+<area shape="rect" id="node3" href="$classce_1_1mnu_1_1controller_1_1_board_controller.html#a3417c4fbfba7d62b92aa5ce09caee73b" title="게시글 삭제" alt="" coords="5,71,265,98"/>
+</map>

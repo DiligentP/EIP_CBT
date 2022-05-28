@@ -1,0 +1,428 @@
+\hypertarget{_upload_controller_8java_source}{}\doxysection{Upload\+Controller.\+java}
+\label{_upload_controller_8java_source}\index{java/ce/mnu/controller/UploadController.java@{java/ce/mnu/controller/UploadController.java}}
+\mbox{\hyperlink{_upload_controller_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00001}00001 \textcolor{keyword}{package }ce.mnu.controller;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00003}00003 \textcolor{keyword}{import} java.io.File;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00004}00004 \textcolor{keyword}{import} java.io.FileOutputStream;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00005}00005 \textcolor{keyword}{import} java.io.IOException;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00006}00006 \textcolor{keyword}{import} java.io.UnsupportedEncodingException;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00007}00007 \textcolor{keyword}{import} java.net.URLDecoder;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00008}00008 \textcolor{keyword}{import} java.net.URLEncoder;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00009}00009 \textcolor{keyword}{import} java.nio.file.Files;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00010}00010 \textcolor{keyword}{import} java.text.SimpleDateFormat;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00011}00011 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00012}00012 \textcolor{keyword}{import} java.util.Date;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00013}00013 \textcolor{keyword}{import} java.util.List;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00014}00014 \textcolor{keyword}{import} java.util.UUID;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00016}00016 \textcolor{keyword}{import} org.springframework.core.io.FileSystemResource;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00017}00017 \textcolor{keyword}{import} org.springframework.core.io.Resource;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00018}00018 \textcolor{keyword}{import} org.springframework.http.HttpHeaders;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00019}00019 \textcolor{keyword}{import} org.springframework.http.HttpStatus;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00020}00020 \textcolor{keyword}{import} org.springframework.http.MediaType;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00021}00021 \textcolor{keyword}{import} org.springframework.http.ResponseEntity;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00022}00022 \textcolor{keyword}{import} org.springframework.stereotype.Controller;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00023}00023 \textcolor{keyword}{import} org.springframework.ui.Model;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00024}00024 \textcolor{keyword}{import} org.springframework.util.FileCopyUtils;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00025}00025 \textcolor{keyword}{import} org.springframework.web.bind.annotation.GetMapping;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00026}00026 \textcolor{keyword}{import} org.springframework.web.bind.annotation.PostMapping;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00027}00027 \textcolor{keyword}{import} org.springframework.web.bind.annotation.RequestHeader;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00028}00028 \textcolor{keyword}{import} org.springframework.web.bind.annotation.ResponseBody;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00029}00029 \textcolor{keyword}{import} org.springframework.web.multipart.MultipartFile;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00030}00030 \textcolor{keyword}{import} ce.mnu.domain.AttachFileDTO;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00032}00032 \textcolor{keyword}{import} lombok.extern.log4j.Log4j;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00033}00033 \textcolor{keyword}{import} net.coobird.thumbnailator.Thumbnailator;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00035}00035 @Controller}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00036}00036 @Log4j}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00037}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller}{00037}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller}{UploadController}} \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00039}00039     @GetMapping(\textcolor{stringliteral}{"{}/uploadForm"{}})}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00040}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a9fe370b918a7671ba04eac287b844cfb}{00040}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a9fe370b918a7671ba04eac287b844cfb}{uploadForm}}() \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00042}00042         log.info(\textcolor{stringliteral}{"{}upload form"{}});}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00043}00043     \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00044}00044     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00045}00045     @PostMapping(\textcolor{stringliteral}{"{}/uploadFormAction"{}})}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00046}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a28c1cb13966f2335b5a499bf9931b2d7}{00046}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a28c1cb13966f2335b5a499bf9931b2d7}{uploadFormPost}}(MultipartFile[] uploadFile, Model model) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00048}00048         String uploadFolder = \textcolor{stringliteral}{"{}C:\(\backslash\)\(\backslash\)upload"{}};}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00050}00050         \textcolor{keywordflow}{for} (MultipartFile multipartFile : uploadFile) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00052}00052             log.info(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}});}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00053}00053             log.info(\textcolor{stringliteral}{"{}Upload File Name: "{}} + multipartFile.getOriginalFilename());}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00054}00054             log.info(\textcolor{stringliteral}{"{}Upload File Size: "{}} + multipartFile.getSize());}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00056}00056             File saveFile = \textcolor{keyword}{new} File(uploadFolder, multipartFile.getOriginalFilename());}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00058}00058             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00059}00059                 multipartFile.transferTo(saveFile);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00060}00060             \} \textcolor{keywordflow}{catch} (Exception e) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00061}00061                 log.error(e.getMessage());}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00062}00062             \} \textcolor{comment}{// end catch}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00063}00063         \} \textcolor{comment}{// end for}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00065}00065     \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00066}00066     @GetMapping(\textcolor{stringliteral}{"{}/uploadAjax"{}})}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00067}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a55ec9b2cb67128e9e9eb67308457e68f}{00067}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a55ec9b2cb67128e9e9eb67308457e68f}{uploadAjax}}() \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00069}00069         log.info(\textcolor{stringliteral}{"{}upload ajax"{}});}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00070}00070     \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00071}00071 \textcolor{comment}{//  @PostMapping("{}/uploadAjaxAction"{})}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00072}00072 \textcolor{comment}{//  public void uploadAjaxPost(MultipartFile[] uploadFile) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00073}00073 \textcolor{comment}{//       log.info("{}update ajax post........."{});}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00074}00074 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00075}00075 \textcolor{comment}{//       String uploadFolder = "{}C:\(\backslash\)\(\backslash\)upload"{};}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00076}00076 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00077}00077 \textcolor{comment}{//       for (MultipartFile multipartFile : uploadFile) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00078}00078 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00079}00079 \textcolor{comment}{//       log.info("{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{});}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00080}00080 \textcolor{comment}{//       log.info("{}Upload File Name: "{} + multipartFile.getOriginalFilename());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00081}00081 \textcolor{comment}{//       log.info("{}Upload File Size: "{} + multipartFile.getSize());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00082}00082 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00083}00083 \textcolor{comment}{//       String uploadFileName = multipartFile.getOriginalFilename();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00084}00084 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00085}00085 \textcolor{comment}{//       // IE has file path}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00086}00086 \textcolor{comment}{//       uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("{}\(\backslash\)\(\backslash\)"{}) + 1);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00087}00087 \textcolor{comment}{//       log.info("{}only file name: "{} + uploadFileName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00088}00088 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00089}00089 \textcolor{comment}{//       File saveFile = new File(uploadFolder, uploadFileName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00090}00090 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00091}00091 \textcolor{comment}{//       try \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00092}00092 \textcolor{comment}{//           multipartFile.transferTo(saveFile);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00093}00093 \textcolor{comment}{//       \} catch (Exception e) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00094}00094 \textcolor{comment}{//           log.error(e.getMessage());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00095}00095 \textcolor{comment}{//       \} // end catch}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00096}00096 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00097}00097 \textcolor{comment}{//       \} // end for}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00098}00098 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00099}00099 \textcolor{comment}{//  \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00100}00100     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00101}00101 \textcolor{comment}{//  @PostMapping("{}/uploadAjaxAction"{})}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00102}00102 \textcolor{comment}{//  public void uploadAjaxPost(MultipartFile[] uploadFile) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00103}00103 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00104}00104 \textcolor{comment}{//       String uploadFolder = "{}C:\(\backslash\)\(\backslash\)upload"{};}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00105}00105 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00106}00106 \textcolor{comment}{//       // make folder -\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00107}00107 \textcolor{comment}{//       File uploadPath = new File(uploadFolder, getFolder());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00108}00108 \textcolor{comment}{//       log.info("{}upload path: "{} + uploadPath);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00109}00109 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00110}00110 \textcolor{comment}{//       if (uploadPath.exists() == false) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00111}00111 \textcolor{comment}{//           uploadPath.mkdirs();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00112}00112 \textcolor{comment}{//       \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00113}00113 \textcolor{comment}{//       // make yyyy/MM/dd folder}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00114}00114 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00115}00115 \textcolor{comment}{//       for (MultipartFile multipartFile : uploadFile) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00116}00116 \textcolor{comment}{//           log.info("{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{});}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00117}00117 \textcolor{comment}{//           log.info("{}Upload File Name: "{} + multipartFile.getOriginalFilename());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00118}00118 \textcolor{comment}{//           log.info("{}Upload File Size: "{} + multipartFile.getSize());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00119}00119 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00120}00120 \textcolor{comment}{//           String uploadFileName = multipartFile.getOriginalFilename();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00121}00121 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00122}00122 \textcolor{comment}{//           // IE has file path}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00123}00123 \textcolor{comment}{//           uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("{}\(\backslash\)\(\backslash\)"{}) +1);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00124}00124 \textcolor{comment}{//           log.info("{}only file name: "{} + uploadFileName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00125}00125 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00126}00126 \textcolor{comment}{//           // File saveFile = new File(uploadFolder, uploadFileName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00127}00127 \textcolor{comment}{//           File saveFile = new File(uploadPath, uploadFileName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00128}00128 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00129}00129 \textcolor{comment}{//           try \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00130}00130 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00131}00131 \textcolor{comment}{//           multipartFile.transferTo(saveFile);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00132}00132 \textcolor{comment}{//           \} catch (Exception e) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00133}00133 \textcolor{comment}{//               log.error(e.getMessage());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00134}00134 \textcolor{comment}{//           \} // end catch}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00135}00135 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00136}00136 \textcolor{comment}{//       \} // end for}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00137}00137 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00138}00138 \textcolor{comment}{//  \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00139}00139     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00140}00140 \textcolor{comment}{//   @PostMapping("{}/uploadAjaxAction"{})}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00141}00141 \textcolor{comment}{//   public void uploadAjaxPost(MultipartFile[] uploadFile) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00142}00142 \textcolor{comment}{//       String uploadFolder = "{}C:\(\backslash\)\(\backslash\)upload"{};}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00143}00143 \textcolor{comment}{//       // make folder -\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00144}00144 \textcolor{comment}{//       File uploadPath = new File(uploadFolder, getFolder());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00145}00145 \textcolor{comment}{//       log.info("{}upload path: "{} + uploadPath);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00146}00146 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00147}00147 \textcolor{comment}{//       if (uploadPath.exists() == false) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00148}00148 \textcolor{comment}{//           uploadPath.mkdirs();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00149}00149 \textcolor{comment}{//       \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00150}00150 \textcolor{comment}{//       // make yyyy/MM/dd folder}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00151}00151 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00152}00152 \textcolor{comment}{//       for (MultipartFile multipartFile : uploadFile) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00153}00153 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00154}00154 \textcolor{comment}{//           log.info("{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{});}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00155}00155 \textcolor{comment}{//           log.info("{}Upload File Name: "{} + multipartFile.getOriginalFilename());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00156}00156 \textcolor{comment}{//           log.info("{}Upload File Size: "{} + multipartFile.getSize());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00157}00157 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00158}00158 \textcolor{comment}{//           String uploadFileName = multipartFile.getOriginalFilename();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00159}00159 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00160}00160 \textcolor{comment}{//           // IE has file path}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00161}00161 \textcolor{comment}{//           uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("{}\(\backslash\)\(\backslash\)"{}) + 1);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00162}00162 \textcolor{comment}{//           log.info("{}only file name: "{} + uploadFileName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00163}00163 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00164}00164 \textcolor{comment}{//           UUID uuid = UUID.randomUUID();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00165}00165 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00166}00166 \textcolor{comment}{//           uploadFileName = uuid.toString() + "{}\_"{} + uploadFileName;}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00167}00167 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00168}00168 \textcolor{comment}{//           File saveFile = new File(uploadPath, uploadFileName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00169}00169 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00170}00170 \textcolor{comment}{//           try \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00171}00171 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00172}00172 \textcolor{comment}{//           multipartFile.transferTo(saveFile);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00173}00173 \textcolor{comment}{//           \} catch (Exception e) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00174}00174 \textcolor{comment}{//               log.error(e.getMessage());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00175}00175 \textcolor{comment}{//           \} // end catch}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00176}00176 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00177}00177 \textcolor{comment}{//       \} // end for}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00178}00178 \textcolor{comment}{//  \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00179}00179     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00180}00180 \textcolor{comment}{//  @PostMapping("{}/uploadAjaxAction"{})}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00181}00181 \textcolor{comment}{//  public void uploadAjaxPost(MultipartFile[] uploadFile) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00182}00182 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00183}00183 \textcolor{comment}{//       String uploadFolder = "{}C:\(\backslash\)\(\backslash\)upload"{};}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00184}00184 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00185}00185 \textcolor{comment}{//       // make folder -\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00186}00186 \textcolor{comment}{//       File uploadPath = new File(uploadFolder, getFolder());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00187}00187 \textcolor{comment}{//       log.info("{}upload path: "{} + uploadPath);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00188}00188 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00189}00189 \textcolor{comment}{//       if (uploadPath.exists() == false) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00190}00190 \textcolor{comment}{//           uploadPath.mkdirs();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00191}00191 \textcolor{comment}{//       \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00192}00192 \textcolor{comment}{//       // make yyyy/MM/dd folder}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00193}00193 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00194}00194 \textcolor{comment}{//       for (MultipartFile multipartFile : uploadFile) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00195}00195 \textcolor{comment}{//      }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00196}00196 \textcolor{comment}{//           log.info("{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{});}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00197}00197 \textcolor{comment}{//           log.info("{}Upload File Name: "{} + multipartFile.getOriginalFilename());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00198}00198 \textcolor{comment}{//           log.info("{}Upload File Size: "{} + multipartFile.getSize());}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00199}00199 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00200}00200 \textcolor{comment}{//           String uploadFileName = multipartFile.getOriginalFilename();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00201}00201 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00202}00202 \textcolor{comment}{//           // IE has file path}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00203}00203 \textcolor{comment}{//           uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("{}\(\backslash\)\(\backslash\)"{}) + 1);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00204}00204 \textcolor{comment}{//           log.info("{}only file name: "{} + uploadFileName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00205}00205 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00206}00206 \textcolor{comment}{//           UUID uuid = UUID.randomUUID();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00207}00207 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00208}00208 \textcolor{comment}{//           uploadFileName = uuid.toString() + "{}\_"{} + uploadFileName;}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00209}00209 \textcolor{comment}{//          }}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00210}00210 \textcolor{comment}{//           try \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00211}00211 \textcolor{comment}{//               File saveFile = new File(uploadPath, uploadFileName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00212}00212 \textcolor{comment}{//               multipartFile.transferTo(saveFile);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00213}00213 \textcolor{comment}{//               // check image type file}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00214}00214 \textcolor{comment}{//               if (checkImageType(saveFile)) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00215}00215 \textcolor{comment}{//                   FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "{}s\_"{} + uploadFileName));}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00216}00216 \textcolor{comment}{//                   Thumbnailator.createThumbnail(multipartFile.getInputStream(), thumbnail, 100,100);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00217}00217 \textcolor{comment}{//                   thumbnail.close();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00218}00218 \textcolor{comment}{//               \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00219}00219 \textcolor{comment}{//          \} catch (Exception e) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00220}00220 \textcolor{comment}{//              e.printStackTrace();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00221}00221 \textcolor{comment}{//          \} //end catch}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00222}00222 \textcolor{comment}{//      \} // end for}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00223}00223 \textcolor{comment}{//  \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00224}00224     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00225}00225     @PostMapping(value = \textcolor{stringliteral}{"{}/uploadAjaxAction"{}}, produces = MediaType.APPLICATION\_JSON\_UTF8\_VALUE)}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00226}00226     @ResponseBody}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00227}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a15edea3d14cf438ca00bf335f4ca8c23}{00227}}     \textcolor{keyword}{public} ResponseEntity<List<AttachFileDTO>> \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a15edea3d14cf438ca00bf335f4ca8c23}{uploadAjaxPost}}(MultipartFile[] uploadFile) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00228}00228         List<AttachFileDTO> list = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00229}00229         String uploadFolder = \textcolor{stringliteral}{"{}C:\(\backslash\)\(\backslash\)upload"{}};}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00230}00230 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00231}00231         String uploadFolderPath = \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a7b15dbc54c534e60535e2e071bd1dd54}{getFolder}}();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00232}00232         \textcolor{comment}{// make folder -\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00233}00233         File uploadPath = \textcolor{keyword}{new} File(uploadFolder, uploadFolderPath);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00234}00234 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00235}00235         \textcolor{keywordflow}{if} (uploadPath.exists() == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00236}00236             uploadPath.mkdirs();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00237}00237         \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00238}00238         \textcolor{comment}{// make yyyy/MM/dd folder}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00239}00239         \textcolor{keywordflow}{for} (MultipartFile multipartFile : uploadFile) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00240}00240             \mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_attach_file_d_t_o}{AttachFileDTO}} attachDTO = \textcolor{keyword}{new} \mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_attach_file_d_t_o}{AttachFileDTO}}();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00241}00241             String uploadFileName = multipartFile.getOriginalFilename();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00242}00242             \textcolor{comment}{// IE has file path}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00243}00243             uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}}) + 1);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00244}00244             log.info(\textcolor{stringliteral}{"{}only file name: "{}} + uploadFileName);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00245}00245             attachDTO.setFileName(uploadFileName);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00246}00246             UUID uuid = UUID.randomUUID();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00247}00247             uploadFileName = uuid.toString() + \textcolor{stringliteral}{"{}\_"{}} + uploadFileName;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00248}00248             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00249}00249                 File saveFile = \textcolor{keyword}{new} File(uploadPath, uploadFileName);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00250}00250                 multipartFile.transferTo(saveFile);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00251}00251                 attachDTO.setUuid(uuid.toString());}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00252}00252                 attachDTO.setUploadPath(uploadFolderPath);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00253}00253                 \textcolor{comment}{// check image type file}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00254}00254                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a9cb7a791bde0dabc570e860f4a24879b}{checkImageType}}(saveFile)) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00255}00255                     attachDTO.setImage(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00256}00256                     FileOutputStream thumbnail = \textcolor{keyword}{new} FileOutputStream(\textcolor{keyword}{new} File(uploadPath, \textcolor{stringliteral}{"{}s\_"{}} + uploadFileName));}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00257}00257                     Thumbnailator.createThumbnail(multipartFile.getInputStream(), thumbnail, 100, 100);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00258}00258                     thumbnail.close();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00259}00259                 \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00260}00260                 \textcolor{comment}{// add to List}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00261}00261                 list.add(attachDTO);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00262}00262             \} \textcolor{keywordflow}{catch} (Exception e) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00263}00263                 e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00264}00264             \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00265}00265         \} \textcolor{comment}{// end for}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00266}00266         \textcolor{keywordflow}{return} \textcolor{keyword}{new} ResponseEntity<>(list, HttpStatus.OK);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00267}00267     \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00268}00268     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00269}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a7b15dbc54c534e60535e2e071bd1dd54}{00269}}     \textcolor{keyword}{private} String \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a7b15dbc54c534e60535e2e071bd1dd54}{getFolder}}() \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00270}00270         SimpleDateFormat sdf = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"{}yyyy-\/MM-\/dd"{}});}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00271}00271         Date date = \textcolor{keyword}{new} Date();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00272}00272         String str = sdf.format(date);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00273}00273         \textcolor{keywordflow}{return} str.replace(\textcolor{stringliteral}{"{}-\/"{}}, File.separator);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00274}00274     \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00275}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a9cb7a791bde0dabc570e860f4a24879b}{00275}}     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a9cb7a791bde0dabc570e860f4a24879b}{checkImageType}}(File file) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00276}00276 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00277}00277         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00278}00278             String contentType = Files.probeContentType(file.toPath());}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00279}00279 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00280}00280             \textcolor{keywordflow}{return} contentType.startsWith(\textcolor{stringliteral}{"{}image"{}});}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00281}00281 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00282}00282         \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00283}00283             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00284}00284             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00285}00285         \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00286}00286 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00287}00287         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00288}00288     \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00289}00289     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00290}00290     @GetMapping(\textcolor{stringliteral}{"{}/display"{}}) }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00291}00291     @ResponseBody}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00292}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a5da3eba4d46132c41eeef0d8b0ebbf6f}{00292}}     \textcolor{keyword}{public} ResponseEntity<byte[]> \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a5da3eba4d46132c41eeef0d8b0ebbf6f}{getFile}}(String fileName) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00293}00293 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00294}00294         log.info(\textcolor{stringliteral}{"{}fileName: "{}} + fileName);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00295}00295 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00296}00296         File file = \textcolor{keyword}{new} File(\textcolor{stringliteral}{"{}c:\(\backslash\)\(\backslash\)upload\(\backslash\)\(\backslash\)"{}} + fileName);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00297}00297 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00298}00298         log.info(\textcolor{stringliteral}{"{}file: "{}} + file);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00299}00299 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00300}00300         ResponseEntity<byte[]> result = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00301}00301 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00302}00302         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00303}00303             HttpHeaders header = \textcolor{keyword}{new} HttpHeaders();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00304}00304 }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00305}00305             header.add(\textcolor{stringliteral}{"{}Content-\/Type"{}}, Files.probeContentType(file.toPath()));}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00306}00306             result = \textcolor{keyword}{new} ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00307}00307         \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00308}00308             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00309}00309             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00310}00310         \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00311}00311         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00312}00312     \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00313}00313     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00314}00314 \textcolor{comment}{//  @GetMapping(value = "{}/download"{}, produces =MediaType.APPLICATION\_OCTET\_STREAM\_VALUE)}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00315}00315 \textcolor{comment}{//  @ResponseBody}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00316}00316 \textcolor{comment}{//  public ResponseEntity<Resource> downloadFile(String fileName) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00317}00317 \textcolor{comment}{//       log.info("{}download file: "{} + fileName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00318}00318 \textcolor{comment}{//       Resource resource = new FileSystemResource("{}c:\(\backslash\)\(\backslash\)upload\(\backslash\)\(\backslash\)"{} + fileName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00319}00319 \textcolor{comment}{//       log.info("{}resource: "{} + resource);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00320}00320 \textcolor{comment}{//       String resourceName = resource.getFilename();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00321}00321 \textcolor{comment}{//       HttpHeaders headers = new HttpHeaders();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00322}00322 \textcolor{comment}{//       try \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00323}00323 \textcolor{comment}{//           headers.add("{}Content-\/Disposition"{}, "{}attachment; filename="{} + new String(resourceName.getBytes("{}UTF-\/8"{}),"{}ISO-\/8859-\/1"{}));}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00324}00324 \textcolor{comment}{//       \} catch (UnsupportedEncodingException e) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00325}00325 \textcolor{comment}{//           e.printStackTrace();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00326}00326 \textcolor{comment}{//       \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00327}00327 \textcolor{comment}{//       return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00328}00328 \textcolor{comment}{//  \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00329}00329     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00330}00330 \textcolor{comment}{//  @GetMapping(value="{}/download"{}, produces=MediaType.APPLICATION\_OCTET\_STREAM\_VALUE)}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00331}00331 \textcolor{comment}{//  @ResponseBody}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00332}00332 \textcolor{comment}{//  public ResponseEntity<Resource> downloadFile(@RequestHeader("{}User-\/Agent"{})String userAgent, String fileName)\{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00333}00333 \textcolor{comment}{//       Resource resource = new FileSystemResource("{}c:\(\backslash\)\(\backslash\)upload\(\backslash\)\(\backslash\)"{} + fileName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00334}00334 \textcolor{comment}{//       if(resource.exists() == false) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00335}00335 \textcolor{comment}{//           return new ResponseEntity<>(HttpStatus.NOT\_FOUND);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00336}00336 \textcolor{comment}{//       \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00337}00337 \textcolor{comment}{//       String resourceName = resource.getFilename();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00338}00338 \textcolor{comment}{//       HttpHeaders headers = new HttpHeaders();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00339}00339 \textcolor{comment}{//       try \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00340}00340 \textcolor{comment}{//           boolean checkIE = (userAgent.indexOf("{}MSIE"{}) > -\/1 || userAgent.indexOf("{}Trident"{}) > -\/1);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00341}00341 \textcolor{comment}{//           String downloadName = null;}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00342}00342 \textcolor{comment}{//           if (checkIE) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00343}00343 \textcolor{comment}{//               downloadName = URLEncoder.encode(resourceName, "{}UTF8"{}).replaceAll("{}\(\backslash\)\(\backslash\)+"{}, "{}"{});}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00344}00344 \textcolor{comment}{//           \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00345}00345 \textcolor{comment}{//           else \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00346}00346 \textcolor{comment}{//               downloadName = new String(resourceName.getBytes("{}UTF-\/8"{}), "{}ISO-\/8859-\/1"{});}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00347}00347 \textcolor{comment}{//           \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00348}00348 \textcolor{comment}{//           headers.add("{}Content-\/Disposition"{}, "{}attachment; filename="{} + downloadName);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00349}00349 \textcolor{comment}{//       \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00350}00350 \textcolor{comment}{//       catch (UnsupportedEncodingException e) \{}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00351}00351 \textcolor{comment}{//           e.printStackTrace();}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00352}00352 \textcolor{comment}{//       \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00353}00353 \textcolor{comment}{//       return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00354}00354 \textcolor{comment}{//  \}}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00355}00355     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00356}00356      @GetMapping(value=\textcolor{stringliteral}{"{}/download"{}}, produces=MediaType.APPLICATION\_OCTET\_STREAM\_VALUE)}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00357}00357      @ResponseBody}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00358}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_ac3f1f861629255d609401ec74a917b33}{00358}}      \textcolor{keyword}{public} ResponseEntity<Resource> \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_ac3f1f861629255d609401ec74a917b33}{downloadFile}}(@RequestHeader(\textcolor{stringliteral}{"{}User-\/Agent"{}})String userAgent, String fileName) }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00359}00359      \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00360}00360          Resource resource = \textcolor{keyword}{new} FileSystemResource(\textcolor{stringliteral}{"{}c:\(\backslash\)\(\backslash\)upload\(\backslash\)\(\backslash\)"{}} + fileName);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00361}00361          \textcolor{keywordflow}{if}(resource.exists() == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00362}00362              \textcolor{keywordflow}{return} \textcolor{keyword}{new} ResponseEntity<>(HttpStatus.NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00363}00363          \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00364}00364          String resourceName = resource.getFilename();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00365}00365          \textcolor{comment}{//remove UUID}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00366}00366          String resourceOriginalName = resourceName.substring(resourceName.indexOf(\textcolor{stringliteral}{"{}\_"{}})+1);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00367}00367          HttpHeaders headers = \textcolor{keyword}{new} HttpHeaders();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00368}00368          \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00369}00369              \textcolor{keywordtype}{boolean} checkIE = (userAgent.indexOf(\textcolor{stringliteral}{"{}MSIE"{}}) > -\/1 || userAgent.indexOf(\textcolor{stringliteral}{"{}Trident"{}}) > -\/1);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00370}00370              String downloadName = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00371}00371              \textcolor{keywordflow}{if}(checkIE) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00372}00372                  downloadName = URLEncoder.encode(resourceOriginalName, \textcolor{stringliteral}{"{}UTF8"{}}).replaceAll(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)+"{}}, \textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00373}00373              \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00374}00374              \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00375}00375                  downloadName = \textcolor{keyword}{new} String(resourceOriginalName.getBytes(\textcolor{stringliteral}{"{}UTF-\/8"{}}),\textcolor{stringliteral}{"{}ISO-\/8859-\/1"{}});}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00376}00376              \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00377}00377              headers.add(\textcolor{stringliteral}{"{}Content-\/Disposition"{}}, \textcolor{stringliteral}{"{}attachment; filename="{}}+downloadName);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00378}00378          \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00379}00379          \textcolor{keywordflow}{catch} (UnsupportedEncodingException e) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00380}00380              e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00381}00381          \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00382}00382          \textcolor{keywordflow}{return} \textcolor{keyword}{new} ResponseEntity<Resource>(resource, headers,HttpStatus.OK);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00383}00383     \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00384}00384     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00385}00385     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00386}00386     @PostMapping(\textcolor{stringliteral}{"{}/deleteFile"{}})}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00387}00387     @ResponseBody}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00388}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a4cadc819a898b87656db5f543d2db586}{00388}}     \textcolor{keyword}{public} ResponseEntity<String> \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_upload_controller_a4cadc819a898b87656db5f543d2db586}{deleteFile}}(String fileName, String type) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00389}00389             log.info(\textcolor{stringliteral}{"{}deleteFile: "{}} + fileName);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00390}00390             File file;}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00391}00391             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00392}00392                 file = \textcolor{keyword}{new} File(\textcolor{stringliteral}{"{}c:\(\backslash\)\(\backslash\)upload\(\backslash\)\(\backslash\)"{}} + URLDecoder.decode(fileName, \textcolor{stringliteral}{"{}UTF-\/8"{}}));}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00393}00393                 file.delete();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00394}00394                 \textcolor{keywordflow}{if} (type.equals(\textcolor{stringliteral}{"{}image"{}})) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00395}00395                     String largeFileName = file.getAbsolutePath().replace(\textcolor{stringliteral}{"{}s\_"{}}, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00396}00396                     log.info(\textcolor{stringliteral}{"{}largeFileName: "{}} + largeFileName);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00397}00397                     file = \textcolor{keyword}{new} File(largeFileName);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00398}00398                     file.delete();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00399}00399                 \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00400}00400             \} \textcolor{keywordflow}{catch} (UnsupportedEncodingException e) \{}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00401}00401                 e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00402}00402                 \textcolor{keywordflow}{return} \textcolor{keyword}{new} ResponseEntity<>(HttpStatus.NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00403}00403             \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00404}00404             \textcolor{keywordflow}{return} \textcolor{keyword}{new} ResponseEntity<String>(\textcolor{stringliteral}{"{}deleted"{}}, HttpStatus.OK);}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00405}00405     \}}
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00406}00406     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00407}00407     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00408}00408     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00409}00409     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00410}00410     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00411}00411     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00412}00412     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00413}00413     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00414}00414     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00415}00415     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00416}00416     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00417}00417     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00418}00418     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00419}00419     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00420}00420     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00421}00421     }
+\DoxyCodeLine{\Hypertarget{_upload_controller_8java_source_l00422}00422 \}}
+
+\end{DoxyCode}

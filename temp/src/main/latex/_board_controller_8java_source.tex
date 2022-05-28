@@ -1,0 +1,150 @@
+\hypertarget{_board_controller_8java_source}{}\doxysection{Board\+Controller.\+java}
+\label{_board_controller_8java_source}\index{java/ce/mnu/controller/BoardController.java@{java/ce/mnu/controller/BoardController.java}}
+\mbox{\hyperlink{_board_controller_8java}{이 파일의 문서화 페이지로 가기}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00001}\mbox{\hyperlink{namespacece_1_1mnu_1_1controller}{00001}} \textcolor{keyword}{package }ce.mnu.controller;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00003}00003 \textcolor{keyword}{import} java.nio.file.Files;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00004}00004 \textcolor{keyword}{import} java.nio.file.Path;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00005}00005 \textcolor{keyword}{import} java.nio.file.Paths;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00006}00006 \textcolor{keyword}{import} java.util.List;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00008}00008 \textcolor{keyword}{import} org.springframework.http.HttpStatus;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00009}00009 \textcolor{keyword}{import} org.springframework.http.MediaType;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00010}00010 \textcolor{keyword}{import} org.springframework.http.ResponseEntity;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00011}00011 \textcolor{comment}{//import org.springframework.security.access.prepost.PreAuthorize;}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00012}00012 \textcolor{keyword}{import} org.springframework.stereotype.Controller;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00013}00013 \textcolor{keyword}{import} org.springframework.ui.Model;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00014}00014 \textcolor{keyword}{import} org.springframework.web.bind.annotation.GetMapping;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00015}00015 \textcolor{keyword}{import} org.springframework.web.bind.annotation.ModelAttribute;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00016}00016 \textcolor{keyword}{import} org.springframework.web.bind.annotation.PostMapping;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00017}00017 \textcolor{keyword}{import} org.springframework.web.bind.annotation.RequestMapping;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00018}00018 \textcolor{keyword}{import} org.springframework.web.bind.annotation.RequestParam;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00019}00019 \textcolor{keyword}{import} org.springframework.web.bind.annotation.ResponseBody;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00020}00020 \textcolor{keyword}{import} org.springframework.web.servlet.mvc.support.RedirectAttributes;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00022}00022 \textcolor{keyword}{import} lombok.AllArgsConstructor;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00023}00023 \textcolor{keyword}{import} lombok.extern.log4j.Log4j;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00025}00025 \textcolor{keyword}{import} ce.mnu.service.*;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00026}00026 \textcolor{keyword}{import} ce.mnu.domain.*;}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00038}00038 @Controller}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00039}00039 @Log4j}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00040}00040 @AllArgsConstructor}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00041}00041 @RequestMapping(\textcolor{stringliteral}{"{}/board/*"{}})}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00042}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller}{00042}} public class \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller}{BoardController}} \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00043}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller_a9ecdf2d86ea04975e7425bcf3e64ad11}{00043}}     \textcolor{keyword}{private} \mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_board_service}{BoardService}} \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller_a9ecdf2d86ea04975e7425bcf3e64ad11}{service}};}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00044}00044     }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00052}00052     @GetMapping(\textcolor{stringliteral}{"{}/list"{}})}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00053}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller_abe813345205c285fdc906233a21a2a62}{00053}}     public \textcolor{keywordtype}{void} list(\mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_criteria}{Criteria}} cri, Model model) \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00055}00055         log.info(\textcolor{stringliteral}{"{}list: "{}} + cri);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00056}00056         model.addAttribute(\textcolor{stringliteral}{"{}list"{}}, service.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_board_service_a97d9f691b52106e907430ab864bd814e}{getList}}(cri));}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00057}00057         \textcolor{comment}{// model.addAttribute("{}pageMaker"{}, new PageDTO(cri, 123));}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00059}00059         \textcolor{keywordtype}{int} total = service.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_board_service_acf40ee96c712ba7afdd0ca74bffca0f3}{getTotal}}(cri);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00061}00061         log.info(\textcolor{stringliteral}{"{}total: "{}} + total);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00063}00063         model.addAttribute(\textcolor{stringliteral}{"{}pageMaker"{}}, \textcolor{keyword}{new} \mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_page_d_t_o}{PageDTO}}(cri, total));}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00065}00065     \}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00066}00066     }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00071}00071     @GetMapping(\textcolor{stringliteral}{"{}/write"{}})}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00072}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller_a5f1a1b1aaba0a2d5fa4d70f1d6f33f1b}{00072}}     public \textcolor{keywordtype}{void} write() \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00074}00074     \}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00080}00080     @PostMapping(\textcolor{stringliteral}{"{}/write"{}})}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00082}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller_afbd02f1ef079dc990969892742883f8f}{00082}}     public String write(\mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_board_v_o}{BoardVO}} board, RedirectAttributes rttr) \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00083}00083         log.info(\textcolor{stringliteral}{"{}=========================="{}});}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00084}00084         log.info(\textcolor{stringliteral}{"{}register: "{}} + board);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00086}00086         \textcolor{keywordflow}{if} (board.getAttachList() != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00087}00087             board.getAttachList().forEach(attach -\/> log.info(attach));}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00089}00089         log.info(\textcolor{stringliteral}{"{}=========================="{}});}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00091}00091         service.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_board_service_a186ee79bda8f1c7fb543086cc16697ae}{write}}(board);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00093}00093         rttr.addFlashAttribute(\textcolor{stringliteral}{"{}result"{}}, board.getBno());}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00095}00095         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}redirect:/board/list"{}};}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00096}00096     \}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00102}00102     @GetMapping(\{ \textcolor{stringliteral}{"{}/get"{}}, \textcolor{stringliteral}{"{}/modify"{}} \})}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00103}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller_a684d7b8083131cf7fdfad09923ba7538}{00103}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \textcolor{keyword}{get}(@RequestParam(\textcolor{stringliteral}{"{}bno"{}}) Long bno, @ModelAttribute(\textcolor{stringliteral}{"{}cri"{}}) \mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_criteria}{Criteria}} cri, Model model) \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00105}00105         log.info(\textcolor{stringliteral}{"{}/get or modify"{}});}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00106}00106         model.addAttribute(\textcolor{stringliteral}{"{}board"{}}, service.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_board_service_a33601c1aa95f798cabc4822690be7949}{get}}(bno));}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00107}00107     \}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00118}00118     @PostMapping(\textcolor{stringliteral}{"{}/modify"{}})}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00119}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller_a9c2a40eb22da624365fe4b6b0a035366}{00119}}     public String modify(\mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_board_v_o}{BoardVO}} board, \mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_criteria}{Criteria}} cri, RedirectAttributes rttr) \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00120}00120         log.info(\textcolor{stringliteral}{"{}modify:"{}} + board);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00122}00122         \textcolor{keywordflow}{if} (service.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_board_service_a386bc0e4519fb9e60147c6df529a0e89}{modify}}(board)) \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00123}00123             rttr.addFlashAttribute(\textcolor{stringliteral}{"{}result"{}}, \textcolor{stringliteral}{"{}success"{}});}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00124}00124         \}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00126}00126         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}redirect:/board/list"{}} + cri.getListLink();}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00127}00127     \}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00128}00128     }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00139}00139     @PostMapping(\textcolor{stringliteral}{"{}/remove"{}})}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00140}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller_a3417c4fbfba7d62b92aa5ce09caee73b}{00140}}     public String remove(@RequestParam("{}bno"{}) Long bno, \mbox{\hyperlink{classce_1_1mnu_1_1domain_1_1_criteria}{Criteria}} cri, RedirectAttributes rttr, String writer) \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00141}00141         log.info(\textcolor{stringliteral}{"{}remove..."{}} + bno);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00142}00142 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00143}00143         List<BoardAttachVO> attachList = service.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_board_service_a6f1acb709684924f5932169299437469}{getAttachList}}(bno);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00145}00145         \textcolor{keywordflow}{if} (service.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_board_service_aa9fb73c5244c4d81b28915944b794d2f}{remove}}(bno)) \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00146}00146             \textcolor{comment}{// delete Attach Files}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00147}00147             deleteFiles(attachList);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00149}00149             rttr.addFlashAttribute(\textcolor{stringliteral}{"{}result"{}}, \textcolor{stringliteral}{"{}success"{}});}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00150}00150         \}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00151}00151         }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00152}00152         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}redirect:/board/list"{}} + cri.getListLink();}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00153}00153     \}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00161}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller_a85f64d28ab6ac813bdc2f5e9d0747975}{00161}}     \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller_a85f64d28ab6ac813bdc2f5e9d0747975}{deleteFiles}}(List<BoardAttachVO> attachList) \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00162}00162         \textcolor{keywordflow}{if} (attachList == \textcolor{keyword}{null} || attachList.size() == 0) \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00163}00163             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00164}00164         \}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00166}00166         log.info(\textcolor{stringliteral}{"{}delete attach files..................."{}});}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00167}00167         log.info(attachList);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00168}00168 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00169}00169         attachList.forEach(attach -\/> \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00170}00170             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00171}00171                 Path file = Paths.get(}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00172}00172                         \textcolor{stringliteral}{"{}C:\(\backslash\)\(\backslash\)upload\(\backslash\)\(\backslash\)"{}} + attach.getUploadPath() + \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}} + attach.getUuid() + \textcolor{stringliteral}{"{}\_"{}} + attach.getFileName());}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00173}00173 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00174}00174                 Files.deleteIfExists(file);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00175}00175 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00176}00176                 if (Files.probeContentType(file).startsWith(\textcolor{stringliteral}{"{}image"{}})) \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00177}00177 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00178}00178                     Path thumbNail = Paths.get(\textcolor{stringliteral}{"{}C:\(\backslash\)\(\backslash\)upload\(\backslash\)\(\backslash\)"{}} + attach.getUploadPath() + \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)s\_"{}} + attach.getUuid() + \textcolor{stringliteral}{"{}\_"{}}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00179}00179                             + attach.getFileName());}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00180}00180 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00181}00181                     Files.delete(thumbNail);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00182}00182                 \}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00183}00183 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00184}00184             \} \textcolor{keywordflow}{catch} (Exception e) \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00185}00185                 log.error(\textcolor{stringliteral}{"{}delete file error"{}} + e.getMessage());}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00186}00186             \} \textcolor{comment}{// end catch}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00187}00187         \});\textcolor{comment}{// end foreachd}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00188}00188     \}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00189}00189 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00197}00197     @GetMapping(value = \textcolor{stringliteral}{"{}/getAttachList"{}}, produces = MediaType.APPLICATION\_JSON\_UTF8\_VALUE)}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00198}00198     @ResponseBody}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00199}\mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller_a95ab069464bbb1618f44eecacdd881b2}{00199}}     \textcolor{keyword}{public} ResponseEntity<List<BoardAttachVO>> \mbox{\hyperlink{classce_1_1mnu_1_1controller_1_1_board_controller_a95ab069464bbb1618f44eecacdd881b2}{getAttachList}}(Long bno) \{}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00200}00200 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00201}00201         log.info(\textcolor{stringliteral}{"{}getAttachList "{}} + bno);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00202}00202 }
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00203}00203         \textcolor{keywordflow}{return} \textcolor{keyword}{new} ResponseEntity<>(service.\mbox{\hyperlink{interfacece_1_1mnu_1_1service_1_1_board_service_a6f1acb709684924f5932169299437469}{getAttachList}}(bno), HttpStatus.OK);}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00204}00204     \}}
+\DoxyCodeLine{\Hypertarget{_board_controller_8java_source_l00205}00205 \}}
+
+\end{DoxyCode}

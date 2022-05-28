@@ -1,0 +1,6 @@
+<map id="ce.mnu.service.ReplyServiceImpl" name="ce.mnu.service.ReplyServiceImpl">
+<area shape="rect" id="node1" title="댓글 처리" alt="" coords="208,277,420,428"/>
+<area shape="rect" id="node2" href="$interfacece_1_1mnu_1_1service_1_1_reply_service.html" title="댓글 처리" alt="" coords="5,35,193,185"/>
+<area shape="rect" id="node3" href="$interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html" title=" " alt="" coords="218,35,410,185"/>
+<area shape="rect" id="node4" href="$interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html" title=" " alt="" coords="435,5,628,215"/>
+</map>

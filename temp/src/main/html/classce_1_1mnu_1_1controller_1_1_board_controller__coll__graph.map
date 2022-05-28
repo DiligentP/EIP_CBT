@@ -1,0 +1,4 @@
+<map id="ce.mnu.controller.BoardController" name="ce.mnu.controller.BoardController">
+<area shape="rect" id="node1" title="게시판 관련 주소 처리" alt="" coords="5,233,220,413"/>
+<area shape="rect" id="node2" href="$interfacece_1_1mnu_1_1service_1_1_board_service.html" title="게시판 처리" alt="" coords="18,5,207,171"/>
+</map>

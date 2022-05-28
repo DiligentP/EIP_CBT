@@ -1,0 +1,4 @@
+<map id="ce.mnu.controller.BoardController.write" name="ce.mnu.controller.BoardController.write">
+<area shape="rect" id="node1" title="게시글 작성 처리 페이지" alt="" coords="5,5,252,32"/>
+<area shape="rect" id="node2" href="$interfacece_1_1mnu_1_1service_1_1_board_service.html#a186ee79bda8f1c7fb543086cc16697ae" title=" " alt="" coords="300,5,520,32"/>
+</map>

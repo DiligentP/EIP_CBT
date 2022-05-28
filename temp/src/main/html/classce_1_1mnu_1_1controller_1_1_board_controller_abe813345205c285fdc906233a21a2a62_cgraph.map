@@ -1,0 +1,5 @@
+<map id="ce.mnu.controller.BoardController.list" name="ce.mnu.controller.BoardController.list">
+<area shape="rect" id="node1" title="게시글 목록 페이지" alt="" coords="5,35,241,61"/>
+<area shape="rect" id="node2" href="$interfacece_1_1mnu_1_1service_1_1_board_service.html#a97d9f691b52106e907430ab864bd814e" title=" " alt="" coords="289,5,521,32"/>
+<area shape="rect" id="node3" href="$interfacece_1_1mnu_1_1service_1_1_board_service.html#acf40ee96c712ba7afdd0ca74bffca0f3" title=" " alt="" coords="300,57,511,98"/>
+</map>

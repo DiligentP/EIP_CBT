@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: java/ce/mnu/mapper/ReplyMapper.java 소스 파일</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'검색','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_reply_mapper_8java_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ReplyMapper.java</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_reply_mapper_8java.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">package </span>ce.mnu.mapper;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> org.apache.ibatis.annotations.Param;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> ce.mnu.domain.*;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html">    8</a></span><span class="keyword">public</span> <span class="keyword">interface </span><a class="code hl_interface" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html">ReplyMapper</a> {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#a3fd257c9b6f6dce10ed9d52b055d89a6">   10</a></span>    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#a3fd257c9b6f6dce10ed9d52b055d89a6">insert</a>(<a class="code hl_class" href="classce_1_1mnu_1_1domain_1_1_reply_v_o.html">ReplyVO</a> vo);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#a420c9906cf2515fe3b04d12b5967ff96">   12</a></span>    <span class="keyword">public</span> <a class="code hl_class" href="classce_1_1mnu_1_1domain_1_1_reply_v_o.html">ReplyVO</a> <a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#a420c9906cf2515fe3b04d12b5967ff96">read</a>(Long bno);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#af0a538b38b1d67d7833ead196f3d4bad">   14</a></span>    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#af0a538b38b1d67d7833ead196f3d4bad">delete</a>(Long bno);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#a333132bf765bb69c9e8d5627b9edeb41">   16</a></span>    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#a333132bf765bb69c9e8d5627b9edeb41">update</a>(<a class="code hl_class" href="classce_1_1mnu_1_1domain_1_1_reply_v_o.html">ReplyVO</a> reply);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#ae63b7f1d17a20804f25ed53f43bc22f2">   18</a></span>    <span class="keyword">public</span> List&lt;ReplyVO&gt; <a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#ae63b7f1d17a20804f25ed53f43bc22f2">getListWithPaging</a>(@Param(<span class="stringliteral">&quot;cri&quot;</span>) <a class="code hl_class" href="classce_1_1mnu_1_1domain_1_1_criteria.html">Criteria</a> cri, @Param(<span class="stringliteral">&quot;bno&quot;</span>) Long bno);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#af0aee391eb7f75b032c1e421f5fa1f6b">   20</a></span>    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code hl_function" href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#af0aee391eb7f75b032c1e421f5fa1f6b">getCountByBno</a>(Long bno);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+<div class="ttc" id="aclassce_1_1mnu_1_1domain_1_1_criteria_html"><div class="ttname"><a href="classce_1_1mnu_1_1domain_1_1_criteria.html">ce.mnu.domain.Criteria</a></div><div class="ttdoc">페이지 / 검색 관련 VO</div><div class="ttdef"><b>Definition:</b> <a href="_criteria_8java_source.html#l00022">Criteria.java:22</a></div></div>
+<div class="ttc" id="aclassce_1_1mnu_1_1domain_1_1_reply_v_o_html"><div class="ttname"><a href="classce_1_1mnu_1_1domain_1_1_reply_v_o.html">ce.mnu.domain.ReplyVO</a></div><div class="ttdoc">댓글 VO</div><div class="ttdef"><b>Definition:</b> <a href="_reply_v_o_8java_source.html#l00018">ReplyVO.java:18</a></div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_reply_mapper_html"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html">ce.mnu.mapper.ReplyMapper</a></div><div class="ttdef"><b>Definition:</b> <a href="_reply_mapper_8java_source.html#l00008">ReplyMapper.java:8</a></div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_reply_mapper_html_a333132bf765bb69c9e8d5627b9edeb41"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#a333132bf765bb69c9e8d5627b9edeb41">ce.mnu.mapper.ReplyMapper.update</a></div><div class="ttdeci">int update(ReplyVO reply)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_reply_mapper_html_a3fd257c9b6f6dce10ed9d52b055d89a6"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#a3fd257c9b6f6dce10ed9d52b055d89a6">ce.mnu.mapper.ReplyMapper.insert</a></div><div class="ttdeci">int insert(ReplyVO vo)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_reply_mapper_html_a420c9906cf2515fe3b04d12b5967ff96"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#a420c9906cf2515fe3b04d12b5967ff96">ce.mnu.mapper.ReplyMapper.read</a></div><div class="ttdeci">ReplyVO read(Long bno)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_reply_mapper_html_ae63b7f1d17a20804f25ed53f43bc22f2"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#ae63b7f1d17a20804f25ed53f43bc22f2">ce.mnu.mapper.ReplyMapper.getListWithPaging</a></div><div class="ttdeci">List&lt; ReplyVO &gt; getListWithPaging(@Param(&quot;cri&quot;) Criteria cri, @Param(&quot;bno&quot;) Long bno)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_reply_mapper_html_af0a538b38b1d67d7833ead196f3d4bad"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#af0a538b38b1d67d7833ead196f3d4bad">ce.mnu.mapper.ReplyMapper.delete</a></div><div class="ttdeci">int delete(Long bno)</div></div>
+<div class="ttc" id="ainterfacece_1_1mnu_1_1mapper_1_1_reply_mapper_html_af0aee391eb7f75b032c1e421f5fa1f6b"><div class="ttname"><a href="interfacece_1_1mnu_1_1mapper_1_1_reply_mapper.html#af0aee391eb7f75b032c1e421f5fa1f6b">ce.mnu.mapper.ReplyMapper.getCountByBno</a></div><div class="ttdeci">int getCountByBno(Long bno)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_93c6ba7fb77bae0709fae89c9c13b44a.html">java</a></li><li class="navelem"><a class="el" href="dir_b3838c18fecfa25c64136d029dfa649f.html">ce</a></li><li class="navelem"><a class="el" href="dir_5c75d1875e2ef9d93f7a3775609f3647.html">mnu</a></li><li class="navelem"><a class="el" href="dir_a8dde8dc4f87f099d36798738d6d7800.html">mapper</a></li><li class="navelem"><a class="el" href="_reply_mapper_8java.html">ReplyMapper.java</a></li>
+    <li class="footer">다음에 의해 생성됨 :  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
+</body>
+</html>
