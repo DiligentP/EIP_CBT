@@ -89,7 +89,7 @@ main {
 
 .main__written {
   /* height: 25vh; */
-  padding: 125px 175px;
+  padding: 125px 150px;
   display: flex;
   align-items: center;
   background-color: white;
@@ -105,7 +105,7 @@ main {
 }
 
 .main_practical {
-  padding: 125px 175px;
+  padding: 125px 150px;
   display: flex;
   align-items: center;
   background-color: white;

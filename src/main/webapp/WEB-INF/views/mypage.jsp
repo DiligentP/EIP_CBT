@@ -42,47 +42,21 @@ prefix="c"%>
       </nav>
     </header>
 
-    <wrapper>
-      <div class="wrapper">
-        <div class="wrapper__container">
-          <div class="wrapper__container__Main">
-            <div class="board__register">
-              <h2>정보 수정</h2>
-            </div>
-            <!-- input 태그  -->
-            <form action="#" id="board__form">
-              <div class="board__form__input">
-                <input placeholder="id" name="member_id" readonly="readonly" />
-                <input
-                  type="password"
-                  id="registerPassword"
-                  placeholder="password"
-                  name="member_password"
-                />
-                <input
-                  type="text"
-                  id="registerName"
-                  placeholder="name"
-                  name="member_name"
-                />
-
-                <input
-                  type="email"
-                  id="registerEmail"
-                  placeholder="email"
-                  name="member_email"
-                />
-              </div>
-              <div class="board__form__submit">
-                <div class="">
-                  <input type="submit" value="수정" id="boardRegister" />
-                </div>
-              </div>
-            </form>
+    <main>
+      <div class="main__container">
+        <a href="./mypageQuestion">
+          <div class="main__written">
+            <span class="main__title">문제 관리</span>
           </div>
-        </div>
+        </a>
+        <a href="./mypageModify">
+          <div class="main_practical">
+            <span class="main__title">정보 수정</span>
+          </div>
+        </a>
       </div>
-    </wrapper>
+    </main>
+
     <script src="./js/mypage.js"></script>
   </body>
 </html>
