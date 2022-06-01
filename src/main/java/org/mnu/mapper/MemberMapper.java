@@ -1,10 +1,14 @@
 package org.mnu.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.mnu.domain.*;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Mapper
 public interface MemberMapper {
     
     // 아이디와 패스워드가 일치한 유저 한명을 데이터베이스에서 조회

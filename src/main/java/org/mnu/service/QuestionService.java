@@ -1,6 +1,5 @@
 package org.mnu.service;
 
-import org.mnu.domain.ExamOption;
 import org.mnu.domain.QuestionVO;
 
 import java.util.List;
@@ -14,5 +13,6 @@ public interface QuestionService {
 
     public int remove(Long qno);
 
-    public List<QuestionVO> getList(ExamOption opt);
+    public List<QuestionVO> getList();
+    public List<QuestionVO> getListWriter(String writer);
 }

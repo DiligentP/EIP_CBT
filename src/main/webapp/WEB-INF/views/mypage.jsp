@@ -12,39 +12,11 @@ prefix="c"%>
     <title>마이 페이지</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="/"
-              ><img src="./assets/icons.png" class="header__logo"
-            /></a>
-          </li>
-          <li class="header__title">
-            <a href="/">정보처리기사 CBT</a>
-          </li>
-        </ul>
-        <ul class="header__nav">
-          <li><a href="./board/list">게시판</a></li>
-          <!-- 로그인 세션이 존재하는 경우 -->
-          <c:if test="${not empty login_info}">
-            <li id="header_mypage"><a href="./mypage">마이페이지</a></li>
-            <li>[${login_info.member_name}]님 반갑습니다</li>
-            <li><a href="./logout">로그아웃</a></li>
-          </c:if>
-
-          <c:if test="${empty login_info}">
-            <li>
-              <a href="./login"><span class="header__login">로그인</span></a>
-            </li>
-          </c:if>
-        </ul>
-      </nav>
-    </header>
+    <jsp:include page="header.jsp"/>
 
     <main>
       <div class="main__container">
-        <a href="./mypageQuestion">
+        <a href="./question/list?id=${login_info.member_id}">
           <div class="main__written">
             <span class="main__title">문제 관리</span>
           </div>

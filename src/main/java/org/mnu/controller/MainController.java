@@ -1,7 +1,6 @@
 package org.mnu.controller;
 
 import lombok.extern.log4j.Log4j;
-import org.mnu.domain.MemberVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 	
 	@GetMapping("/")
-	public String index(Model model) {
+	public String index() {
 		return "index";
 	}
 
@@ -33,13 +32,19 @@ public class MainController {
 	}
 
 	@GetMapping("/written")
-	public String written() {
+	public String written(Model model) {
+
 		return "written";
 	}
 
 	@GetMapping("/mypage")
 	public String mypage() {
 		return "mypage";
+	}
+
+	@GetMapping("/question/mypageQuestion")
+	public String mypageQuestion() {
+		return "mypageQuestion";
 	}
 
 }

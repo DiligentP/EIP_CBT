@@ -53,4 +53,20 @@ public class MemberMapperTests {
         log.info("result : "+result);
 
     }
+
+    @Test
+    public void test() {
+        Integer a = 1;
+        MemberVO vo = new MemberVO();
+        vo.setMember_id("back");
+        vo.setMember_password("back");
+        vo.setMember_email("test@naver.com");
+        vo.setMember_name("테스트");
+        Integer result =  service.member_register(vo);
+
+        log.info("-------------------------------------------------------");
+        log.info(result.equals(new Integer(1)));
+        log.info("-------------------------------------------------------");
+
+    }
 }

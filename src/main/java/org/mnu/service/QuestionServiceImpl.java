@@ -1,7 +1,6 @@
 package org.mnu.service;
 
 import lombok.extern.log4j.Log4j;
-import org.mnu.domain.ExamOption;
 import org.mnu.domain.QuestionVO;
 import org.mnu.mapper.QuestionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,16 +83,16 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     /**
-     * @brief 문제 리스트 받기
      * @details 문제 리스트를 DB에서 받아온다.
-     *
-     * @param opt 시험 옵션
-     * @return List<QuestionVO> 문제 리스트
      */
     @Override
-    public List<QuestionVO> getList(ExamOption opt) {
-        log.info("get Member List");
-
-        return mapper.getList(opt);
+    public List<QuestionVO> getList() {
+        return mapper.getList();
+    }
+    /**
+     * @details 해당 계정의 문제 리스트를 DB에서 받아온다.
+     */
+    public List<QuestionVO> getListWriter(String writer){
+        return mapper.getListWriter(writer);
     }
 }

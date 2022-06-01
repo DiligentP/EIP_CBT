@@ -1,7 +1,6 @@
 package org.mnu.mapper;
 
 import org.mnu.domain.QuestionVO;
-import org.mnu.domain.ExamOption;
 
 import java.util.List;
 
@@ -14,5 +13,7 @@ public interface QuestionMapper {
 
     public int update(QuestionVO user);
 
-    public List<QuestionVO> getList(ExamOption opt);
+    public List<QuestionVO> getList();
+
+    public List<QuestionVO> getListWriter(String writer);
 }

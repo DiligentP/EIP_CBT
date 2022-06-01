@@ -1,5 +1,6 @@
 package org.mnu.service;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.apache.ibatis.annotations.Param;
 import org.mnu.domain.MemberVO;
@@ -11,10 +12,10 @@ import java.util.HashMap;
 
 @Service
 @Log4j
+@RequiredArgsConstructor // final 변수에 대한 생성자 주입
 public class MemberServiceImpl implements MemberService{
 
-    @Autowired
-    private MemberMapper mapper;
+    private final MemberMapper mapper;
 
     @Override
     public MemberVO member_login(String member_id, String member_password){

@@ -29,6 +29,7 @@
 <!--		<property name="mapperLocations" value="classpath*:org/mnu/mapper/*.xml"/>-->
 	</bean>
 
+	<!-- 가장 상위 디렉토리를 지정함으로써, 여러개의 매퍼를 모두 빈으로 등록 -->
 	<mybatis-spring:scan base-package="org.mnu.mapper"/>
 
 

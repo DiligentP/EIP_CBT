@@ -2,24 +2,36 @@ package org.mnu.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import org.mnu.domain.MemberVO;
+import org.mnu.domain.QuestionVO;
+import org.mnu.service.QuestionService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @Log4j
 @AllArgsConstructor
 @RequestMapping("/question/*")
 public class QuestionController {
+
+    private final QuestionService service;
     /**
      * @brief 문제 리스트 페이지
      * @details 문제 리스트 페이지
      */
     @GetMapping("/list")
-    public void list() {
+    public String list(RedirectAttributes rttr, @RequestParam String id) {
+        List<QuestionVO> qvo = service.getListWriter(id);
 
+        rttr.addFlashAttribute("Question",qvo);
+
+        return "redirect:/question/mypageQuestion";
     }
 
     /**

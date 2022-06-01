@@ -3,7 +3,6 @@ package org.mnu.controller;
 import lombok.extern.log4j.Log4j;
 import org.mnu.domain.MemberVO;
 import org.mnu.service.MemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +15,11 @@ import javax.servlet.http.HttpSession;
 @Log4j
 public class MemberController {
 
-    @Autowired
-    private MemberService service;
+    private final MemberService service;
+
+    public MemberController(MemberService service) {
+        this.service = service;
+    }
 
     // 로그인 요청
     @PostMapping ("/login_confirm")
@@ -47,9 +49,9 @@ public class MemberController {
     public String register(MemberVO vo){
 
         // 회원가입 요청
-        int result =  service.member_register(vo);
+        Integer result =  service.member_register(vo);
 
-        return result==1 ? "login" : "register";
+        return result.equals(1) ? "login" : "register";
     }
 
     @PostMapping("/idCheck")
