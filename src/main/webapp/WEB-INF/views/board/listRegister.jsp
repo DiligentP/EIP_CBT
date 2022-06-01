@@ -13,7 +13,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     <title>게시판</title>
   </head>
   <body>
-  <jsp:include page="../header.jsp"/>
+    <jsp:include page="../header.jsp" />
 
     <wrapper>
       <div class="wrapper">
@@ -25,12 +25,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
             <!-- form 태그  -->
             <form action="/board/listRegister" id="board__form" method="post">
               <div class="board__form__input">
-                <input
-                  type="text"
-                  id="board_bno"
-                  placeholder="No."
-                  disabled
-                />
+                <input type="text" id="board_bno" placeholder="No." disabled />
                 <input
                   type="text"
                   id="board_title"
@@ -60,6 +55,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
         </div>
       </div>
     </wrapper>
+    <jsp:include page="../footer.jsp" />
     <script src="../js/list.js"></script>
   </body>
 </html>

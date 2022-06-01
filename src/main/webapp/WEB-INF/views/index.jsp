@@ -12,7 +12,7 @@ prefix="c"%>
     <title>EIP</title>
   </head>
   <body>
-    <jsp:include page="header.jsp"/>
+    <jsp:include page="header.jsp" />
 
     <main>
       <div class="main__container">
@@ -29,17 +29,7 @@ prefix="c"%>
       </div>
     </main>
 
-    <footer>
-      <div class="footer__context">
-        <span>정보구축시스템 Team B</span>
-
-        <span
-          >Copyright © 2022. 박건웅 All pictures cannot be copied without
-          permission</span
-        >
-        <span>${login_info}</span>
-      </div>
-    </footer>
+    <jsp:include page="footer.jsp" />
     <script src="./js/index.js"></script>
   </body>
 </html>

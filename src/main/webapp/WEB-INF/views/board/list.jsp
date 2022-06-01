@@ -79,6 +79,6 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 	</li>
 	</c:if>
 	</ul>
-    
+  <jsp:include page="../footer.jsp" />
   </body>
 </html>

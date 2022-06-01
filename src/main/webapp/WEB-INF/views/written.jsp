@@ -50,7 +50,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
         </div>
       </div>
     </test>
-
+    <jsp:include page="footer.jsp" />
     <script src="./js/timer.js"></script>
   </body>
 </html>

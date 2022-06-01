@@ -12,14 +12,34 @@ prefix="c"%>
     <title>마이 페이지</title>
   </head>
   <body>
-    <jsp:include page="header.jsp"/>
+    <jsp:include page="header.jsp" />
 
-    <div>
-      <c:forEach items="${Question}" var="Q">
-        <c:out value="${Q.qno}" />
-        <c:out value="${Q.title}" />
-        <c:out value="${Q.success}" />
-      </c:forEach>
-    </div>
+    <wrapper>
+      <div class="wrapper">
+        <div class="wrapper__container">
+          <table class="table">
+            <thead class="table__header">
+              <tr class="table__header__row">
+                <th>번호.</th>
+                <th>제목.</th>
+                <th>정답률</th>
+              </tr>
+            </thead>
+
+            <c:forEach items="${Question}" var="Q">
+              <tbody class="table__body">
+                <tr class="table__body__row">
+                  <td><c:out value="${Q.qno}" /></td>
+                  <td><c:out value="${Q.title}" /></td>
+                  <td><c:out value="${Q.success}" /></td>
+                </tr>
+              </tbody>
+            </c:forEach>
+          </table>
+        </div>
+      </div>
+    </wrapper>
+
+    <jsp:include page="footer.jsp" />
   </body>
 </html>

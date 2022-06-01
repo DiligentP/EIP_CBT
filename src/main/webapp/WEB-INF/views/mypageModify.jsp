@@ -12,7 +12,7 @@ prefix="c"%>
     <title>마이 페이지</title>
   </head>
   <body>
-    <jsp:include page="header.jsp"/>
+    <jsp:include page="header.jsp" />
 
     <wrapper>
       <div class="wrapper">
@@ -55,5 +55,6 @@ prefix="c"%>
         </div>
       </div>
     </wrapper>
+    <jsp:include page="footer.jsp" />
   </body>
 </html>

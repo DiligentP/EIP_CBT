@@ -80,6 +80,7 @@
     </div>
   </div>
 </wrapper>
+<jsp:include page="../footer.jsp" />
 </body>
 </html>
 
