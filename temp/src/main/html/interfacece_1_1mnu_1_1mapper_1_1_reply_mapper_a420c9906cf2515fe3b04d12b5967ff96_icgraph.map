@@ -1,5 +1,0 @@
-<map id="ce.mnu.mapper.ReplyMapper.read" name="ce.mnu.mapper.ReplyMapper.read">
-<area shape="rect" id="node1" title=" " alt="" coords="241,46,463,73"/>
-<area shape="rect" id="node2" href="$classce_1_1mnu_1_1service_1_1_reply_service_impl.html#aa0ad036bb56fa8ab798a8d896dd401ce" title="댓글 정보 얻기" alt="" coords="5,5,193,47"/>
-<area shape="rect" id="node3" href="$classce_1_1mnu_1_1service_1_1_reply_service_impl.html#a822d45c444a6dab2f8adfa3ca324edf4" title="댓글 삭제" alt="" coords="5,71,193,112"/>
-</map>

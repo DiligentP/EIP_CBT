@@ -1,4 +1,0 @@
-<map id="ce.mnu.mapper.QuestionMapper.getList" name="ce.mnu.mapper.QuestionMapper.getList">
-<area shape="rect" id="node1" title=" " alt="" coords="260,13,515,39"/>
-<area shape="rect" id="node2" href="$classce_1_1mnu_1_1service_1_1_question_service_impl.html#a755d30c499076252b7840f9ad95bc728" title="문제 리스트 받기" alt="" coords="5,5,212,47"/>
-</map>

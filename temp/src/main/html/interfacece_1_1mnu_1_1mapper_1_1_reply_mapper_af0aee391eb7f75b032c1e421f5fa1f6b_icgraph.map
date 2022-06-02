@@ -1,4 +1,0 @@
-<map id="ce.mnu.mapper.ReplyMapper.getCountByBno" name="ce.mnu.mapper.ReplyMapper.getCountByBno">
-<area shape="rect" id="node1" title=" " alt="" coords="241,5,456,47"/>
-<area shape="rect" id="node2" href="$classce_1_1mnu_1_1service_1_1_reply_service_impl.html#a47f9c37a68dae90b90bf2fc6537b0344" title="댓글 리스트 + 총 댓글 수 받기" alt="" coords="5,5,193,47"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="ce.mnu.controller.MemberController" name="ce.mnu.controller.MemberController">
-<area shape="rect" id="node1" title="회원 관련 주소 처리" alt="" coords="20,204,193,384"/>
-<area shape="rect" id="node2" href="$interfacece_1_1mnu_1_1service_1_1_member_service.html" title="회원 처리" alt="" coords="5,5,208,141"/>
-</map>

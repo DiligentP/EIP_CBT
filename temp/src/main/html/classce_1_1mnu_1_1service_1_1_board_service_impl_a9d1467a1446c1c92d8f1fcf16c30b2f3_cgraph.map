@@ -1,6 +1,0 @@
-<map id="ce.mnu.service.BoardServiceImpl.modify" name="ce.mnu.service.BoardServiceImpl.modify">
-<area shape="rect" id="node1" title="게시글 수정" alt="" coords="5,71,195,112"/>
-<area shape="rect" id="node2" href="$interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html#ac9732150dc9d74dd94b3bc7bf4492927" title=" " alt="" coords="267,5,455,47"/>
-<area shape="rect" id="node3" href="$interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html#acd74ca9b20c116290589bd3bb4e9c48a" title=" " alt="" coords="267,71,455,112"/>
-<area shape="rect" id="node4" href="$interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#af265e1d19ab37d48aef2b9080c3858f1" title=" " alt="" coords="243,137,479,163"/>
-</map>
