@@ -57,10 +57,7 @@
             />
           </div>
           <div class="wrapper__container__btn">
-            <div class="">
               <input type="submit" value="수정" id="wrapperSubmitBtn" />
-            </div>
-            <div class="">
               <form role="form" action="/board/remove" method="post">
                 <input
                         type="hidden"
@@ -70,10 +67,7 @@
                 />
                 <input type="submit" value="삭제" id="wrapperSubmitBtn" />
               </form>
-            </div>
-            <div class="">
               <a href="/board/list?pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>">돌아가기</a>
-            </div>
           </div>
         </form>
       </div>

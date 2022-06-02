@@ -185,7 +185,8 @@ tbody {
   font-size: 18px;
 }
 
-.wrapper__container__btn div:hover,
+#wrapperSubmitBtn:hover,
+.wrapper__container__btn a:hover,
 .board__form__submit input:hover {
   opacity: 0.5;
 }
@@ -201,27 +202,29 @@ tbody {
   width: 60%;
 }
 
-.wrapper__container__btn div {
+.wrapper__container__btn a {
   border: none;
   cursor: pointer;
   padding: 20px 45px;
   border-radius: 15px;
   background-color: #ff006e;
-}
-
-.wrapper__container__btn div a {
   color: white;
   font-size: 18px;
 }
+/* 
+.wrapper__container__btn  a {
+  color: white;
+  font-size: 18px;
+} */
 
-.wrapper__container__btn div:nth-child(3) {
+.wrapper__container__btn a:nth-child(3) {
   padding: 25px 40px;
 }
 
 #wrapperSubmitBtn {
   border: none;
   cursor: pointer;
-  padding: 0px;
+  padding: 20px 45px;
   border-radius: 15px;
   background-color: #ff006e;
   color: white;

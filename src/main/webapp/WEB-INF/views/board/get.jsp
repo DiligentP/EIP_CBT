@@ -38,12 +38,8 @@
             
           </div>
           <div class="wrapper__container__btn">
-            <div class="">
               <a href="/board/modify?bno=<c:out value="${board.bno}"/>&pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>">수정하기</a>
-            </div>
-            <div class="">
               <a href="/board/list?pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>">돌아가기</a>
-            </div>
           </div>
         </div>
       </div>
