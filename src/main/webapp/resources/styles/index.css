@@ -88,13 +88,11 @@ main {
 }
 
 .main__written {
-  /* height: 25vh; */
-  padding: 125px 150px;
+  padding: 100px 125px;
   display: flex;
   align-items: center;
   background-color: white;
   border-radius: 15px;
-  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   transition: all 0.8s ease-in-out;
@@ -105,7 +103,7 @@ main {
 }
 
 .main_practical {
-  padding: 125px 150px;
+  padding: 100px 125px;
   display: flex;
   align-items: center;
   background-color: white;
@@ -122,8 +120,9 @@ main {
 
 .main__title {
   font-size: 38px;
+  color: white;
   letter-spacing: 0.4rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 /* footer 영역 */

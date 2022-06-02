@@ -19,7 +19,7 @@
     <div class="wrapper__container">
       <div class="wrapper__container__Main">
         <div class="board__register">
-          <h2>Title: <c:out value="${board.title}" /></h2>
+          <h2><c:out value="${board.title}" /></h2>
         </div>
         <!-- input 태그  -->
         <form
@@ -68,11 +68,11 @@
                         value='<c:out value="${board.bno}"/>'
                         readonly="readonly"
                 />
-                <input type="submit" value="제거" id="wrapperSubmitBtn" />
+                <input type="submit" value="삭제" id="wrapperSubmitBtn" />
               </form>
             </div>
             <div class="">
-              <a href="/board/list?pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>">게시판</a>
+              <a href="/board/list?pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>">돌아가기</a>
             </div>
           </div>
         </form>

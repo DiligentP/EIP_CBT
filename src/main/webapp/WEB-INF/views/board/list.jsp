@@ -24,36 +24,31 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
             </a>
           </div>
           <div class="wrapper__container__Main">
-            <table class="wrapper__container__Main__table">
-              <thead>
-                <tr class="wrapper__container__Main__value">
+            <table class="board__table">
+              <thead class="board__head">
+                <tr class="board__head__row">
                   <th>No.</th>
                   <th>제목</th>
-                  <th>내용</th>
                   <th>작성자</th>
                   <th>작성일</th>
-                  <th>수정일</th>
+                  
                 </tr>
               </thead>
               <c:forEach items="${list}" var="board">
-                <tr class="wrapper__container__Main__value">
-                  <td><c:out value="${board.bno}" /></td>
-                  <td><a href='/board/get?bno=<c:out value="${board.bno}" />&pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>' class="onHover"><c:out value="${board.title}"/></a></td>
-                  <td><c:out value="${board.content}" /></td>
-                  <td><c:out value="${board.writer}" /></td>
-                  <td>
-                    <fmt:formatDate
-                      pattern="yyyy-MM-dd"
-                      value="${board.regdate}"
-                    />
-                  </td>
-                  <td>
-                    <fmt:formatDate
-                      pattern="yyyy-MM-dd"
-                      value="${board.updateDate}"
-                    />
-                  </td>
-                </tr>
+                <tbody class="board__body">
+                  <tr class="board__body__row">
+                    <td><c:out value="${board.bno}" /></td>
+                    <td><a href='/board/get?bno=<c:out value="${board.bno}" />&pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>' class="onHover"><c:out value="${board.title}"/></a></td>
+                    <td><c:out value="${board.writer}" /></td>
+                    <td>
+                      <fmt:formatDate
+                        pattern="yyyy-MM-dd"
+                        value="${board.regdate}"
+                      />
+                    </td>
+                   
+                  </tr>
+                </tbody>
               </c:forEach>
             </table>
           </div>
