@@ -1,4 +1,0 @@
-<map id="ce.mnu.controller.QuestionController" name="ce.mnu.controller.QuestionController">
-<area shape="rect" id="node1" title="문제 관련 주소 처리" alt="" coords="19,204,198,399"/>
-<area shape="rect" id="node2" href="$interfacece_1_1mnu_1_1service_1_1_question_service.html" title="문제 처리" alt="" coords="5,5,212,141"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="ce.mnu.service.BoardServiceImpl.write" name="ce.mnu.service.BoardServiceImpl.write">
-<area shape="rect" id="node1" title="게시글 작성 처리" alt="" coords="5,39,195,80"/>
-<area shape="rect" id="node2" href="$interfacece_1_1mnu_1_1mapper_1_1_board_attach_mapper.html#acd74ca9b20c116290589bd3bb4e9c48a" title=" " alt="" coords="263,5,451,47"/>
-<area shape="rect" id="node3" href="$interfacece_1_1mnu_1_1mapper_1_1_board_mapper.html#a64daa65e4d3a13568f246356d1973ada" title=" " alt="" coords="243,71,472,112"/>
-</map>
