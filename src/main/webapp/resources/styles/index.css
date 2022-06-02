@@ -43,7 +43,7 @@ ul > li {
 
 .header__logo {
   /* width: 100%; */
-  height: 8vh;
+  height: 5vh;
   /* background-position: center; */
   /* background-size: cover; */
 }
@@ -169,4 +169,34 @@ footer {
     opacity: 1;
     transform: none;
   }
+}
+
+.main__block {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  justify-content: center;
+  margin-left: 20px;
+}
+.main__title2 {
+  margin-bottom: 40px;
+}
+
+.main__title2 span {
+  font-size: 45px;
+  font-weight: 700;
+}
+
+.main__subTitle {
+  margin-bottom: 40px;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.main__btn a {
+  background-color: tomato;
+  padding: 10px;
+  background-color: #ff006e;
+  color: white;
+  border-radius: 10px;
 }

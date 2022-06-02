@@ -15,17 +15,18 @@ prefix="c"%>
     <jsp:include page="header.jsp" />
 
     <main>
-      <div class="main__container">
-        <a href="./written">
-          <div class="main__written">
-            <span class="main__title">필기</span>
-          </div>
-        </a>
-        <a href="./practical">
-          <div class="main_practical">
-            <span class="main__title">실기</span>
-          </div>
-        </a>
+      <div class="main__block">
+        <div class="main__title2">
+          <span>정보 처리 기사 CBT 문제 풀기</span>
+        </div>
+        <div class="main__subTitle">
+          <span>정보처리기사 합격을 기원합니다.</span>
+        </div>
+        <div class="main__btn">
+          <a href="/main">
+            <span>시작하기</span>
+          </a>
+        </div>
       </div>
     </main>
 
