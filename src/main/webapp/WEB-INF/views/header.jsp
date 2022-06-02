@@ -14,6 +14,7 @@
             </li>
         </ul>
         <ul class="header__nav">
+            <li><a href="/">홈</a></li>
             <li><a href="/board/list">게시판</a></li>
             <!-- 로그인 세션이 존재하는 경우 -->
             <c:if test="${not empty login_info}">
