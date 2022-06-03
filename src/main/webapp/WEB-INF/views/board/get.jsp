@@ -91,6 +91,11 @@
 	<br><br>
 </c:forEach>
 
+<c:if test="${not empty login_info}">
+    <div> 작성자 : <c:out value="${board.writer}"/></div>
+    <div> 세션 아이디 : ${login_info.id} </div>
+</c:if>
+
 <jsp:include page="../footer.jsp" />
 </body>
 </html>
