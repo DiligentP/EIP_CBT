@@ -45,7 +45,26 @@
       </div>
     </div>
   </div>
+  
 </wrapper>
+
+<form role="form" action="/board/eply/new" method="post">
+	<input type="hidden" name="bno" value= <c:out value="${board.bno}"/>>
+	<input type="text" name="replyer" placeholder="작성자">
+	<input type="text" name="reply" placeholder="댓글내용">
+	<input type="submit" value="댓글작성">
+</form>
+
+<c:forEach items="${lists}" var="reply">
+	<td><c:out value="${reply.replyer}" /></td> 
+	<td><c:out value="${reply.reply}" /></td><br>
+
+</c:forEach>
+
+	
+<br><br><br>예에?
+
+
 <jsp:include page="../footer.jsp" />
 </body>
 </html>

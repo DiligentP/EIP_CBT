@@ -23,6 +23,7 @@ import org.mnu.domain.PageDTO;
 public class BoardController {
 	
 	private BoardService service;
+	private ReplyService rservice;
 	
 	@GetMapping("/list")
 	public void list(Criteria cri, Model model) {
@@ -46,10 +47,14 @@ public class BoardController {
 
 	@GetMapping( {"/get", "/modify"} )
 	public void get(@RequestParam("bno") Long bno, 
-	@ModelAttribute("cri") Criteria cri, Model model) {
+	@ModelAttribute("cri") Criteria cri, Model model, RedirectAttributes rttr) {
 		log.info("/get or modify");
 		model.addAttribute("board", service.get(bno));
+		model.addAttribute("lists", rservice.getList(bno));
 		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		
+		//rttr.addFlashAttribute("bno", bno);
+		//return "reply/list?bno=" + bno;
 	}
 	
 	@PostMapping("/modify")
