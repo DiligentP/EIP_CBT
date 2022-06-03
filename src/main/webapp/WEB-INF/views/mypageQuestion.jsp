@@ -9,7 +9,7 @@ prefix="c"%>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <title>마이 페이지</title>
+    <title>문제 관리</title>
   </head>
   <body>
     <jsp:include page="header.jsp" />
@@ -30,7 +30,7 @@ prefix="c"%>
               <tbody class="table__body">
                 <tr class="table__body__row">
                   <td><c:out value="${Q.qno}" /></td>
-                  <td><c:out value="${Q.title}" /></td>
+                  <td><a href="/question/detail?qno=<c:out value="${Q.qno}"/>"> <c:out value="${Q.title}" /></a></td>
                   <td><c:out value="${Q.success}" /></td>
                 </tr>
               </tbody>
