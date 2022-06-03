@@ -4,6 +4,7 @@ wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
 }
 
 /* 질문 컨테이너 */
