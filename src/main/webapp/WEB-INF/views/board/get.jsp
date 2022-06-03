@@ -48,18 +48,23 @@
   
 </wrapper>
 
-<%--<script>--%>
-<%--const boardSubBtn = document.getElementById("boardSubBtn");--%>
+<script>
 
-<%--const handleSubmit = () => {--%>
-<%--    if (<c:out value="${board.replyer}"/> !== <c:out value="${login_info.id}"/>) {--%>
-<%--        alert("작성자가 아닙니다.")--%>
-<%--    }--%>
-<%--}--%>
+const boardSubBtn = document.getElementById("boardSubBtn");
 
-<%--boardSubBtn.addEventListener("click", handleSubmit);--%>
+const writer = '<c:out value="${board.writer}"/>';
+const loginId = '<c:out value="${login_info.member_id}"/>';
 
-<%--</script>--%>
+const handleSubmit = (event) => {
+    if (writer !== loginId) {
+        alert("작성자가 아닙니다.");
+        event.preventDefault();
+    }
+};
+
+boardSubBtn.addEventListener("click", handleSubmit);
+
+</script>
 <!-- 댓글 작성 -->
 <form role="form" action="/reply/new" method="post">
 	<input type="hidden" name="bno" value= <c:out value="${board.bno}"/>>
@@ -90,11 +95,6 @@
 	</form>
 	<br><br>
 </c:forEach>
-
-<c:if test="${not empty login_info}">
-    <div> 작성자 : <c:out value="${board.writer}"/></div>
-    <div> 세션 아이디 : ${login_info.id} </div>
-</c:if>
 
 <jsp:include page="../footer.jsp" />
 </body>
