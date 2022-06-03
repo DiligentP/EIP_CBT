@@ -48,22 +48,36 @@
   
 </wrapper>
 
+<!-- 댓글 작성 -->
 <form role="form" action="/reply/new" method="post">
 	<input type="hidden" name="bno" value= <c:out value="${board.bno}"/>>
 	<input type="text" name="replyer" placeholder="작성자">
 	<input type="text" name="reply" placeholder="댓글내용">
-	<input type="submit" value="댓글작성">
+	<input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
+	<input type="submit" value="댓글작성"><br><br><br>
 </form>
 
+<!-- 댓글 출력 -->
 <c:forEach items="${lists}" var="reply">
-	<td><c:out value="${reply.replyer}" /></td> 
-	<td><c:out value="${reply.reply}" /></td><br>
-
+	<td>작성자: <c:out value="${reply.replyer}" /> / </td> 
+	<td>내용: <c:out value="${reply.reply}" /></td>
+	<!-- 댓글 수정 -->
+	<form role="form" action="/reply/modify" method="post">
+		<input type="hidden" name="bno" value= <c:out value="${reply.bno}"/>>
+		<input type="hidden" name="rno" value= <c:out value="${reply.rno}"/>>
+		<input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
+		<input type="text" name="reply" placeholder="수정할내용"> 
+		<input type="submit" value="수정">
+	</form>
+	<!-- 댓글 삭제 -->
+	<form role="form" action="/reply/remove" method="post">
+		<input type="hidden" name="bno" value= <c:out value="${reply.bno}"/>>
+		<input type="hidden" name="rno" value= <c:out value="${reply.rno}"/> readonly="readonly">
+		<input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
+		<input type="submit" value="삭제">
+	</form>
+	<br><br>
 </c:forEach>
-
-	
-<br><br><br>예에?
-
 
 <jsp:include page="../footer.jsp" />
 </body>

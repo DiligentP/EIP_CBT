@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,11 +46,32 @@ public class ReplyController {
 
 	
 	@PostMapping("/new")
-	public String remove(ReplyVO vo) {
+	public String create(Model model, ReplyVO vo, @ModelAttribute("cri") Criteria cri) {
 		service.register(vo);
-		
-		return "redirect:/board/get?bno=" + vo.getBno();
+
+		return "redirect:/board/get?bno=" + vo.getBno()
+		+ "&pageNum=" + cri.getPageNum()
+		+ "&amount=" + cri.getAmount();
 	}
+	
+	@PostMapping("/modify")
+	public String modify(Model model, ReplyVO vo, @ModelAttribute("cri") Criteria cri) {
+		service.modify(vo);
+		
+		return "redirect:/board/get?bno=" + vo.getBno()
+		+ "&pageNum=" + cri.getPageNum()
+		+ "&amount=" + cri.getAmount();
+	}
+	
+	@PostMapping("/remove")
+	public String remove(Model model, ReplyVO vo, @ModelAttribute("cri") Criteria cri) {
+		service.remove(vo.getRno());
+		
+		return "redirect:/board/get?bno=" + vo.getBno()
+		+ "&pageNum=" + cri.getPageNum()
+		+ "&amount=" + cri.getAmount();
+	}
+	
 	
 //	@GetMapping("/list")
 //	public String list(Model model, @RequestParam("bno") Long bno) {
