@@ -58,19 +58,19 @@
           </div>
           <div class="wrapper__container__btn">
               <input type="submit" value="수정" id="wrapperSubmitBtn" />
-
-              <a href="/board/get?bno=<c:out value="${board.bno}"/>&pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>">돌아가기</a>
-          </div>
-        </form>
-		<form role="form" action="/board/remove" method="post">
-			<input
-			        type="hidden"
-			        name="bno"
-			        value='<c:out value="${board.bno}"/>'
-			          readonly="readonly"
-			  />
-			  <input type="submit" value="삭제" id="wrapperSubmitBtn" />
-		</form>
+          
+          </form>
+          <form role="form" action="/board/remove" method="post">
+            <input
+            type="hidden"
+            name="bno"
+            value='<c:out value="${board.bno}"/>'
+            readonly="readonly"
+            />
+            <input type="submit" value="삭제" id="wrapperSubmitBtn" />
+          </form>
+          <a href="/board/get?bno=<c:out value="${board.bno}"/>&pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>">돌아가기</a>
+      </div>
       </div>
     </div>
   </div>

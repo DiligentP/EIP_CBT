@@ -38,7 +38,7 @@
             
           </div>
           <div class="wrapper__container__btn">
-              <a href="/board/modify?bno=<c:out value="${board.bno}"/>&pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>">수정하기</a>
+              <a href="/board/modify?bno=<c:out value="${board.bno}"/>&pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>" id="boardSubBtn">수정하기</a>
               <a href="/board/list?pageNum=<c:out value="${pageMaker.cri.pageNum}"/>&amount=<c:out value="${pageMaker.cri.amount}"/>">돌아가기</a>
           </div>
         </div>
@@ -48,6 +48,18 @@
   
 </wrapper>
 
+<%--<script>--%>
+<%--const boardSubBtn = document.getElementById("boardSubBtn");--%>
+
+<%--const handleSubmit = () => {--%>
+<%--    if (<c:out value="${board.replyer}"/> !== <c:out value="${login_info.id}"/>) {--%>
+<%--        alert("작성자가 아닙니다.")--%>
+<%--    }--%>
+<%--}--%>
+
+<%--boardSubBtn.addEventListener("click", handleSubmit);--%>
+
+<%--</script>--%>
 <!-- 댓글 작성 -->
 <form role="form" action="/reply/new" method="post">
 	<input type="hidden" name="bno" value= <c:out value="${board.bno}"/>>
