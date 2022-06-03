@@ -48,7 +48,7 @@
   
 </wrapper>
 
-<form role="form" action="/board/eply/new" method="post">
+<form role="form" action="/reply/new" method="post">
 	<input type="hidden" name="bno" value= <c:out value="${board.bno}"/>>
 	<input type="text" name="replyer" placeholder="작성자">
 	<input type="text" name="reply" placeholder="댓글내용">
