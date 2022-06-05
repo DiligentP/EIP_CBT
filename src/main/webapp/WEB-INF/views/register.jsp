@@ -39,16 +39,11 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
                     oninput="checkId()"
                   />
                   <!-- hidden -->
-                  <span
-                    class="id_ok"
-                    style="color: #6a82fb; display: none; padding-left: 10px"
-                    >사용 가능한 아이디입니다.</span
-                  >
-                  <span
-                    class="id_already"
-                    style="color: #ff006e; display: none; padding-left: 10px"
-                    >누군가 이 아이디를 사용하고 있어요.</span
-                  >
+                  <span class="id_ok" style="color: #6a82fb; display: none; padding-left: 10px">사용 가능한 아이디입니다.</span>
+                  <span class="id_already" style="color: #ff006e; display: none; padding-left: 10px">누군가 이 아이디를 사용하고 있어요.</span>
+                  <span class="id_no" style="color: #ff006e; display: none; padding-left: 10px">아이디는 6~20이하 대소문자 또는 숫자 포함해야합니다.</span>
+
+
 
                   <input
                     type="password"
@@ -89,20 +84,34 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
       function checkId() {
-        var id = $("#registerId").val(); //id값이 "registerId"인 입력란의 값을 저장
+        let id = $("#registerId").val(); //id값이 "registerId"인 입력란의 값을 저장
         $.ajax({
           url: "/idCheck", //Controller에서 인식할 주소
           type: "post", //POST 방식으로 전달
           data: { id: id },
+          dataType: "json",
           success: function (result) {
-            //사용 가능한 아이디일때
-            if (id != "" && result != 1) {
-              $(".id_ok").css("display", "inline-block");
-              $(".id_already").css("display", "none");
-            } else {
-              // 이미 존재하는 아이디 일때
+            //이미 존재하는 아이디 일때,
+            if (result === 1) {
+              console.log(result);
               $(".id_already").css("display", "inline-block");
               $(".id_ok").css("display", "none");
+              $(".id_no").css("display", "none");
+            } else if(id == '') {
+              // 칸이 공백일때.
+              $(".id_already").css("display", "none");
+              $(".id_ok").css("display", "none");
+              $(".id_no").css("display", "none");
+            }else if(id.length <= 6 || id.length >= 20 ){
+              $(".id_no").css("display", "inline-block");
+              $(".id_already").css("display", "none");
+              $(".id_ok").css("display", "none");
+            } else{
+              console.log(id.length);
+              // 사용가능한 아이디 일때,
+              $(".id_no").css("display", "none");
+              $(".id_ok").css("display", "inline-block");
+              $(".id_already").css("display", "none");
             }
           },
           error: function () {

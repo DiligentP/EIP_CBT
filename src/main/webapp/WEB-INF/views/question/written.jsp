@@ -11,7 +11,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <title>필기 시험</title>
   </head>
   <body>
-    <jsp:include page="header.jsp" />
+    <jsp:include page="../header.jsp" />
 
     <test>
       <div class="test">
@@ -70,7 +70,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
       </div>
     </test>
 
-    <jsp:include page="footer.jsp" />
+    <jsp:include page="../footer.jsp" />
   </body>
 
   <script

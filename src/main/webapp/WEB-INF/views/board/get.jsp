@@ -54,7 +54,7 @@
 <div class="comment">
   <form role="form" action="/reply/new" method="post" class="comment__in_form">
     <input type="hidden" name="bno" value= <c:out value="${board.bno}"/>>
-    <input type="text" name="replyer" placeholder="작성자" id="comment_plyer">
+    <input type="text" name="replyer" placeholder="<c:out value="${login_info.member_id}"/>" value="<c:out value="${login_info.member_id}"/>" id="comment_plyer" readonly>
     <input type="text" name="reply" placeholder="댓글 내용" id="comment_ply">
     <input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
     <input type="submit" value="댓글작성" class="comment_sub">

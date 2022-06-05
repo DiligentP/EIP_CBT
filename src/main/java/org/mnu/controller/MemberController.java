@@ -54,6 +54,7 @@ public class MemberController {
         return result.equals(1) ? "login" : "register";
     }
 
+    // 아이디 중복 체크
     @PostMapping("/idCheck")
     @ResponseBody
     public int idCheck(@RequestParam("id") String id){

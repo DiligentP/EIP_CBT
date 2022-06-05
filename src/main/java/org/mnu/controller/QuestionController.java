@@ -19,30 +19,17 @@ public class QuestionController {
 
     private final QuestionService service;
 
-    @GetMapping("/questionMain")
+    /**
+     * @brief 문제 메인 페이지
+     */
+    @GetMapping("/")
     public String questionMain() {
         return "question/questionMain";
     }
 
 
 
-    /**
-     * @brief 문제 수정 페이지
-     * @details 문제의 정보를 수정할 수 있는 페이지를 보여준다.
-     */
-    @GetMapping("/modify")
-    public void modify() {
 
-    }
-
-    /**
-     * @brief 문제 수정 처리 페이지
-     * @details 입력한 정보를 DB에 반영하여 정보를 수정한다.
-     */
-    @PostMapping("/modify")
-    public String modify(RedirectAttributes rttr) {
-        return "redirect:/question/list";
-    }
 
     /**
      * @brief 문제 삭제 처리 페이지
@@ -98,6 +85,6 @@ public class QuestionController {
     public String examWrittenGet(Model model, @RequestParam long qno){
         QuestionVO vo = service.get(qno);
         model.addAttribute("vo",vo);
-        return "written";
+        return "question/written";
     }
 }

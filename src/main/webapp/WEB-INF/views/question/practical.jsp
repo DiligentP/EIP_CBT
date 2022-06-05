@@ -7,11 +7,11 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
     <title>실기 시험</title>
   </head>
   <body>
-    <jsp:include page="header.jsp" />
+    <jsp:include page="../header.jsp" />
 
     <test>
       <div class="test">
@@ -35,7 +35,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
         </div>
       </div>
     </test>
-    <jsp:include page="footer.jsp" />
+    <jsp:include page="../footer.jsp" />
     <script src="./js/timer.js"></script>
   </body>
 </html>

@@ -23,7 +23,7 @@ prefix="c"%>
           <span>정보처리기사 합격을 기원합니다.</span>
         </div>
         <div class="main__btn">
-          <a href="/question/questionMain">
+          <a href="/question/">
             <span>시작하기</span>
           </a>
         </div>
