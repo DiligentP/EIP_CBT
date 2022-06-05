@@ -18,29 +18,13 @@ import java.util.List;
 public class QuestionController {
 
     private final QuestionService service;
-    /**
-     * @brief 문제 리스트 페이지
-     * @details 문제 리스트 페이지
-     */
-    @GetMapping("/list")
-    public String list(RedirectAttributes rttr, @RequestParam String id) {
-        List<QuestionVO> qvo = service.getListWriter(id);
 
-        rttr.addFlashAttribute("Question",qvo);
+    @GetMapping("/questionMain")
+    public String questionMain() {
+        return "question/questionMain";
+    }
 
-        return "redirect:/question/mypageQuestion";
-    }
-    /**
-     * @brief 문제 리스트 상세 페이지
-     * @details 문제 리스트 상세 페이지
-     */
-    @GetMapping("/detail")
-    public String detail(@RequestParam Long qno){
-        log.info("-------------------------------");
-        log.info("qno : " + qno);
-        log.info("-------------------------------");
-        return "mypageQuestionDetail";
-    }
+
 
     /**
      * @brief 문제 수정 페이지

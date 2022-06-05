@@ -12,7 +12,7 @@ prefix="c"%>
     <title>문제 관리</title>
   </head>
   <body>
-    <jsp:include page="header.jsp" />
+  <jsp:include page="../header.jsp" />
 
     <wrapper>
       <div class="wrapper">
@@ -30,16 +30,16 @@ prefix="c"%>
               <tbody class="table__body">
                 <tr class="table__body__row">
                   <td><c:out value="${Q.qno}" /></td>
-                  <td><a href="/question/detail?qno=<c:out value="${Q.qno}"/>"> <c:out value="${Q.title}" /></a></td>
+                  <td><a href="/mypage/questionListDetail?qno=<c:out value="${Q.qno}"/>"> <c:out value="${Q.title}" /></a></td>
                   <td><c:out value="${Q.success}" /></td>
                 </tr>
               </tbody>
             </c:forEach>
-          </table>
+          </table>s
         </div>
       </div>
     </wrapper>
 
-    <jsp:include page="footer.jsp" />
+  <jsp:include page="../footer.jsp" />
   </body>
 </html>
