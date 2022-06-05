@@ -100,12 +100,26 @@ public class QuestionController {
         return "questionOptionPage";
     }
 
+    @GetMapping("/count")
+    @ResponseBody
+    public int count(@RequestParam String exam){
+        int count = service.getCount();
+        if(exam.equals("written")){
+            return count;
+        }
+        else if(exam.equals("practical")){
+            return 10;
+        }
+        return -1;
+    }
+
     /**
      * @derails qno로 문제 정보를 받아 전송해준다.
      */
     @GetMapping("/written/get")
-    public void examWrittenGet(Model model, @RequestParam long qno){
+    public String examWrittenGet(Model model, @RequestParam long qno){
         QuestionVO vo = service.get(qno);
         model.addAttribute("vo",vo);
+        return "written";
     }
 }

@@ -5,14 +5,14 @@ prefix="c"%>
   <nav>
     <ul>
       <li>
-        <a href="/main"><img src="/assets/icons.png" class="header__logo" /></a>
+        <a href="/"><img src="/assets/icons.png" class="header__logo" /></a>
       </li>
       <li class="header__title">
-        <a href="/main">정보처리기사 CBT</a>
+        <a href="/">정보처리기사 CBT</a>
       </li>
     </ul>
     <ul class="header__nav">
-      <li><a href="/main">홈</a></li>
+      <li><a href="/">홈</a></li>
       <li><a href="/board/list">게시판</a></li>
       <!-- 로그인 세션이 존재하는 경우 -->
       <c:if test="${not empty login_info}">

@@ -16,12 +16,12 @@ prefix="c"%>
 
     <main>
       <div class="main__container">
-        <a href="./question/setting">
+        <a href="#" onclick="exam('written')">
           <div class="main__written">
             <span class="main__title">필기</span>
           </div>
         </a>
-        <a href="./practical">
+        <a href="/practical">
           <div class="main_practical">
             <span class="main__title">실기</span>
           </div>
@@ -32,4 +32,26 @@ prefix="c"%>
     <jsp:include page="footer.jsp" />
     <script src="./js/index.js"></script>
   </body>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    function exam(type){
+      let count = 0;
+      $.ajax({
+        url: `/question/count`, //Controller에서 인식할 주소
+        type: "get", //get 방식으로 전달
+        data: { exam: type },
+        dataType: "json",
+        success: function (result){
+          count = result;
+          // 랜덤 문제 생성
+          let n = Math.floor(Math.random() * count) + 1;
+          location.href="/question/written/get?qno="+n;
+        },
+        error: function (error){
+          alert("에러");
+        }
+      });
+    };
+  </script>
 </html>

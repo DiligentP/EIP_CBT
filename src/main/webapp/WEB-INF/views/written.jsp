@@ -7,7 +7,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
     <title>필기 시험</title>
   </head>
   <body>
@@ -17,18 +17,13 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
       <div class="test">
         <div class="test__container">
           <div class="test__titleNum">
-            <span>Question Num</span>
+<%--            <span><c:out value="${vo.title}"/></span>--%>
           </div>
           <div class="test__question">
-            <span>질문</span>
+            <span><c:out value="${vo.title}"/></span>
           </div>
           <div class="test__written__answer">
-            <span>1. 이렇쿠만</span>
-            <span>2. 저렇쿠만</span>
-            <span>3. 이렇쿠만</span>
-            <span>4. 저렇쿠만</span>
-            <span><c:out value="${count}"/></span>
-          </div>
+            <span><c:out value="${vo.content}"/></span>
         </div>
         <div class="answer__container">
           <button id="answer__btn">정답확인</button>
@@ -36,10 +31,10 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
       </div>
     </test>
     <jsp:include page="footer.jsp" />
-    <script src="./js/timer.js"></script>
   </body>
   <script>
-    const count = '<c:out value="${count}"/>';
+    let count = '<c:out value="${vo.content}"/>';
+    console.log(count);
     // 푼 문제를 담는 리스트
     let qList = [];
 
@@ -59,10 +54,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
       return n;
     }
 
-    // Web 페이지에 접속하자마자 바로 실행
-    (function() {
-      //소스영역
-    })();
+
 
   </script>
 </html>
