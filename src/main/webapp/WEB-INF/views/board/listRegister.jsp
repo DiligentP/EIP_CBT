@@ -44,7 +44,9 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                   type="text"
                   id="board_writer"
                   name="writer"
-                  placeholder="사용자"
+                  value='<c:out value="${login_info.member_id}"/>'
+                  placeholder="사용자"                  
+                  readonly="readonly"
                 />
               </div>
               <div class="board__form__submit">
@@ -54,7 +56,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
           </div>
         </div>
       </div>
-    </wrapper>
+    </wrapper>  
     <jsp:include page="../footer.jsp" />
     <script src="../js/list.js"></script>
   </body>
