@@ -18,7 +18,9 @@ prefix="c"%>
       <c:if test="${not empty login_info}">
         <li id="header_mypage"><a href="/mypage/">마이페이지</a></li>
         <li>[${login_info.member_name}]님 반갑습니다</li>
-        <li><a href="/logout">로그아웃</a></li>
+        <li>
+          <a href="/logout"><span class="header__login">로그아웃</span></a>
+        </li>
       </c:if>
 
       <c:if test="${empty login_info}">

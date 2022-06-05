@@ -8,7 +8,7 @@ prefix="c"%>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
     <title>문제 관리</title>
   </head>
   <body>
@@ -35,7 +35,7 @@ prefix="c"%>
                 </tr>
               </tbody>
             </c:forEach>
-          </table>s
+          </table>
         </div>
       </div>
     </wrapper>

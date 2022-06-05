@@ -18,17 +18,17 @@ prefix="c"%>
       <div class="main__container">
         <a href="/mypage/mypageResult">
           <div class="mypage_box">
-            <span class="main__title">시험 결과</span>
+            <span>시험 결과</span>
           </div>
         </a>
         <a href="/mypage/questionList?id=${login_info.member_id}">
           <div class="mypage_box">
-            <span class="main__title">문제 관리</span>
+            <span>문제 관리</span>
           </div>
         </a>
         <a href="/mypage/mypageModify">
           <div class="mypage_box">
-            <span class="main__title">정보 수정</span>
+            <span>정보 수정</span>
           </div>
         </a>
       </div>

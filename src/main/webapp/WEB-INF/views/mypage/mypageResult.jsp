@@ -21,7 +21,7 @@ prefix="c"%>
             <thead class="table__header">
               <tr class="table__header__row">
                 <th>번호.</th>
-                <th>제목.</th>
+                <th>날짜.</th>
                 <th>정답률</th>
               </tr>
             </thead>

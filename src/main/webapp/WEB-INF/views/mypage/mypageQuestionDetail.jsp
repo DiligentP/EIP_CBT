@@ -12,7 +12,7 @@ prefix="c"%>
     <title>문제 관리</title>
   </head>
   <body>
-  <jsp:include page="../header.jsp" />
+    <jsp:include page="../header.jsp" />
 
     <wrapper>
       <div class="wrapper">
@@ -65,6 +65,6 @@ prefix="c"%>
       </div>
     </wrapper>
 
-  <jsp:include page="../footer.jsp" />
+    <jsp:include page="../footer.jsp" />
   </body>
 </html>
