@@ -74,9 +74,12 @@ public class QuestionController {
      * @brief 채점 처리
      * @details 채점 처리
      */
-    @PostMapping("/exam/grading")
-    public void examGrading() {
+    @GetMapping("/exam/grading")
+    public String examGrading(@RequestParam String qno, @RequestParam String ans) {
 
+
+
+        return "questionGrading";
     }
 
     /**
@@ -89,17 +92,8 @@ public class QuestionController {
     }
 
     /**
-     * @brief 시험 설정 페이지
+     * @derails 필기 실기의 문제 수를 전송해준다.
      */
-    @GetMapping("/setting")
-    public String examWritten(RedirectAttributes rttr) {
-        int count = service.getCount();
-
-        rttr.addFlashAttribute("count",count);
-
-        return "questionOptionPage";
-    }
-
     @GetMapping("/count")
     @ResponseBody
     public int count(@RequestParam String exam){

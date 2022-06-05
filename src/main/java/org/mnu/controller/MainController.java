@@ -40,15 +40,10 @@ public class MainController {
 	public String written(Model model) {
 		return "written";
 	}
-
 	@GetMapping("/mypage")
 	public String mypage() {
 		return "mypage";
 	}
 
-	@GetMapping("/question/mypageQuestion")
-	public String mypageQuestion() {
-		return "mypageQuestion";
-	}
 
 }
