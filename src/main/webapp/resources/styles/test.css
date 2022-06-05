@@ -49,11 +49,29 @@ test {
   flex: 0.5;
   width: 100%;
   display: flex;
+  /* flex-direction: column; */
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .test__question span {
   font-size: 18px;
+}
+
+/* questionOption page */
+
+.questionOption {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio_question {
+  display: block;
+  font-size: 28px;
+  font-weight: 500;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
 /* 객관식 답 */

@@ -55,10 +55,6 @@ wrapper {
   height: 100%;
 }
 
-.wrapper__container__Main {
-  /* width: 100%; */
-}
-
 .board__table {
   width: 100%;
   display: flex;

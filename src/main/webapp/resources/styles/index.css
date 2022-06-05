@@ -88,22 +88,22 @@ main {
 }
 
 .main__written {
-  padding: 100px 125px;
+  padding: 80px 100px;
   display: flex;
   align-items: center;
   background-color: white;
   border-radius: 15px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  transition: all 0.8s ease-in-out;
+  /* transition: all 0.8s ease-in-out; */
 }
 
-.main__written:hover {
+/* .main__written:hover {
   transform: scale(1.1);
-}
+} */
 
 .main_practical {
-  padding: 100px 125px;
+  padding: 80px 100px;
   display: flex;
   align-items: center;
   background-color: white;
@@ -111,17 +111,18 @@ main {
   /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  transition: all 0.8s ease-in-out;
+  /* transition: all 0.8s ease-in-out; */
 }
-
+/* 
 .main_practical:hover {
   transform: scale(1.1);
-}
+} */
 
 .main__title {
   font-size: 38px;
   letter-spacing: 0.4rem;
   font-weight: 700;
+  padding: 20px 20px;
 }
 
 /* footer 영역 */
