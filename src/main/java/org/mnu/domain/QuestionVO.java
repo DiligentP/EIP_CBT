@@ -43,6 +43,7 @@ public class QuestionVO {
     // 문제 관련 그림
     private String filepath;
 
+    // 파일 구분 w:필기 p:실기
     private String division;
 }
 
