@@ -51,11 +51,12 @@ test {
   display: flex;
   /* flex-direction: column; */
   align-items: center;
-  margin-bottom: 30px;
+  margin: 30px 0px;
 }
 
 .test__question span {
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /* questionOption page */
