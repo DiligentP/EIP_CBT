@@ -42,5 +42,7 @@ public class QuestionVO {
     
     // 문제 관련 그림
     private String filepath;
+
+    private String division;
 }
 
