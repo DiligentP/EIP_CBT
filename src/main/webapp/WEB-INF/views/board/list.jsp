@@ -19,9 +19,11 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
       <div class="wrapper">
         <div class="wrapper__container">
           <div class="wrapper__container__Header">
-            <a href="./listRegister" class="wrapper__container__Header__btn"
-              ><span>게시글 작성</span>
-            </a>
+            <c:if test="${not empty login_info}">
+              <a href="./listRegister" class="wrapper__container__Header__btn">
+                <span>게시글 작성</span>
+              </a>
+            </c:if>
           </div>
           <div class="wrapper__container__Main">
             <table class="board__table">
