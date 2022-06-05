@@ -16,13 +16,18 @@ prefix="c"%>
 
     <main>
       <div class="main__container">
+        <a href="#">
+          <div class="mypage_box">
+            <span class="main__title">시험 결과</span>
+          </div>
+        </a>
         <a href="./question/list?id=${login_info.member_id}">
-          <div class="main__written">
+          <div class="mypage_box">
             <span class="main__title">문제 관리</span>
           </div>
         </a>
         <a href="./mypageModify">
-          <div class="main_practical">
+          <div class="mypage_box">
             <span class="main__title">정보 수정</span>
           </div>
         </a>

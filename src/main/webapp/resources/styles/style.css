@@ -6,6 +6,7 @@
 @import "./test.css";
 @import "./list.css";
 @import "./table.css";
+@import "./mypage.css";
 
 * {
   font-family: "Noto Sans KR", "Open Sans", sans-serif;
