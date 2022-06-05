@@ -48,23 +48,7 @@
   
 </wrapper>
 
-<script>
 
-const boardSubBtn = document.getElementById("boardSubBtn");
-
-const writer = '<c:out value="${board.writer}"/>';
-const loginId = '<c:out value="${login_info.member_id}"/>';
-
-const handleSubmit = (event) => {
-    if (writer !== loginId) {
-        alert("작성자가 아닙니다.");
-        event.preventDefault();
-    }
-};
-
-boardSubBtn.addEventListener("click", handleSubmit);
-
-</script>
 
 <!-- 댓글 작성 -->
 <div class="comment">
@@ -90,7 +74,7 @@ boardSubBtn.addEventListener("click", handleSubmit);
           <input type="hidden" name="rno" value= <c:out value="${reply.rno}"/>>
           <input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
           <input type="text" name="reply" placeholder="수정할내용" class="modify_text"> 
-          <input type="submit" value="수정" class="comment_sub">
+          <input type="submit" value="수정" class="comment_sub" >
         </form>
         <!-- 댓글 삭제 -->
         <form role="form" action="/reply/remove" method="post" class="delete__form">
@@ -103,6 +87,27 @@ boardSubBtn.addEventListener("click", handleSubmit);
   </c:forEach>
   </div>
 </div>
+
+
+<script>
+
+  const boardSubBtn = document.getElementById("boardSubBtn");
+  
+  const writer = '<c:out value="${board.writer}"/>';
+  const loginId = '<c:out value="${login_info.member_id}"/>';
+  
+  const handleSubmit = (event) => {
+      if (writer !== loginId) {
+          alert("작성자가 아닙니다.");
+          event.preventDefault();
+      }
+  };
+  
+
+  
+  boardSubBtn.addEventListener("click", handleSubmit);
+  
+  </script>
 
 <jsp:include page="../footer.jsp" />
 </body>

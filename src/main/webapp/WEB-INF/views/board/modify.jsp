@@ -51,7 +51,7 @@
             <input
                     id="board_writer"
                     name="writer"
-                    value='<c:out value="${board.title}"/>'
+                    value='<c:out value="${board.writer}"/>'
                     placeholder="사용자"
                     readonly="readonly"
             />
