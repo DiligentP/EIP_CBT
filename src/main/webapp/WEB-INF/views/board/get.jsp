@@ -48,53 +48,61 @@
   
 </wrapper>
 
-<%--<script>--%>
-<%--const boardSubBtn = document.getElementById("boardSubBtn");--%>
+<script>
 
-<%--const handleSubmit = () => {--%>
-<%--    if (<c:out value="${board.replyer}"/> !== <c:out value="${login_info.id}"/>) {--%>
-<%--        alert("작성자가 아닙니다.")--%>
-<%--    }--%>
-<%--}--%>
+const boardSubBtn = document.getElementById("boardSubBtn");
 
-<%--boardSubBtn.addEventListener("click", handleSubmit);--%>
+const writer = '<c:out value="${board.writer}"/>';
+const loginId = '<c:out value="${login_info.member_id}"/>';
 
-<%--</script>--%>
+const handleSubmit = (event) => {
+    if (writer !== loginId) {
+        alert("작성자가 아닙니다.");
+        event.preventDefault();
+    }
+};
+
+boardSubBtn.addEventListener("click", handleSubmit);
+
+</script>
+
 <!-- 댓글 작성 -->
-<form role="form" action="/reply/new" method="post">
-	<input type="hidden" name="bno" value= <c:out value="${board.bno}"/>>
-	<input type="text" name="replyer" placeholder="작성자">
-	<input type="text" name="reply" placeholder="댓글내용">
-	<input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
-	<input type="submit" value="댓글작성"><br><br><br>
-</form>
-
-<!-- 댓글 출력 -->
-<c:forEach items="${lists}" var="reply">
-	<td>작성자: <c:out value="${reply.replyer}" /> / </td> 
-	<td>내용: <c:out value="${reply.reply}" /></td>
-	<!-- 댓글 수정 -->
-	<form role="form" action="/reply/modify" method="post">
-		<input type="hidden" name="bno" value= <c:out value="${reply.bno}"/>>
-		<input type="hidden" name="rno" value= <c:out value="${reply.rno}"/>>
-		<input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
-		<input type="text" name="reply" placeholder="수정할내용"> 
-		<input type="submit" value="수정">
-	</form>
-	<!-- 댓글 삭제 -->
-	<form role="form" action="/reply/remove" method="post">
-		<input type="hidden" name="bno" value= <c:out value="${reply.bno}"/>>
-		<input type="hidden" name="rno" value= <c:out value="${reply.rno}"/> readonly="readonly">
-		<input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
-		<input type="submit" value="삭제">
-	</form>
-	<br><br>
-</c:forEach>
-
-<c:if test="${not empty login_info}">
-    <div> 작성자 : <c:out value="${board.writer}"/></div>
-    <div> 세션 아이디 :<c:out value="${login_info.member_id}"/> </div>
-</c:if>
+<div class="comment">
+  <form role="form" action="/reply/new" method="post" class="comment__in_form">
+    <input type="hidden" name="bno" value= <c:out value="${board.bno}"/>>
+    <input type="text" name="replyer" placeholder="작성자" id="comment_plyer">
+    <input type="text" name="reply" placeholder="댓글 내용" id="comment_ply">
+    <input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
+    <input type="submit" value="댓글작성" class="comment_sub">
+  </form>
+  
+  <!-- 댓글 출력 -->
+  <div class="comment__out">
+    <c:forEach items="${lists}" var="reply">
+      <div class="comment__out_view">
+        <span><c:out value="${reply.replyer}" /></span>
+        <span><c:out value="${reply.reply}" /></span>
+      </div>
+      <!-- 댓글 수정 -->
+      <div class="comment__modify">
+        <form role="form" action="/reply/modify" method="post" class="modify__form">
+          <input type="hidden" name="bno" value= <c:out value="${reply.bno}"/>>
+          <input type="hidden" name="rno" value= <c:out value="${reply.rno}"/>>
+          <input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
+          <input type="text" name="reply" placeholder="수정할내용" class="modify_text"> 
+          <input type="submit" value="수정" class="comment_sub">
+        </form>
+        <!-- 댓글 삭제 -->
+        <form role="form" action="/reply/remove" method="post" class="delete__form">
+          <input type="hidden" name="bno" value= <c:out value="${reply.bno}"/>>
+          <input type="hidden" name="rno" value= <c:out value="${reply.rno}"/> readonly="readonly">
+          <input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
+          <input type="submit" value="삭제" class="comment_sub">
+        </form>
+      </div>
+  </c:forEach>
+  </div>
+</div>
 
 <jsp:include page="../footer.jsp" />
 </body>
