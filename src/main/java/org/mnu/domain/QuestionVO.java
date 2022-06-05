@@ -14,7 +14,10 @@ public class QuestionVO {
     private String title;
 
     // 문제 내용
-    private String content;
+    private String content1;
+    private String content2;
+    private String content3;
+    private String content4;
     
     // 문제 정답
     private String answer;
