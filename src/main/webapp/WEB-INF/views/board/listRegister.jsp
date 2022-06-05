@@ -25,7 +25,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
             <!-- form 태그  -->
             <form action="/board/listRegister" id="board__form" method="post">
               <div class="board__form__input">
-                <input type="text" id="board_bno" placeholder="No." disabled />
+                <input type="hidden" id="board_bno" placeholder="No." disabled />
                 <input
                   type="text"
                   id="board_title"
