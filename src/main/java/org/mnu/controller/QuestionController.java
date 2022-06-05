@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j;
 import org.mnu.domain.QuestionVO;
 import org.mnu.service.QuestionService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -29,7 +30,10 @@ public class QuestionController {
 
         return "redirect:/question/mypageQuestion";
     }
-
+    /**
+     * @brief 문제 리스트 상세 페이지
+     * @details 문제 리스트 상세 페이지
+     */
     @GetMapping("/detail")
     public String detail(@RequestParam Long qno){
         log.info("-------------------------------");
@@ -65,23 +69,6 @@ public class QuestionController {
         return "redirect:/question/list";
     }
 
-    /**
-     * @brief 시험 시작 설정 페이지
-     * @details 시험에 필요한 문제를 선택하는 페이지
-     */
-    @GetMapping("/exam/config")
-    public void examConfig() {
-
-    }
-
-    /**
-     * @brief 시험 페이지
-     * @details 문제를 골라서 시험을 보는 페이지
-     */
-    @GetMapping("/exam/progress")
-    public void examProgress() {
-
-    }
 
     /**
      * @brief 채점 처리
@@ -99,5 +86,26 @@ public class QuestionController {
     @GetMapping("/exam/result")
     public void examResult() {
 
+    }
+
+    /**
+     * @brief 시험 설정 페이지
+     */
+    @GetMapping("/setting")
+    public String examWritten(RedirectAttributes rttr) {
+        int count = service.getCount();
+
+        rttr.addFlashAttribute("count",count);
+
+        return "questionOptionPage";
+    }
+
+    /**
+     * @derails qno로 문제 정보를 받아 전송해준다.
+     */
+    @GetMapping("/written/get")
+    public void examWrittenGet(Model model, @RequestParam long qno){
+        QuestionVO vo = service.get(qno);
+        model.addAttribute("vo",vo);
     }
 }

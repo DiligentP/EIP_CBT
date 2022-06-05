@@ -11,23 +11,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <title>실기 시험</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="/"
-              ><img src="./assets/icons.png" class="header__logo"
-            /></a>
-          </li>
-          <li class="header__title">
-            <a href="/">정보처리기사 CBT</a>
-          </li>
-        </ul>
-        <ul class="header__nav">
-          <li class="header__timer">00:00:00</li>
-        </ul>
-      </nav>
-    </header>
+    <jsp:include page="header.jsp" />
 
     <test>
       <div class="test">

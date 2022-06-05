@@ -16,7 +16,7 @@ prefix="c"%>
 
     <main>
       <div class="main__container">
-        <a href="./written">
+        <a href="./question/setting">
           <div class="main__written">
             <span class="main__title">필기</span>
           </div>

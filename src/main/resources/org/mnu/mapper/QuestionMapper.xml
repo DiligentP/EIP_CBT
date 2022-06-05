@@ -19,4 +19,8 @@
     <select id="getListWriter" resultType="org.mnu.domain.QuestionVO">
         SELECT * FROM TBL_QUESTION WHERE writer = #{writer}
     </select>
+    
+    <select id="getCount" resultType="int">
+        SELECT COUNT(*) FROM TBL_QUESTION
+    </select>
 </mapper>

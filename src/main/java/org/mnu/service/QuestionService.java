@@ -15,4 +15,6 @@ public interface QuestionService {
 
     public List<QuestionVO> getList();
     public List<QuestionVO> getListWriter(String writer);
+
+    public int getCount();
 }

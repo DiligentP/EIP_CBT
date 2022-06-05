@@ -16,4 +16,6 @@ public interface QuestionMapper {
     public List<QuestionVO> getList();
 
     public List<QuestionVO> getListWriter(String writer);
+
+    public int getCount();
 }

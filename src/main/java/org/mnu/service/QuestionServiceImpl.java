@@ -89,10 +89,18 @@ public class QuestionServiceImpl implements QuestionService {
     public List<QuestionVO> getList() {
         return mapper.getList();
     }
+
     /**
      * @details 해당 계정의 문제 리스트를 DB에서 받아온다.
      */
     public List<QuestionVO> getListWriter(String writer){
         return mapper.getListWriter(writer);
+    }
+
+    /**
+     * @details 문제의 총 갯수를 받아온다.
+     */
+    public int getCount(){
+        return mapper.getCount();
     }
 }

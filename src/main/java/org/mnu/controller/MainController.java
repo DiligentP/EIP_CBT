@@ -38,7 +38,6 @@ public class MainController {
 
 	@GetMapping("/written")
 	public String written(Model model) {
-
 		return "written";
 	}
 
