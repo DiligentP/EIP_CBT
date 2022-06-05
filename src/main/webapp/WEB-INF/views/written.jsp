@@ -20,16 +20,51 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
             <span><c:out value="${vo.title}" /></span>
           </div>
           <div class="test__written__answer">
-            <ul>
-              <input type="radio" name="" id="" />
+            <ul class="answer__radiolist">
+              <li>
+                <input
+                  type="radio"
+                  name="answer"
+                  id="content1"
+                  value="1"
+                  onclick="hadleClick()"
+                />
+                <label for="content1"><c:out value="${vo.content1}" /></label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="answer"
+                  id="content2"
+                  value="2"
+                  onclick="hadleClick()"
+                />
+                <label for="content2"> <c:out value="${vo.content2}" /></label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="answer"
+                  id="content3"
+                  value="3"
+                  onclick="hadleClick()"
+                />
+                <label for="content3"><c:out value="${vo.content3}" /></label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="answer"
+                  id="content4"
+                  value="4"
+                  onclick="hadleClick()"
+                />
+                <label for="content4"><c:out value="${vo.content4}" /></label>
+              </li>
             </ul>
-            <span>1️⃣ <c:out value="${vo.content1}" /></span>
-            <span>2️⃣ <c:out value="${vo.content2}" /></span>
-            <span>3️⃣ <c:out value="${vo.content3}" /></span>
-            <span>4️⃣ <c:out value="${vo.content4}" /></span>
           </div>
           <div class="answer__container">
-            <button id="answer__btn">정답확인</button>
+            <button id="answer__btn" onclick="btnClick()">정답확인</button>
           </div>
         </div>
       </div>
@@ -38,9 +73,26 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <jsp:include page="footer.jsp" />
   </body>
 
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
   <script>
-    let count = 0;
-    console.log(count);
+    // let listVar = $("input[name='answer']:checked").val();
+
+    const hadleClick = () => {
+      let listVar = $("input[name='answer']:checked").val();
+      // alert(listVar);
+      console.log(listVar);
+    };
+
+    const btnClick = () => {
+      // window.location.href =
+    };
+
+    // let count = 0;
+    // console.log(count);
     // 푼 문제를 담는 리스트
     let qList = [];
 
