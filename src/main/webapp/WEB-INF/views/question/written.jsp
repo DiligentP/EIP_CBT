@@ -79,36 +79,22 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     crossorigin="anonymous"
   ></script>
   <script>
-    // let listVar = $("input[name='answer']:checked").val();
+    let ans;
 
     const hadleClick = () => {
-      let listVar = $("input[name='answer']:checked").val();
-      // alert(listVar);
-      console.log(listVar);
+      ans = $("input[name='answer']:checked").val();
+      console.log(ans);
     };
 
     const btnClick = () => {
-      // window.location.href =
+      if(ans == undefined) {
+        alert("답을 선택하세요.");
+      }else{
+        const qno = '<c:out value="${vo.qno}"/>';
+        window.location.href = '/question/exam/grading?qno='+qno+'&&ans='+ans;
+      }
     };
 
-    // let count = 0;
-    // console.log(count);
-    // 푼 문제를 담는 리스트
-    let qList = [];
-
-    // 중복을 판단 : 중복되는 값이 하나도 없으면 true
-    function notSame(n) {
-      return qList.every((e) => n !== e);
-    }
-
-    // 랜덤으로 문제를 받아옴
-    function random() {
-      let n;
-      do {
-        n = Math.floor(Math.random() * count) + 1;
-      } while (!notSame(n));
-
-      return n;
-    }
+    console.log(sessionStorage.getItem('qJson'));
   </script>
 </html>

@@ -9,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
-
 @Controller
 @Log4j
 @AllArgsConstructor
@@ -46,20 +44,26 @@ public class QuestionController {
      * @details 채점 처리
      */
     @GetMapping("/exam/grading")
-    public String examGrading(@RequestParam String qno, @RequestParam String ans) {
+    public String examGrading(Model model, @RequestParam long qno, @RequestParam String ans) {
+        QuestionVO vo = service.get(qno);
+        model.addAttribute("vo",vo);
 
-
-
-        return "questionGrading";
+        // 사용자가 입력한 값과 문제의 정답 비교
+        if(vo.getAnswer().equals(ans)){
+            model.addAttribute("result",true);
+        }else{
+            model.addAttribute("result",false);
+        }
+        return "question/questionGrading";
     }
 
     /**
-     * @brief 시험 결과 페이지
-     * @details 시험 결과 페이지
+     * @brief 문제 결과 페이지
+     * @details 문제 결과 페이지
      */
     @GetMapping("/exam/result")
-    public void examResult() {
-
+    public String examResult() {
+        return "question/questionResult";
     }
 
     /**

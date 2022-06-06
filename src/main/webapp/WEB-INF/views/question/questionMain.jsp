@@ -35,6 +35,7 @@ prefix="c"%>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script>
+    let qArray = new Array();
     function exam(type){
       let count = 0;
       $.ajax({
@@ -46,6 +47,11 @@ prefix="c"%>
           count = result;
           // 랜덤 문제 생성
           let n = Math.floor(Math.random() * count) + 1;
+
+          // 세션 생성
+          sessionStorage.setItem('qJson', JSON.stringify(qArray));
+          sessionStorage.setItem('count',count);
+
           location.href="/question/written/get?qno="+n;
         },
         error: function (error){
