@@ -1,5 +1,7 @@
 package org.mnu.mapper;
 
+import org.apache.ibatis.annotations.Select;
+import org.mnu.domain.QuestionResultVO;
 import org.mnu.domain.QuestionVO;
 
 import java.util.List;
@@ -18,4 +20,6 @@ public interface QuestionMapper {
     public List<QuestionVO> getListWriter(String writer);
 
     public int getCount();
+
+    public List<QuestionResultVO> getResultList();
 }

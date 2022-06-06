@@ -17,10 +17,14 @@
     </select>
 
     <select id="getListWriter" resultType="org.mnu.domain.QuestionVO">
-        SELECT * FROM TBL_QUESTION WHERE writer = #{writer}
+        SELECT * FROM TBL_QUESTION WHERE writer = #{writer} ORDER BY qno DESC
     </select>
     
     <select id="getCount" resultType="int">
         SELECT COUNT(*) FROM TBL_QUESTION
+    </select>
+
+    <select id="getResultList" resultType="org.mnu.domain.QuestionResultVO">
+        SELECT * FROM TBL_QUESTION_RESULT ORDER BY no DESC
     </select>
 </mapper>

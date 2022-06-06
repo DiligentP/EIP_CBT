@@ -25,10 +25,6 @@ public class QuestionController {
         return "question/questionMain";
     }
 
-
-
-
-
     /**
      * @brief 문제 삭제 처리 페이지
      * @details 문제를 삭제하고 문제 리스트 페이지로 리다이렉트한다.
@@ -90,5 +86,15 @@ public class QuestionController {
         QuestionVO vo = service.get(qno);
         model.addAttribute("vo",vo);
         return "question/written";
+    }
+
+    /**
+     * @derails qno로 문제 정보를 받아 전송해준다.
+     */
+    @GetMapping("/practical/get")
+    public String examPracticalGet(Model model, @RequestParam long qno){
+        QuestionVO vo = service.get(qno);
+        model.addAttribute("vo",vo);
+        return "question/practical";
     }
 }
