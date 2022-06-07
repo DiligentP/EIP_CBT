@@ -37,6 +37,8 @@
               </tr>
             </tbody>
           </c:forEach>
+
+
         </table>
       </div>
     </div>
@@ -45,4 +47,22 @@
 
 <jsp:include page="../footer.jsp" />
 </body>
+
+<script>
+    // 세션에서 qJson 파싱
+    let Json = JSON.parse(sessionStorage.getItem('qJson'));
+    let count = sessionStorage.getItem('count');
+
+    // key 값만 추출
+    let qList = []; //jsonObj key 담을 배열
+    for(let i=0; i<Json.length; i++){
+        qList.push(Object.keys(Json[i])[0]); //key를 담음
+    };
+
+    // Json = 제이슨 파일
+    // qList => key값 10개
+    // count => 사용자가 푼 문제의 개수,
+
+
+</script>
 </html>

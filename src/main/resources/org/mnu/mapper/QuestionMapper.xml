@@ -10,7 +10,7 @@
 <mapper namespace="org.mnu.mapper.QuestionMapper">
     <select id="get" resultType="org.mnu.domain.QuestionVO">
         <!--SELECT * FROM TBL_QUESTION WHERE qno = #{qno}-->
-        SELECT * FROM (SELECT ROWNUM AS NUM, TBL_QUESTION.* FROM TBL_QUESTION WHERE DIVISION = #{division}) WHERE NUM = #{qno}
+        SELECT * FROM TBL_QUESTION WHERE DIVISION = #{division} and QNO = #{qno}
     </select>
 
     <select id="getList" resultType="org.mnu.domain.QuestionVO">

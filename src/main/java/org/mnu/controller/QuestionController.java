@@ -59,6 +59,8 @@ public class QuestionController {
      */
     @GetMapping("/exam/result")
     public String examResult() {
+
+
         return "question/questionResult";
     }
 

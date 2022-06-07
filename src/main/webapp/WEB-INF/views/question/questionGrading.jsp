@@ -74,7 +74,6 @@
                     </li>
                 </ul>
             </div>
-
             <div>
                 해설<br><br>
                 <label for="content4"><c:out value="${vo.comment}" /></label>
