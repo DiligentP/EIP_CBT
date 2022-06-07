@@ -66,7 +66,6 @@ prefix="c"%>
             else{
               alert("페이지 이동 에러 (컨트롤러가 응답하지 않습니다)")
             }
-
           }
         },
         error: function (error){

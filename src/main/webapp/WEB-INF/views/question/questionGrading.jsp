@@ -30,50 +30,71 @@
                 </c:choose>
 
             </div>
-            <div class="test__written__answer">
-                <ul class="answer__radiolist">
-                    <li>
-                        <input
-                                type="radio"
-                                name="answer"
-                                id="content1"
-                                value="1"
-                                onclick="hadleClick()"
-                        />
-                        <label for="content1"><c:out value="${vo.content1}" /></label>
-                    </li>
-                    <li>
-                        <input
-                                type="radio"
-                                name="answer"
-                                id="content2"
-                                value="2"
-                                onclick="hadleClick()"
-                        />
-                        <label for="content2"> <c:out value="${vo.content2}" /></label>
-                    </li>
-                    <li>
-                        <input
-                                type="radio"
-                                name="answer"
-                                id="content3"
-                                value="3"
-                                onclick="hadleClick()"
-                        />
-                        <label for="content3"><c:out value="${vo.content3}" /></label>
-                    </li>
-                    <li>
-                        <input
-                                type="radio"
-                                name="answer"
-                                id="content4"
-                                value="4"
-                                onclick="hadleClick()"
-                        />
-                        <label for="content4"><c:out value="${vo.content4}" /></label>
-                    </li>
-                </ul>
-            </div>
+            <c:choose>
+                <c:when test="${vo.division eq 'w'}"/>
+                <div class="test__written__answer">
+                    <ul class="answer__radiolist">
+                        <li>
+                            <input
+                                    type="radio"
+                                    name="answer"
+                                    id="content1"
+                                    value="1"
+                                    onclick="hadleClick()"
+                            />
+                            <label for="content1"><c:out value="${vo.content1}" /></label>
+                        </li>
+                        <li>
+                            <input
+                                    type="radio"
+                                    name="answer"
+                                    id="content2"
+                                    value="2"
+                                    onclick="hadleClick()"
+                            />
+                            <label for="content2"> <c:out value="${vo.content2}" /></label>
+                        </li>
+                        <li>
+                            <input
+                                    type="radio"
+                                    name="answer"
+                                    id="content3"
+                                    value="3"
+                                    onclick="hadleClick()"
+                            />
+                            <label for="content3"><c:out value="${vo.content3}" /></label>
+                        </li>
+                        <li>
+                            <input
+                                    type="radio"
+                                    name="answer"
+                                    id="content4"
+                                    value="4"
+                                    onclick="hadleClick()"
+                            />
+                            <label for="content4"><c:out value="${vo.content4}" /></label>
+                        </li>
+                    </ul>
+                </div>
+
+                <c:when test="${vo.division eq 'p'}"/>
+
+                <span>답 : <c:out value="${vo.answer}" /> </span>
+                <c:if test="${not empty vo.content1}">
+                    <span>또는 : <c:out value="${vo.content1}" /> </span>
+                </c:if>
+                <c:if test="${not empty vo.content2}">
+                    <span>또는 : <c:out value="${vo.content2}" /> </span>
+                </c:if>
+                <c:if test="${not empty vo.content2}">
+                    <span>또는 : <c:out value="${vo.content2}" /> </span>
+                </c:if>
+                <c:if test="${not empty vo.content2}">
+                    <span>또는 : <c:out value="${vo.content2}" /> </span>
+                </c:if>
+
+            </c:choose>
+
             <div>
                 해설<br><br>
                 <label for="content4"><c:out value="${vo.comment}" /></label>
@@ -93,6 +114,7 @@
     const searchParams = new URLSearchParams(window.location.search);
     const ans = searchParams.get('ans');
     const qno = searchParams.get('qno');
+    const div = searchParams.get('div');
 
     // 세션에서 qJson 파싱
     let qJson = JSON.parse(sessionStorage.getItem('qJson'));
@@ -149,8 +171,16 @@
             alert("문제가 더 이상 없습니다.")
             location.href="/question/exam/result";
         }else{
-            const div = '<c:out value="${vo.division}"/>'
-            location.href="/question/written/get?div="+div+"&&qno="+qno;
+            if(div == 'w'){
+                location.href="/question/written/get?div="+div+"&&qno="+qno;
+            }
+            else if(div == 'p'){
+                location.href="/question/practical/get?div="+div+"&&qno="+qno;
+            }
+            else{
+                alert("문제 유형의 값이 정상적이지 않습니다.")
+            }
+
         }
     };
 </script>
