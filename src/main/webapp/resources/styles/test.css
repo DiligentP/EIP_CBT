@@ -150,7 +150,7 @@ test {
 }
 
 .answer__radiolist > li > input[type="radio"]:checked {
-  background-color: red;
+  background-color: #ff006e;
   -webkit-appearance: none;
   -moz-appearance: none;
   margin-left: 16px;
@@ -159,4 +159,13 @@ test {
   height: 14px;
   /* border-radius: 100%; */
   /* background: url("../assets/check.png"); */
+}
+
+/* 테스트 결과 페이지 */
+.test__result {
+  margin: 20px 0px;
+}
+
+.test__result > span {
+  font-size: 20px;
 }
