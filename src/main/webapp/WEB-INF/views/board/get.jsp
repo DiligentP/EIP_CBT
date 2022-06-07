@@ -69,7 +69,7 @@
       </div>
       <!-- 댓글 수정 -->
       <div class="comment__modify">
-        <form role="form" action="/reply/modify" method="post" class="modify__form">
+        <form role="form" action="/reply/modify" method="post" class="modify__form" name="modifyForm">
           <input type="hidden" name="bno" value= <c:out value="${reply.bno}"/>>
           <input type="hidden" name="rno" value= <c:out value="${reply.rno}"/>>
           <input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
@@ -77,11 +77,11 @@
           <input type="submit" value="수정" class="comment_sub" >
         </form>
         <!-- 댓글 삭제 -->
-        <form role="form" action="/reply/remove" method="post" class="delete__form">
+        <form role="form" action="/reply/remove" method="post" class="delete__form" name="deleteForm">
           <input type="hidden" name="bno" value= <c:out value="${reply.bno}"/>>
           <input type="hidden" name="rno" value= <c:out value="${reply.rno}"/> readonly="readonly">
           <input type="hidden" name="pageNum" value= <c:out value="${pageMaker.cri.pageNum}"/>>
-          <input type="submit" value="삭제" class="comment_sub">
+          <input type="submit" value="삭제" class="comment_sub" >
         </form>
       </div>
   </c:forEach>
@@ -103,7 +103,6 @@
       }
   };
   
-
   
   boardSubBtn.addEventListener("click", handleSubmit);
   
