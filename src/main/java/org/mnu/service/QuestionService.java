@@ -7,7 +7,7 @@ import java.util.List;
 public interface QuestionService {
     public void create(QuestionVO vo);
 
-    public QuestionVO get(Long qno);
+    public QuestionVO get(Long qno,String division);
 
     public int modify(QuestionVO vo);
 
@@ -15,6 +15,5 @@ public interface QuestionService {
 
     public List<QuestionVO> getList();
     public List<QuestionVO> getListWriter(String writer);
-
-    public int getCount();
+    public int getCount(String division);
 }

@@ -1,5 +1,6 @@
 package org.mnu.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.mnu.domain.QuestionResultVO;
 import org.mnu.domain.QuestionVO;
@@ -7,7 +8,7 @@ import org.mnu.domain.QuestionVO;
 import java.util.List;
 
 public interface QuestionMapper {
-    public QuestionVO get(Long qno);
+    public QuestionVO get(@Param("qno")Long qno, @Param("division")String division);
 
     public void insert(QuestionVO user);
 
@@ -18,8 +19,10 @@ public interface QuestionMapper {
     public List<QuestionVO> getList();
 
     public List<QuestionVO> getListWriter(String writer);
-
-    public int getCount();
+    
+    
+    // division : 문제 종류 w=필기 p=실기
+    public int getCount(String division);
 
     public List<QuestionResultVO> getResultList();
 }

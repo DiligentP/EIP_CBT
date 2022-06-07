@@ -40,8 +40,8 @@ public class QuestionController {
      * @details 채점 처리
      */
     @GetMapping("/exam/grading")
-    public String examGrading(Model model, @RequestParam long qno, @RequestParam String ans) {
-        QuestionVO vo = service.get(qno);
+    public String examGrading(Model model, @RequestParam long qno, @RequestParam String div, @RequestParam String ans) {
+        QuestionVO vo = service.get(qno,div);
         model.addAttribute("vo",vo);
 
         // 사용자가 입력한 값과 문제의 정답 비교
@@ -68,12 +68,10 @@ public class QuestionController {
     @GetMapping("/count")
     @ResponseBody
     public int count(@RequestParam String exam){
-        int count = service.getCount();
-        if(exam.equals("written")){
+        int count = service.getCount(exam);
+        log.info(count);
+        if(count > 0){
             return count;
-        }
-        else if(exam.equals("practical")){
-            return 10;
         }
         return -1;
     }
@@ -82,8 +80,8 @@ public class QuestionController {
      * @derails qno로 문제 정보를 받아 전송해준다.
      */
     @GetMapping("/written/get")
-    public String examWrittenGet(Model model, @RequestParam long qno){
-        QuestionVO vo = service.get(qno);
+    public String examWrittenGet(Model model, @RequestParam long qno, @RequestParam String div){
+        QuestionVO vo = service.get(qno,div);
         model.addAttribute("vo",vo);
         return "question/written";
     }
@@ -92,8 +90,8 @@ public class QuestionController {
      * @derails qno로 문제 정보를 받아 전송해준다.
      */
     @GetMapping("/practical/get")
-    public String examPracticalGet(Model model, @RequestParam long qno){
-        QuestionVO vo = service.get(qno);
+    public String examPracticalGet(Model model, @RequestParam long qno, @RequestParam String div){
+        QuestionVO vo = service.get(qno,div);
         model.addAttribute("vo",vo);
         return "question/practical";
     }

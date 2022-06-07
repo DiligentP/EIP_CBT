@@ -9,7 +9,8 @@
 -->
 <mapper namespace="org.mnu.mapper.QuestionMapper">
     <select id="get" resultType="org.mnu.domain.QuestionVO">
-        SELECT * FROM TBL_QUESTION WHERE qno = #{qno}
+        <!--SELECT * FROM TBL_QUESTION WHERE qno = #{qno}-->
+        SELECT * FROM (SELECT ROWNUM AS NUM, TBL_QUESTION.* FROM TBL_QUESTION WHERE DIVISION = #{division}) WHERE NUM = #{qno}
     </select>
 
     <select id="getList" resultType="org.mnu.domain.QuestionVO">
@@ -21,7 +22,8 @@
     </select>
     
     <select id="getCount" resultType="int">
-        SELECT COUNT(*) FROM TBL_QUESTION
+        <!--SELECT COUNT(*) FROM TBL_QUESTION-->
+        SELECT count(*) FROM TBL_QUESTION WHERE DIVISION = #{division}
     </select>
 
     <select id="getResultList" resultType="org.mnu.domain.QuestionResultVO">

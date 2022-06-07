@@ -22,7 +22,7 @@ public class QuestionMapperTests {
     @Test
     public void QuestionGetTest(){
 
-        QuestionVO a = mapper.get(2L);
+        QuestionVO a = mapper.get(1L,"w");
         log.info("-------------------------------------------------------");
         log.info(a);
         log.info("-------------------------------------------------------");
@@ -50,7 +50,7 @@ public class QuestionMapperTests {
     @Test
     public void QuestionGetCountTest() {
 
-        int a = mapper.getCount();
+        int a = mapper.getCount("w");
         log.info("-------------------------------------------------------");
         log.info(a);
         log.info("-------------------------------------------------------");

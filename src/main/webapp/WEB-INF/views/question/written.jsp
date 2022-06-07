@@ -91,7 +91,8 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
         alert("답을 선택하세요.");
       }else{
         const qno = '<c:out value="${vo.qno}"/>';
-        window.location.href = '/question/exam/grading?qno='+qno+'&&ans='+ans;
+        const div = '<c:out value="${vo.division}"/>'
+        window.location.href = '/question/exam/grading?div='+div+'&&qno='+qno+'&&ans='+ans;
       }
     };
 

@@ -7,7 +7,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
     <title>실기 시험</title>
   </head>
   <body>
@@ -17,7 +17,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
       <div class="test">
         <div class="test__container">
           <div class="test__titleNum">
-            <span>Question Num</span>
+            <span><c:out value="${vo.title}" /></span>
           </div>
           <div class="test__question">
             <span>질문</span>

@@ -16,12 +16,12 @@ prefix="c"%>
 
     <main>
       <div class="main__container">
-        <a href="#" onclick="exam('written')">
+        <a href="#" onclick="exam('w')">
           <div class="main__written">
             <span class="main__title">필기</span>
           </div>
         </a>
-        <a href="/practical">
+        <a href="#" onclick="exam('p')">
           <div class="main_practical">
             <span class="main__title">실기</span>
           </div>
@@ -45,14 +45,29 @@ prefix="c"%>
         dataType: "json",
         success: function (result){
           count = result;
-          // 랜덤 문제 생성
-          let n = Math.floor(Math.random() * count) + 1;
 
-          // 세션 생성
-          sessionStorage.setItem('qJson', JSON.stringify(qArray));
-          sessionStorage.setItem('count',count);
+          if(count == -1){
+            alert("문제가 없습니다!")
+            location.href="/question/#";
+          }else{
+            // 랜덤 문제 생성
+            let n = Math.floor(Math.random() * count) + 1;
 
-          location.href="/question/written/get?qno="+n;
+            // 세션 생성
+            sessionStorage.setItem('qJson', JSON.stringify(qArray));
+            sessionStorage.setItem('count',count);
+
+            if(type == "w"){
+              location.href="/question/written/get?div="+type+"&&qno="+n;
+            }
+            else if(type == "p"){
+              location.href="/question/practical/get?div="+type+"&&qno="+n;
+            }
+            else{
+              alert("페이지 이동 에러 (컨트롤러가 응답하지 않습니다)")
+            }
+
+          }
         },
         error: function (error){
           alert("에러");

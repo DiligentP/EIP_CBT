@@ -149,7 +149,8 @@
             alert("문제가 더 이상 없습니다.")
             location.href="/question/exam/result";
         }else{
-            location.href="/question/written/get?qno="+qno;
+            const div = '<c:out value="${vo.division}"/>'
+            location.href="/question/written/get?div="+div+"&&qno="+qno;
         }
     };
 </script>

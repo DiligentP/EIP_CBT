@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mnu.domain.QuestionVO;
 import org.mnu.mapper.QuestionMapper;
+import org.mnu.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -17,9 +18,19 @@ public class QuestrionServiceTests {
     @Autowired
     QuestionMapper mapper;
 
+    @Autowired
+    QuestionService service;
+
     @Test
     public void getTest(){
-        QuestionVO vo = mapper.get(1L);
+        QuestionVO vo = mapper.get(1L,"w");
         log.info(vo.getComment());
+    }
+
+    @Test
+    public void countTest(){
+        String exam = "w";
+        int count = service.getCount(exam);
+        log.info(count);
     }
 }

@@ -1,5 +1,6 @@
 package org.mnu.service;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.mnu.domain.QuestionVO;
 import org.mnu.mapper.QuestionMapper;
@@ -21,9 +22,9 @@ import java.util.List;
 
 @Service
 @Log4j
+@AllArgsConstructor
 public class QuestionServiceImpl implements QuestionService {
-    @Autowired
-    private QuestionMapper mapper;
+    private final QuestionMapper mapper;
 
     /**
      * @brief 문제 생성
@@ -47,10 +48,10 @@ public class QuestionServiceImpl implements QuestionService {
      * @return QuestionVO 문제 정보
      */
     @Override
-    public QuestionVO get(Long qno) {
+    public QuestionVO get(Long qno, String division) {
         log.info("get......" + qno);
 
-        return mapper.get(qno);
+        return mapper.get(qno,division);
     }
 
     /**
@@ -100,7 +101,7 @@ public class QuestionServiceImpl implements QuestionService {
     /**
      * @details 문제의 총 갯수를 받아온다.
      */
-    public int getCount(){
-        return mapper.getCount();
+    public int getCount(String division){
+        return mapper.getCount(division);
     }
 }
