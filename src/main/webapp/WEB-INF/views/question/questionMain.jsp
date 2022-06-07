@@ -38,6 +38,7 @@ prefix="c"%>
     let qArray = new Array();
     function exam(type){
       let count = 0;
+      let title = new Array();
       $.ajax({
         url: `/question/count`, //Controller에서 인식할 주소
         type: "get", //get 방식으로 전달

@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j;
 import org.mnu.domain.QuestionVO;
 import org.mnu.service.QuestionService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,9 @@ public class MypageController {
 
     /*** @brief 마이페이지 문제관리 페이지 */
     @GetMapping("/mypageQuestion")
-    public String mypageQuestion() {
+    public String mypageQuestion(Model model,@RequestParam String id) {
+        List<QuestionVO> qvo = service.getListWriter(id);
+        model.addAttribute("Question",qvo);
         return "mypage/mypageQuestion";
     }
 
@@ -44,23 +47,11 @@ public class MypageController {
         return "mypage/mypageResult";
     }
 
-
-    /*** @brief 나의 문제 리스트 페이지 */
-    @GetMapping("/questionList")
-    public String list(RedirectAttributes rttr, @RequestParam String id) {
-        List<QuestionVO> qvo = service.getListWriter(id);
-
-        rttr.addFlashAttribute("Question",qvo);
-
-        return "redirect:/mypage/mypageQuestion";
-    }
-
     /*** @brief 나의 문제 리스트 상세 페이지 */
     @GetMapping("/questionListDetail")
-    public String detail(@RequestParam Long qno){
-        log.info("-------------------------------");
-        log.info("qno : " + qno);
-        log.info("-------------------------------");
+    public String detail(Model model,@RequestParam Long qno){
+        QuestionVO vo = service.get(qno,"w");
+        model.addAttribute("vo",vo);
         return "mypage/mypageQuestionDetail";
     }
 

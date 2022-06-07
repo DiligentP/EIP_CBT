@@ -21,7 +21,7 @@ prefix="c"%>
             <span>시험 결과</span>
           </div>
         </a>
-        <a href="/mypage/questionList?id=${login_info.member_id}">
+        <a href="/mypage/mypageQuestion?id=${login_info.member_id}">
           <div class="mypage_box">
             <span>문제 관리</span>
           </div>
