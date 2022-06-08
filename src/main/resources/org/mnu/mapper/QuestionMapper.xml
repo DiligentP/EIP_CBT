@@ -29,4 +29,17 @@
     <select id="getResultList" resultType="org.mnu.domain.QuestionResultVO">
         SELECT * FROM TBL_QUESTION_RESULT ORDER BY no DESC
     </select>
+
+    <update id="update" parameterType="org.mnu.domain.QuestionVO">
+        UPDATE TBL_QUESTION
+        SET title = #{title},
+            CONTENT1 = #{content1},
+            CONTENT2 = #{content2},
+            CONTENT3 = #{content3},
+            CONTENT4 = #{content4},
+            ANSWER = #{answer},
+            "COMMENT" = #{comment},
+            "updateDate" = sysdate
+        WHERE qno = #{qno}
+    </update>
 </mapper>

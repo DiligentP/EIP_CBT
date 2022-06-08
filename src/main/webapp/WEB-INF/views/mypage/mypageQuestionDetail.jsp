@@ -18,37 +18,39 @@ prefix="c"%>
       <div class="wrapper">
         <div class="wrapper__container">
           <div class="wrapper__container__Main">
-            <!-- input 태그  -->
-              <form action="#" method="post">
+            <form id="QuestionModifyForm" action="/mypage/questionModify" method="post">
             <div class="wrapper__container__input">
               <div class="board__form__input">
                   <span>문제</span>
-                  <input id="title" name="" placeholder="문제" style="border: none" value="<c:out value="${vo.title}"/>">
+                  <input id="title" name="title" placeholder="문제" style="border: none" value="<c:out value="${vo.title}"/>">
 
                   <br><br>
                   <span>객관식 1</span>
-                  <input id="content1" name="" placeholder="선택1" style="border: none" value="<c:out value="${vo.content1}"/>">
+                  <input id="content1" name="content1" placeholder="선택1" style="border: none" value="<c:out value="${vo.content1}"/>">
                   <span>객관식 2</span>
-                  <input id="content2" name="" placeholder="선택2" style="border: none" value="<c:out value="${vo.content2}"/>">
+                  <input id="content2" name="content2" placeholder="선택2" style="border: none" value="<c:out value="${vo.content2}"/>">
                   <span>객관식 3</span>
-                  <input id="content3" name="" placeholder="선택3" style="border: none" value="<c:out value="${vo.content3}"/>">
+                  <input id="content3" name="content3" placeholder="선택3" style="border: none" value="<c:out value="${vo.content3}"/>">
                   <span>객관식 4</span>
-                  <input id="content4" name="" placeholder="선택4" style="border: none" value="<c:out value="${vo.content4}"/>">
+                  <input id="content4" name="content4" placeholder="선택4" style="border: none" value="<c:out value="${vo.content4}"/>">
                   <br><br><br>
 
                   <span>해설</span>
-                  <textarea id="comment" name="" placeholder="해설" cols="40" rows="5" style="border: none"><c:out value="${vo.comment}"/></textarea>
+                  <textarea id="comment" name="comment" placeholder="해설" cols="40" rows="5" style="border: none"><c:out value="${vo.comment}"/></textarea>
 
                   <span>답</span>
-                  <input id="answer" name="" placeholder="답" style="border: none" value="<c:out value="${vo.answer}"/>">
-              </div>
+                  <input id="answer" name="answer" placeholder="답" style="border: none" value="<c:out value="${vo.answer}"/>">
 
+                  <input type="hidden" name="qno" value="${vo.qno}"/>
+                  <input type="hidden" name="sessionId" value="${login_info.member_id}"/>
+                  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+              </div>
               <div class="wrapper__container__btn">
-                <a href="">수정하기</a>
+                <input type="submit" value="수정하기"><a href="">수정하기</a>
                 <a href="/mypage/mypageQuestion?id=${login_info.member_id}">돌아가기</a>
               </div>
             </div>
-              </form>
+            </form>
           </div>
         </div>
       </div>

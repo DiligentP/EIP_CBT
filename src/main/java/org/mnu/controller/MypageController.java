@@ -2,6 +2,7 @@ package org.mnu.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import org.mnu.domain.MemberVO;
 import org.mnu.domain.QuestionVO;
 import org.mnu.service.QuestionService;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -55,22 +57,35 @@ public class MypageController {
         return "mypage/mypageQuestionDetail";
     }
 
-
-    /**
-     * @brief 문제 수정 페이지
-     * @details 문제의 정보를 수정할 수 있는 페이지를 보여준다.
-     */
-    @GetMapping("/modify")
-    public void modify() {
-
-    }
-
     /**
      * @brief 문제 수정 처리 페이지
      * @details 입력한 정보를 DB에 반영하여 정보를 수정한다.
      */
-    @PostMapping("/modify")
-    public String modify(RedirectAttributes rttr) {
-        return "redirect:/question/list";
+    @PostMapping("/questionModify")
+    public String modify(@RequestParam Long qno, @RequestParam String title, @RequestParam String content1, @RequestParam String content2,
+                         @RequestParam String content3, @RequestParam String content4, @RequestParam String answer, @RequestParam String comment,
+                         @RequestParam String sessionId) {
+        QuestionVO vo = service.get(qno,"w");
+        vo.setTitle(title);
+        vo.setContent1(content1);
+        vo.setContent2(content2);
+        vo.setContent3(content3);
+        vo.setContent4(content4);
+        vo.setAnswer(answer);
+        vo.setComment(comment);
+
+        log.info("--------------------------------------------------");
+        log.info(vo);
+        log.info("--------------------------------------------------");
+
+        int result = service.modify(vo);
+
+        //session.getAttribute("login_info");
+
+        if(result == 1){
+            return "redirect:/mypage/mypageQuestion?id="+sessionId;
+        }
+
+        return "/Error";
     }
 }
