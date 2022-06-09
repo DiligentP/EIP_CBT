@@ -12,3 +12,45 @@
   letter-spacing: 0.2rem;
   padding: 20px 20px;
 }
+
+myPage {
+  height: 100%;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.mypage__input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mypage__input textarea,
+.mypage__input input {
+  margin: 20px 0px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+}
+
+.mypage__input > span {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mypage__inputBtn {
+  border: none;
+  cursor: pointer;
+  padding: 15px 45px;
+  border-radius: 15px;
+  background-color: #ff006e;
+  color: white;
+  font-size: 18px;
+}
+
+.mypage__inputBtn:hover {
+  opacity: 0.5;
+}
