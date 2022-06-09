@@ -17,11 +17,13 @@ prefix="c"%>
     <wrapper>
       <div class="wrapper">
         <div class="wrapper__container">
-          <c:if test="${not empty login_info}">
-            <a href="/mypage/mypageQuestionRegister" class="wrapper__container__Header__btn">
-              <span>문제 작성</span>
-            </a>
-          </c:if>
+          <div class="wrapper__container__Header">
+            <c:if test="${not empty login_info}">
+              <a href="/mypage/mypageQuestionRegister" class="wrapper__container__Header__btn">
+                <span>문제 작성</span>
+              </a>
+            </c:if>
+          </div>
           <table class="table">
             <thead class="table__header">
               <tr class="table__header__row">

@@ -1,5 +1,7 @@
 .table {
+  position: relative;
   width: 90%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   border-spacing: 10px;
@@ -7,6 +9,7 @@
   border: 1px solid #9e9e9e;
   border-radius: 10px;
   overflow: hidden;
+  margin-bottom: 100px;
 }
 
 .table__header {
@@ -53,6 +56,8 @@
 }
 
 .table__body__row {
+  position: relative;
+  height: 100%;
   display: flex;
 }
 

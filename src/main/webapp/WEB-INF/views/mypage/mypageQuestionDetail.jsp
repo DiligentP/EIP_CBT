@@ -75,10 +75,19 @@ prefix="c"%>
                     value="수정하기"
                     class="mypage__inputBtn"
                   />
-
-                  <a href="/mypage/mypageQuestion?id=${login_info.member_id}"
-                    >돌아가기</a
-                  >
+                  <!-- 정현이가 삭제 만들기 -->
+                  <input
+                    type="button"
+                    value="삭제하기"
+                    class="mypage__inputBtn"
+                    onclick=""
+                  />
+                  <input
+                    type="button"
+                    value="돌아가기"
+                    class="mypage__inputBtn"
+                    onclick="location.href='/mypage/mypageQuestion?id=${login_info.member_id}'"
+                  />
                 </div>
               </div>
             </form>
