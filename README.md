@@ -11,8 +11,8 @@
 
 ### DB
 - URL : jdbc:oracle:thin:@diligentp.com:1521:XE
-- ID : park
-- PW : park
+- ID : [카카오톡 확인]
+- PW : [카카오톡 확인]
 
 <br>
 개발 환경
@@ -37,5 +37,5 @@ out
 target
 ```
 
-## 프로젝트 관리
+## 프로젝트 문서 관리
 [레드마인(Redmine) B팀](http://114.70.92.70:3000/redmine/projects/b_team_2022)
