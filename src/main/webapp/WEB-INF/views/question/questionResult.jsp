@@ -32,11 +32,10 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
               <tr class="table__body__row"></tr>
             </tbody>
           </table>
+          <button onclick="record()" class="saveBtn">저장하기</button>
         </div>
       </div>
     </wrapper>
-
-    <button onclick="record()"> 나가기 </button>
 
     <jsp:include page="../footer.jsp" />
   </body>
@@ -45,7 +44,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     // 세션에서 qJson 파싱
     let Json = JSON.parse(sessionStorage.getItem("qJson"));
     let count = sessionStorage.getItem("count");
-    let answerCount = 0
+    let answerCount = 0;
 
     // key 값만 추출
     let qList = []; //jsonObj key 담을 배열
@@ -58,7 +57,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
     console.log(Json);
     console.log(typeof Json[0][qList[0]]);
-    console.log(Json[1][qList[1]]);
+    // console.log(Json[1][qList[1]]);
 
     for (let i = 0; i < Json.length; i++) {
       const rowNew = document.createElement("tr");
@@ -86,14 +85,20 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
       let member_id = '<c:out value="${login_info.member_id}"/>';
 
       // 로그인 되어 있으면,
-      if(member_id){
-        console.log("푼 사람 : "+member_id)
-        console.log("푼 문제 : "+ qList.length);
-        console.log("맞춘 문제 : "+ answerCount);
-        location.href = '/question/exam/createResult?member_id='+member_id+'&&answer='+answerCount+"&&count="+qList.length;
+      if (member_id) {
+        console.log("푼 사람 : " + member_id);
+        console.log("푼 문제 : " + qList.length);
+        console.log("맞춘 문제 : " + answerCount);
+        location.href =
+          "/question/exam/createResult?member_id=" +
+          member_id +
+          "&&answer=" +
+          answerCount +
+          "&&count=" +
+          qList.length;
       }
-      location.href = '/';
+      alert("hello");
+      location.href = "/";
     }
-
   </script>
 </html>

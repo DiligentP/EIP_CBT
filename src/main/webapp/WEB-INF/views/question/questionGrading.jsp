@@ -79,7 +79,12 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
           </div>
           <div class="answer__container">
             <button class="answer__btn" onclick="btnClick()">다음문제</button>
-            <button class="answer__btn" onclick="record()">나가기</button>
+            <button
+              class="answer__btn"
+              onclick="location.href = '/question/exam/result'"
+            >
+              그만풀기
+            </button>
           </div>
         </div>
       </div>
@@ -194,7 +199,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
           "&&count=" +
           qList.length;
       }
-      location.href = "/";
+      location.href = "/question/exam/result";
     }
   </script>
 </html>

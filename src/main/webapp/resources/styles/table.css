@@ -55,3 +55,23 @@
 .table__body__row {
   display: flex;
 }
+
+/* questionResult */
+.saveBtn {
+  position: absolute;
+  bottom: 0;
+  border: none;
+  /* outline: 0; */
+  cursor: pointer;
+  padding: 15px 30px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  background-color: #ff006e;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 5px;
+}
+
+.saveBtn:hover {
+  opacity: 0.5;
+}
