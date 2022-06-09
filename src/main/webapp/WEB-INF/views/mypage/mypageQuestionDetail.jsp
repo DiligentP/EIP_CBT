@@ -25,13 +25,13 @@ prefix="c"%>
                   <input id="title" name="title" placeholder="문제" style="border: none" value="<c:out value="${vo.title}"/>">
 
                   <br><br>
-                  <span>객관식 1</span>
+                  <span>보기 1</span>
                   <input id="content1" name="content1" placeholder="선택1" style="border: none" value="<c:out value="${vo.content1}"/>">
-                  <span>객관식 2</span>
+                  <span>보기 2</span>
                   <input id="content2" name="content2" placeholder="선택2" style="border: none" value="<c:out value="${vo.content2}"/>">
-                  <span>객관식 3</span>
+                  <span>보기 3</span>
                   <input id="content3" name="content3" placeholder="선택3" style="border: none" value="<c:out value="${vo.content3}"/>">
-                  <span>객관식 4</span>
+                  <span>보기 4</span>
                   <input id="content4" name="content4" placeholder="선택4" style="border: none" value="<c:out value="${vo.content4}"/>">
                   <br><br><br>
 

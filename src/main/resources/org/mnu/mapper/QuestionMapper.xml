@@ -27,8 +27,13 @@
     </select>
 
     <select id="getResultList" resultType="org.mnu.domain.QuestionResultVO">
-        SELECT * FROM TBL_QUESTION_RESULT ORDER BY no DESC
+        SELECT * FROM TBL_QUESTION_RESULT WHERE member_id = #{id} ORDER BY no DESC
     </select>
+
+    <insert id="insert" parameterType="org.mnu.domain.QuestionVO">
+        INSERT INTO TBL_QUESTION (QNO, TITLE, CONTENT1, CONTENT2, CONTENT3, CONTENT4, ANSWER, "COMMENT", WRITER, SUCCESS, REGDATE, "updateDate", FILEPATH, DIVISION)
+        VALUES (#{qno}, #{title}, #{content1}, #{content2}, #{content3}, #{content4}, #{answer}, #{comment}, #{writer}, 0, sysdate, sysdate, null, 'w')
+    </insert>
 
     <update id="update" parameterType="org.mnu.domain.QuestionVO">
         UPDATE TBL_QUESTION
@@ -42,4 +47,11 @@
             "updateDate" = sysdate
         WHERE qno = #{qno}
     </update>
+
+    <insert id="insertResult" parameterType="org.mnu.domain.QuestionResultVO">
+        INSERT INTO TBL_QUESTION_RESULT (NO, MEMBER_ID, TESTDATE, ANSWER, COUNT)
+        VALUES (SEQ_QUESTION_RESULT.nextval, #{member_id}, sysdate, #{answer}, #{count})
+    </insert>
+
+
 </mapper>

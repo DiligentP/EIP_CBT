@@ -3,6 +3,7 @@ package org.mnu.controller;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.mnu.domain.MemberVO;
+import org.mnu.domain.QuestionResultVO;
 import org.mnu.domain.QuestionVO;
 import org.mnu.service.QuestionService;
 import org.springframework.stereotype.Controller;
@@ -24,11 +25,16 @@ public class MypageController {
 
     private final QuestionService service;
 
+    /*** @brief 마이페이지 메인 */
     @GetMapping("/")
     public String mypageIndex() {
         return "mypage/mypage";
     }
-
+    /*** @brief 마이페이지 문제 생성 페이지 */
+    @GetMapping("/mypageQuestionRegister")
+    public String mypageQuestionRegister(){
+        return "/mypage/mypageQuestionRegister";
+    }
     /*** @brief 마이페이지 문제관리 페이지 */
     @GetMapping("/mypageQuestion")
     public String mypageQuestion(Model model,@RequestParam String id) {
@@ -36,25 +42,53 @@ public class MypageController {
         model.addAttribute("Question",qvo);
         return "mypage/mypageQuestion";
     }
-
     /*** @brief 마이페이지 정보수정 페이지 */
     @GetMapping("/mypageModify")
     public String mypageModify() {
         return "mypage/mypageModify";
     }
-
     /*** @brief 마이페이지 시험결과 페이지 */
     @GetMapping("/mypageResult")
-    public String mypageResult() {
+    public String mypageResult(Model model,@RequestParam String id) {
+        List<QuestionResultVO> vo = service.getResultList(id);
+
+        model.addAttribute("Result",vo);
+
         return "mypage/mypageResult";
     }
-
     /*** @brief 나의 문제 리스트 상세 페이지 */
     @GetMapping("/questionListDetail")
     public String detail(Model model,@RequestParam Long qno){
         QuestionVO vo = service.get(qno,"w");
         model.addAttribute("vo",vo);
         return "mypage/mypageQuestionDetail";
+    }
+
+
+
+    /*** @brief 마이페이지 문제  생성 페이지 처리 */
+    @PostMapping("/QuestionCreate")
+    public String mypageQuestionCreate(@RequestParam String title, @RequestParam String content1, @RequestParam String content2,
+                                        @RequestParam String content3, @RequestParam String content4, @RequestParam String answer, @RequestParam String comment,
+                                        @RequestParam String writer) {
+        int a = service.getCount("w");
+
+        QuestionVO vo = new QuestionVO();
+        vo.setQno((long) a + 1);
+        vo.setTitle(title);
+        vo.setContent1(content1);
+        vo.setContent2(content2);
+        vo.setContent3(content3);
+        vo.setContent4(content4);
+        vo.setComment(comment);
+        vo.setAnswer(answer);
+        vo.setWriter(writer);
+
+        int result = service.create(vo);
+        if (result == 1) {
+            return "redirect:/mypage/mypageQuestion?id=" + writer;
+        }
+        return "/Error";
     }
 
     /**
@@ -74,13 +108,7 @@ public class MypageController {
         vo.setAnswer(answer);
         vo.setComment(comment);
 
-        log.info("--------------------------------------------------");
-        log.info(vo);
-        log.info("--------------------------------------------------");
-
         int result = service.modify(vo);
-
-        //session.getAttribute("login_info");
 
         if(result == 1){
             return "redirect:/mypage/mypageQuestion?id="+sessionId;

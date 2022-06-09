@@ -2,6 +2,7 @@ package org.mnu.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import org.mnu.domain.QuestionResultVO;
 import org.mnu.domain.QuestionVO;
 import org.mnu.service.QuestionService;
 import org.springframework.stereotype.Controller;
@@ -55,15 +56,30 @@ public class QuestionController {
 
     /**
      * @brief 문제 결과 페이지
-     * @details 문제 결과 페이지
+     * @details 문제풀이 결과 페이지를 반환
      */
     @GetMapping("/exam/result")
     public String examResult() {
 
-
         return "question/questionResult";
     }
 
+    /**
+     * @brief 문제 결과 페이지
+     * @details 문제풀이 결과 데이터를 DB에 담음
+     */
+    @GetMapping("/exam/createResult")
+    public void createResult(@RequestParam String member_id, @RequestParam int answer, @RequestParam int count ) {
+
+        QuestionResultVO vo = new QuestionResultVO();
+        vo.setMember_id(member_id);
+        vo.setAnswer(answer);
+        vo.setCount(count);
+
+        int a = service.createResult(vo);
+
+        log.info(a);
+    }
     /**
      * @derails 필기 실기의 문제 수를 전송해준다.
      */

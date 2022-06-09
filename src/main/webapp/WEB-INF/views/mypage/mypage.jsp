@@ -16,7 +16,7 @@ prefix="c"%>
 
     <main>
       <div class="main__container">
-        <a href="/mypage/mypageResult">
+        <a href="/mypage/mypageResult?id=${login_info.member_id}">
           <div class="mypage_box">
             <span>시험 결과</span>
           </div>

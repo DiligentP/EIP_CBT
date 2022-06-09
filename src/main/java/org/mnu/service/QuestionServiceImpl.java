@@ -2,6 +2,7 @@ package org.mnu.service;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import org.mnu.domain.QuestionResultVO;
 import org.mnu.domain.QuestionVO;
 import org.mnu.mapper.QuestionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +35,10 @@ public class QuestionServiceImpl implements QuestionService {
      */
     @Transactional
     @Override
-    public void create(QuestionVO vo) {
+    public int create(QuestionVO vo) {
         log.info("register......" + vo);
 
-        mapper.insert(vo);
+        return mapper.insert(vo);
     }
 
     /**
@@ -103,5 +104,13 @@ public class QuestionServiceImpl implements QuestionService {
      */
     public int getCount(String division){
         return mapper.getCount(division);
+    }
+
+    public int createResult(QuestionResultVO vo){
+        return mapper.insertResult(vo);
+    }
+
+    public List<QuestionResultVO> getResultList(String id){
+        return mapper.getResultList(id);
     }
 }

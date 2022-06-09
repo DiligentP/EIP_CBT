@@ -148,7 +148,7 @@
         let qno = random();
         if (qno == -1){
             alert("문제가 더 이상 없습니다.")
-            location.href="/question/exam/result";
+            location.href='/question/exam/result';
         }else{
             if(div == 'w'){
                 location.href="/question/written/get?div="+div+"&&qno="+qno;

@@ -10,7 +10,7 @@ import java.util.List;
 public interface QuestionMapper {
     public QuestionVO get(@Param("qno")Long qno, @Param("division")String division);
 
-    public void insert(QuestionVO user);
+    public int insert(QuestionVO user);
 
     public int delete(Long qno);
 
@@ -24,5 +24,8 @@ public interface QuestionMapper {
     // division : 문제 종류 w=필기 p=실기
     public int getCount(String division);
 
-    public List<QuestionResultVO> getResultList();
+
+    public List<QuestionResultVO> getResultList(String id);
+
+    public int insertResult(QuestionResultVO vo);
 }

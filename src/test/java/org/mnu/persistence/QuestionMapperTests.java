@@ -3,12 +3,14 @@ package org.mnu.persistence;
 import lombok.extern.log4j.Log4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mnu.domain.QuestionResultVO;
 import org.mnu.domain.QuestionVO;
 import org.mnu.mapper.QuestionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -76,5 +78,40 @@ public class QuestionMapperTests {
         log.info("-------------------------------------------------------");
         log.info(a);
         log.info("-------------------------------------------------------");
+    }
+
+    @Test
+    public void QuestionInsertTest() {
+        QuestionVO vo = new QuestionVO();
+
+        int a = mapper.getCount("w");
+        vo.setQno((long) a+1);
+        vo.setTitle("test");
+        vo.setContent1("보기1");
+        vo.setContent2("보기2");
+        vo.setContent3("보기3");
+        vo.setContent4("보기4");
+        vo.setComment("코멘트");
+        vo.setAnswer("1");
+        vo.setWriter("park");
+
+        int b = mapper.insert(vo);
+    }
+
+    @Test
+    public void QuestionResultTest(){
+        QuestionResultVO vo = new QuestionResultVO();
+        vo.setMember_id("park");
+        vo.setAnswer(5);
+        vo.setCount(10);
+
+        int a = mapper.insertResult(vo);
+    }
+
+    @Test
+    public void getResultListTest(){
+        List<QuestionResultVO> vo = mapper.getResultList("park");
+
+        log.info(vo);
     }
 }

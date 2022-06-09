@@ -36,6 +36,8 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
       </div>
     </wrapper>
 
+    <button onclick="record()"> 나가기 </button>
+
     <jsp:include page="../footer.jsp" />
   </body>
 
@@ -43,6 +45,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     // 세션에서 qJson 파싱
     let Json = JSON.parse(sessionStorage.getItem("qJson"));
     let count = sessionStorage.getItem("count");
+    let answerCount = 0
 
     // key 값만 추출
     let qList = []; //jsonObj key 담을 배열
@@ -69,6 +72,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
         dataFlag.innerText = "❌";
       } else {
         dataFlag.innerText = "⭕";
+        answerCount++;
       }
       // dataFlag.innerText = `${Json[i][qList[i]] == "false" ? "틀림" : "맞음"}`;
 
@@ -77,14 +81,19 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
       body.appendChild(rowNew);
     }
 
-    // dataNum.innerText = qList[0];
-    // dataFlag.innerText = Json[0][qList[0]];
+    function record() {
+      // 문제 푼사람
+      let member_id = '<c:out value="${login_info.member_id}"/>';
 
-    // row.appendChild(dataNum);
-    // row.appendChild(dataFlag);
+      // 로그인 되어 있으면,
+      if(member_id){
+        console.log("푼 사람 : "+member_id)
+        console.log("푼 문제 : "+ qList.length);
+        console.log("맞춘 문제 : "+ answerCount);
+        location.href = '/question/exam/createResult?member_id='+member_id+'&&answer='+answerCount+"&&count="+qList.length;
+      }
+      location.href = '/';
+    }
 
-    // Json = 제이슨 파일
-    // qList => key값 10개
-    // count => 사용자가 푼 문제의 개수,
   </script>
 </html>

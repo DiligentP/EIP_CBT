@@ -22,16 +22,16 @@ prefix="c"%>
               <tr class="table__header__row">
                 <th>번호.</th>
                 <th>날짜.</th>
-                <th>정답률</th>
+                <th>결과</th>
               </tr>
             </thead>
 
-            <c:forEach items="${Question}" var="Q">
+            <c:forEach items="${Result}" var="R">
               <tbody class="table__body">
                 <tr class="table__body__row">
-                  <td><c:out value="${Q.qno}" /></td>
-                  <td><a href="/question/detail?qno=<c:out value="${Q.qno}"/>"> <c:out value="${Q.title}" /></a></td>
-                  <td><c:out value="${Q.success}" /></td>
+                  <td><c:out value="${R.no}" /></td>
+                  <td><c:out value="${R.testdate}"/></td>
+                  <td><c:out value="${R.answer}"/>/<c:out value="${R.count}"/></td>
                 </tr>
               </tbody>
             </c:forEach>
