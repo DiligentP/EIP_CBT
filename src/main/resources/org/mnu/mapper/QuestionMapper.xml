@@ -35,6 +35,10 @@
         VALUES (#{qno}, #{title}, #{content1}, #{content2}, #{content3}, #{content4}, #{answer}, #{comment}, #{writer}, 0, sysdate, sysdate, null, 'w')
     </insert>
 
+    <delete id="delete">
+        DELETE FROM TBL_QUESTION WHERE qno=#{qno}
+    </delete>
+
     <update id="update" parameterType="org.mnu.domain.QuestionVO">
         UPDATE TBL_QUESTION
         SET title = #{title},

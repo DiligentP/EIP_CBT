@@ -28,11 +28,13 @@ public class QuestionController {
 
     /**
      * @brief 문제 삭제 처리 페이지
-     * @details 문제를 삭제하고 문제 리스트 페이지로 리다이렉트한다.
+     * @details 문제를 삭제한다.
      */
     @GetMapping("/remove")
-    public String remove(RedirectAttributes rttr) {
-        return "redirect:/question/list";
+    public String remove(@RequestParam Long qno, @RequestParam String id) {
+        service.remove(qno);
+
+        return "redirect:/mypage/mypageQuestion?id="+id ;
     }
 
 
