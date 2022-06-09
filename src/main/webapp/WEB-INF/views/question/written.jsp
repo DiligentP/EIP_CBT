@@ -64,7 +64,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
             </ul>
           </div>
           <div class="answer__container">
-            <button id="answer__btn" onclick="btnClick()">정답확인</button>
+            <button class="answer__btn" onclick="btnClick()">정답확인</button>
           </div>
         </div>
       </div>
@@ -87,15 +87,16 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     };
 
     const btnClick = () => {
-      if(ans == undefined) {
+      if (ans == undefined) {
         alert("답을 선택하세요.");
-      }else{
+      } else {
         const qno = '<c:out value="${vo.qno}"/>';
-        const div = '<c:out value="${vo.division}"/>'
-        window.location.href = '/question/exam/grading?div='+div+'&&qno='+qno+'&&ans='+ans;
+        const div = '<c:out value="${vo.division}"/>';
+        window.location.href =
+          "/question/exam/grading?div=" + div + "&&qno=" + qno + "&&ans=" + ans;
       }
     };
 
-    console.log(sessionStorage.getItem('qJson'));
+    console.log(sessionStorage.getItem("qJson"));
   </script>
 </html>

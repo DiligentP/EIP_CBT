@@ -114,11 +114,12 @@ test {
   justify-content: center;
 }
 
-#answer__btn {
+.answer__btn {
   border: none;
   /* outline: 0; */
   cursor: pointer;
-  padding: 18px 80px;
+  padding: 18px 70px;
+  margin-right: 40px;
   border-radius: 15px;
   background-color: #ff006e;
   color: white;
@@ -126,7 +127,7 @@ test {
   letter-spacing: 5px;
 }
 
-#answer__btn:hover {
+.answer__btn:hover {
   opacity: 0.7;
 }
 
@@ -168,4 +169,18 @@ test {
 
 .test__result > span {
   font-size: 20px;
+}
+
+.test__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0px 15px;
+}
+
+.test__content > span {
+  margin: 20px 0px;
+  font-size: 18px;
+  font-weight: 600;
 }
