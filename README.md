@@ -1,4 +1,4 @@
-# 📌 EIP_CBT
+# EIP_CBT
 - Engineer Information Processing CBT
 - 정보시스템 구축 및 관리 프로젝트!
 
